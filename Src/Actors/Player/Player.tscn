@@ -1,0 +1,210 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Src/Actors/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sound/HeartBreak.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Sprites/RightHeart.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/LeftHeart.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sound/One Man Symphony - Royalty Free Soundtrack Collection - 142 Random Noise 5 (SFX) (online-audio-converter.com).wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sound/1.wav" type="AudioStream" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 12.0
+
+[sub_resource type="Animation" id=3]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("LeftHeart:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1, 1.2, 1.5, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.490196 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.490196 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.490196 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.490196 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RightHeart:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1, 1.2, 1.5, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.490196 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.490196 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.490196 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.490196 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=4]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("LeftHeart:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2, 7 ), Vector2( -6, 7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RightHeart:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2, 7 ), Vector2( 4, 7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LeftHeart:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, -8.9 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RightHeart:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, 8.9 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHeart:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4, 7 ), Vector2( -2, 500 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("LeftHeart:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 2, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -6, 7 ), Vector2( -2, 500 ) ]
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 6.55,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0, 0.001 )
+}
+tracks/7/type = "audio"
+tracks/7/path = NodePath("AudioStreamPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0.7 )
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "death_menu_signal"
+} ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+collision_mask = 7
+script = ExtResource( 1 )
+
+[node name="LeftHeart" type="Sprite" parent="."]
+position = Vector2( -2, 7 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 4 )
+
+[node name="RightHeart" type="Sprite" parent="."]
+position = Vector2( -2, 7 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="ProjectileDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileDetector"]
+shape = SubResource( 2 )
+
+[node name="InvTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hit = SubResource( 3 )
+anims/death = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+[connection signal="area_entered" from="ProjectileDetector" to="." method="_on_ProjectileDetector_area_entered"]
+[connection signal="timeout" from="InvTimer" to="." method="_on_InvTimer_timeout"]

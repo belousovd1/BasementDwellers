@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Src/Actors/Mitch/MalocchioPath.gd" type="Script" id=1]
+[ext_resource path="res://Src/Actors/Mitch/Malocchio.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 14.396, -241.311, -14.396, 241.311, -264, 272, -241.356, -13.0856, 241.356, 13.0856, 16, 488, 0, 187.56, 0, -187.56, 312, 280, 231.179, 5.81581, -231.179, -5.81581, 16, 56, -7.26976, -189.014, 7.26976, 189.014, -264, 272 )
+}
+
+[node name="MalocchioPath" type="Path2D"]
+position = Vector2( 480, 32 )
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2( 26.8314, 56.2947 )
+rotation = 0.575506
+offset = 1315.0
+rotate = false
+
+[node name="Malocchio" parent="PathFollow2D" instance=ExtResource( 2 )]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+[connection signal="attacking" from="PathFollow2D/Malocchio" to="." method="stop_attacking"]
+[connection signal="timeout" from="Timer" to="." method="shoot_laser"]

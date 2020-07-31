@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Src/Interface/HitCamera.gd" type="Script" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[node name="OnHitCamera" type="Camera2D"]
+position = Vector2( 537, 300 )
+script = ExtResource( 1 )
+noise = SubResource( 1 )
+trauma = 0.7

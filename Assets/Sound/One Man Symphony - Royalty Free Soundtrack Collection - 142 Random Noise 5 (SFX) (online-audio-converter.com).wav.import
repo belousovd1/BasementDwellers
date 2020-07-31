@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/One Man Symphony - Royalty Free Soundtrack Collection - 142 Random Noise 5 (SFX) (online-audio-converter.com).wav-9d8af39f8f3a9bcd7ea3bc9fddcc41cc.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/One Man Symphony - Royalty Free Soundtrack Collection - 142 Random Noise 5 (SFX) (online-audio-converter.com).wav"
+dest_files=[ "res://.import/One Man Symphony - Royalty Free Soundtrack Collection - 142 Random Noise 5 (SFX) (online-audio-converter.com).wav-9d8af39f8f3a9bcd7ea3bc9fddcc41cc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

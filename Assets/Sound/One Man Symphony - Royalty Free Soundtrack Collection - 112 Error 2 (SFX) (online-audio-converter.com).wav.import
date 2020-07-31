@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/One Man Symphony - Royalty Free Soundtrack Collection - 112 Error 2 (SFX) (online-audio-converter.com).wav-c32555c6b53212a2c709a6c192eb9e9d.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/One Man Symphony - Royalty Free Soundtrack Collection - 112 Error 2 (SFX) (online-audio-converter.com).wav"
+dest_files=[ "res://.import/One Man Symphony - Royalty Free Soundtrack Collection - 112 Error 2 (SFX) (online-audio-converter.com).wav-c32555c6b53212a2c709a6c192eb9e9d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

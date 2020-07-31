@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/One Man Symphony - Royalty Free Soundtrack Collection - 02 Loading Menu-Screen Theme Version II (online-audio-converter.com).wav-1b30efeeb006635cf07bf982d3c2bc39.sample"
+
+[deps]
+
+source_file="res://Src/Interface/One Man Symphony - Royalty Free Soundtrack Collection - 02 Loading Menu-Screen Theme Version II (online-audio-converter.com).wav"
+dest_files=[ "res://.import/One Man Symphony - Royalty Free Soundtrack Collection - 02 Loading Menu-Screen Theme Version II (online-audio-converter.com).wav-1b30efeeb006635cf07bf982d3c2bc39.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
