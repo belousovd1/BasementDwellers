@@ -35,6 +35,7 @@ func spwn_boomerang_row(index_to_remove, new_count_direction_up):
 func make_timer(w_time, next_func):
 	var timer = Timer.new()
 	timer.wait_time = w_time
+	timer.one_shot = true	
 	add_child(timer)
 	timer.start()
 	timer.connect("timeout", self, next_func)
@@ -43,7 +44,27 @@ func attack1():
 	spwn_paintbrush_boom_att(0)
 	make_timer(2, "attack2")
 
-func attack2():
-	var boomerang1 = spwn_boomerang(Vector2(400, 150), Vector2(-1,0))
-	var boomerang2 = spwn_boomerang(Vector2(-400, 350), Vector2(1,0))
 
+func attack2():
+	spwn_boomerang(Vector2(400, 150), Vector2(-1,0))
+	spwn_boomerang(Vector2(-400, 350), Vector2(1,0))
+	make_timer(3, "attack3")
+
+func attack3():
+	spwn_boomerang(Vector2(48, 0), Vector2(0,1))
+	spwn_boomerang(Vector2(-48, 0), Vector2(0,1))
+	make_timer(2, "attack4")
+
+func attack4():
+	spwn_paintbrush_boom_att(0)
+	make_timer(1.5, "attack5")
+
+func attack5():
+	spwn_boomerang(Vector2(400, 150), Vector2(-1,0))
+	spwn_boomerang(Vector2(-400, 350), Vector2(1,0))
+	make_timer(2, "attack6")
+
+func attack6():
+	spwn_boomerang(Vector2(48, 0), Vector2(0,1))
+	spwn_boomerang(Vector2(-48, 0), Vector2(0,1))
+	make_timer(2, "attack4")
