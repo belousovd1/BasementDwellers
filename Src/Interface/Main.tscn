@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Src/Interface/Main.gd" type="Script" id=1]
 [ext_resource path="res://Src/Interface/PlayerUI/Interface.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Src/Interface/OnHitCamera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/objects/BattleArea/BattleSquare.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Sound/MitchSoundTrack.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Src/objects/BattleArea/BattleSquare.gd" type="Script" id=9]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -27,14 +28,17 @@ __meta__ = {
 [node name="Mitch" parent="." groups=[
 "environment",
 ] instance=ExtResource( 3 )]
-position = Vector2( 544, 120 )
 
 [node name="BattleSquare" parent="." groups=[
+"defense",
 "environment",
 ] instance=ExtResource( 7 )]
 position = Vector2( 536, 360 )
+script = ExtResource( 9 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Player" parent="." groups=[
+"defense",
+] instance=ExtResource( 5 )]
 position = Vector2( 536, 336 )
 
 [node name="OnHitCamera" parent="." groups=[

@@ -5,9 +5,11 @@ onready var paintbrush_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/Bo
 onready var paintbrush_row_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/BoomerangBulletRow.tscn")
 onready var paintbrush_boomerang_attack_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/PaintBrushBoomerangAttack.tscn")
 
+signal done_attacking
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	connect("done_attacking", $"../../", "attack_boss")
 	attack1()
 	
 
@@ -44,7 +46,6 @@ func attack1():
 	spwn_paintbrush_boom_att(0)
 	make_timer(2, "attack2")
 
-
 func attack2():
 	spwn_boomerang(Vector2(400, 150), Vector2(-1,0))
 	spwn_boomerang(Vector2(-400, 350), Vector2(1,0))
@@ -57,7 +58,7 @@ func attack3():
 
 func attack4():
 	spwn_paintbrush_boom_att(0)
-	make_timer(1.5, "attack5")
+	make_timer(1, "attack5")
 
 func attack5():
 	spwn_boomerang(Vector2(400, 150), Vector2(-1,0))
@@ -67,4 +68,7 @@ func attack5():
 func attack6():
 	spwn_boomerang(Vector2(48, 0), Vector2(0,1))
 	spwn_boomerang(Vector2(-48, 0), Vector2(0,1))
-	make_timer(2, "attack4")
+	make_timer(2, "emit_end_atc")
+
+func emit_end_atc():
+	emit_signal("done_attacking")
