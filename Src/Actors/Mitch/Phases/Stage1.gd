@@ -21,16 +21,15 @@ func spwn_boomerang(pos, dir):
 	add_child(paintbrush)
 	return paintbrush 
 
-func spwn_paintbrush_boom_att(pos):
+func spwn_paintbrush_boom_atk(pos):
 	var paintbrush_attack = paintbrush_boomerang_attack_sc.instance()
 	paintbrush_attack.position.y = pos
 	add_child(paintbrush_attack)
 
-func spwn_boomerang_row(index_to_remove, new_count_direction_up):
+func spwn_boomerang_row(index_to_remove):
 	var boomerang_row = paintbrush_row_sc.instance()
 	boomerang_row.dir = Vector2(0,1)
 	boomerang_row.removed_index = index_to_remove
-	boomerang_row.count_direction_up = new_count_direction_up
 	add_child(boomerang_row)
 	boomerang_row.remove_boomerang()
 
@@ -43,7 +42,7 @@ func make_timer(w_time, next_func):
 	timer.connect("timeout", self, next_func)
 
 func attack1():
-	spwn_paintbrush_boom_att(0)
+	spwn_paintbrush_boom_atk(0)
 	make_timer(2, "attack2")
 
 func attack2():
@@ -57,7 +56,7 @@ func attack3():
 	make_timer(2, "attack4")
 
 func attack4():
-	spwn_paintbrush_boom_att(0)
+	spwn_paintbrush_boom_atk(0)
 	make_timer(1, "attack5")
 
 func attack5():
@@ -68,6 +67,18 @@ func attack5():
 func attack6():
 	spwn_boomerang(Vector2(48, 0), Vector2(0,1))
 	spwn_boomerang(Vector2(-48, 0), Vector2(0,1))
+	make_timer(2, "attack7")
+
+func attack7():
+	var count = 0
+	while count < 3:
+		spwn_boomerang_row(0)
+		yield(get_tree().create_timer(1), "timeout")
+		spwn_boomerang_row(1)
+		yield(get_tree().create_timer(1), "timeout")
+		spwn_boomerang_row(2)
+		yield(get_tree().create_timer(1), "timeout")
+		count += 1
 	make_timer(2, "emit_end_atc")
 
 func emit_end_atc():

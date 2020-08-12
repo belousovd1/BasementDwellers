@@ -133,10 +133,10 @@ __meta__ = {
 }
 
 [node name="MitchsLeg" parent="." instance=ExtResource( 2 )]
-position = Vector2( -330, 100.001 )
+position = Vector2( -104.324, 42.3285 )
 
 [node name="MitchsLeg2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 330, -100 )
+position = Vector2( 139.684, -42.3285 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/free swing" = SubResource( 1 )

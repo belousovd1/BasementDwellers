@@ -39,6 +39,7 @@ func attack_finished(anm_name):
 		$AttackBar.queue_free()
 		get_tree().call_group("defense", "visible")
 		emit_signal("attack_finished")
+		$Mitch/AnimationPlayer.play("idle")
 
 
 

@@ -1,8 +1,10 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Src/objects/LaserBeam.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/Beam.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/Begin.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Mitch/Beam.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Mitch/Begin.png" type="Texture" id=3]
+
+
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
