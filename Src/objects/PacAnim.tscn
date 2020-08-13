@@ -311,8 +311,8 @@ tracks/23/keys = {
 [node name="Root" type="Node2D"]
 
 [node name="HandLeft" type="Sprite" parent="."]
-position = Vector2( 83.7216, -82.6384 )
-rotation = 0.0115294
+position = Vector2( 83.7216, -82.6385 )
+rotation = 0.011529
 texture = ExtResource( 2 )
 offset = Vector2( 21.2603, 75.1388 )
 
@@ -324,20 +324,19 @@ offset = Vector2( 4.29085, 24.2601 )
 
 [node name="LeftLeg" type="Sprite" parent="."]
 position = Vector2( 48, 16 )
-rotation = -0.363701
+rotation = -1.34586
 texture = ExtResource( 6 )
 offset = Vector2( -24, 48 )
 
 [node name="LeftShin" type="Sprite" parent="."]
-position = Vector2( 52.2438, 117.104 )
-rotation = -0.155181
+position = Vector2( 134.444, 68.6058 )
+rotation = 0.220454
 texture = ExtResource( 8 )
 offset = Vector2( 16, 56 )
 
 [node name="LeftFoot" type="Sprite" parent="."]
-position = Vector2( 60.4141, 221.091 )
-rotation = -0.113124
-scale = Vector2( 1, 1 )
+position = Vector2( 103.896, 168.339 )
+rotation = -0.00465551
 texture = ExtResource( 10 )
 offset = Vector2( 48, 16 )
 
@@ -346,7 +345,7 @@ texture = ExtResource( 1 )
 
 [node name="RightLeg" type="Sprite" parent="Hip"]
 position = Vector2( -56, 16 )
-rotation = -1.12362
+rotation = -0.496491
 texture = ExtResource( 5 )
 offset = Vector2( -5.75578, 53.3429 )
 __meta__ = {
@@ -356,7 +355,7 @@ __meta__ = {
 
 [node name="RightShin" type="Sprite" parent="Hip/RightLeg"]
 position = Vector2( -15.9814, 90.4657 )
-rotation = 1.03443
+rotation = 1.05752
 texture = ExtResource( 7 )
 offset = Vector2( 16.0965, 45.4033 )
 __meta__ = {
@@ -365,7 +364,7 @@ __meta__ = {
 
 [node name="RightFoot" type="Sprite" parent="Hip/RightLeg/RightShin"]
 position = Vector2( -11.2728, 112.817 )
-rotation = -0.0553385
+rotation = -0.706391
 texture = ExtResource( 11 )
 offset = Vector2( 42.275, 17.7305 )
 __meta__ = {
@@ -474,7 +473,7 @@ __meta__ = {
 
 [node name="Remote_leg_l" type="RemoteTransform2D" parent="Hip"]
 position = Vector2( 48, 16 )
-rotation = -0.363701
+rotation = -1.34586
 remote_path = NodePath("../../LeftLeg")
 __meta__ = {
 "_edit_bone_": true,
@@ -483,7 +482,7 @@ __meta__ = {
 
 [node name="Remote_shin_l" type="RemoteTransform2D" parent="Hip/Remote_leg_l"]
 position = Vector2( -32, 96 )
-rotation = 0.20852
+rotation = 1.56632
 remote_path = NodePath("../../../LeftShin")
 __meta__ = {
 "_edit_bone_": true
@@ -491,7 +490,7 @@ __meta__ = {
 
 [node name="Remote_foot_l" type="RemoteTransform2D" parent="Hip/Remote_leg_l/Remote_shin_l"]
 position = Vector2( -8, 104 )
-rotation = 0.042056
+rotation = -0.225109
 remote_path = NodePath("../../../../LeftFoot")
 __meta__ = {
 "_edit_bone_": true

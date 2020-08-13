@@ -32,7 +32,7 @@ func attack_boss():
 	get_tree().call_group("defense", "invisible")
 	var attack_bar = attack_bar_sc.instance()
 	add_child(attack_bar)
-	attack_bar.position = Vector2(534, 320)
+	attack_bar.position = Vector2(534, 510)
 
 func attack_finished(anm_name):
 	if anm_name == "hit":

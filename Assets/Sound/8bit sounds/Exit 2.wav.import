@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Exit 2.wav-5a427f3a3ebd8ac0615f873c66e23ab2.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/8bit sounds/Exit 2.wav"
+dest_files=[ "res://.import/Exit 2.wav-5a427f3a3ebd8ac0615f873c66e23ab2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

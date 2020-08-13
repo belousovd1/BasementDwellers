@@ -43,7 +43,7 @@ func make_timer(w_time, next_func):
 
 func attack1():
 	spwn_paintbrush_boom_atk(0)
-	make_timer(2, "attack2")
+	make_timer(2, "emit_end_atc")
 
 func attack2():
 	spwn_boomerang(Vector2(400, 150), Vector2(-1,0))

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Fly 1.wav-cb8c41d98af493338ea92adecec98ce3.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/8bit sounds/Fly 1.wav"
+dest_files=[ "res://.import/Fly 1.wav-cb8c41d98af493338ea92adecec98ce3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

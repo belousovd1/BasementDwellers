@@ -31,7 +31,7 @@ script = ExtResource( 3 )
 texture = ExtResource( 1 )
 
 [node name="Indicator" type="Sprite" parent="."]
-position = Vector2( -315.403, 0 )
+position = Vector2( -51.2001, 0 )
 scale = Vector2( 0.6, 1 )
 texture = ExtResource( 2 )
 
