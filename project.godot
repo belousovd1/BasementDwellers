@@ -24,6 +24,10 @@ config/name="BasementDwellers"
 run/main_scene="res://Src/Interface/Main.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout="res://Assets/default_bus_layout.tres"
+
 [display]
 
 window/size/width=1080

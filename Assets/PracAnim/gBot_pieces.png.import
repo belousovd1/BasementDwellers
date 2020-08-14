@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mitch_torsod.png-f201068b8172873c1e01628d550bfae9.stex"
+path="res://.import/gBot_pieces.png-969965865bf2ceb2d47fde928b660bf0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Mitch/mitch_torsod.png"
-dest_files=[ "res://.import/mitch_torsod.png-f201068b8172873c1e01628d550bfae9.stex" ]
+source_file="res://Assets/PracAnim/gBot_pieces.png"
+dest_files=[ "res://.import/gBot_pieces.png-969965865bf2ceb2d47fde928b660bf0.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
