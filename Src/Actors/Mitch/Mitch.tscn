@@ -415,7 +415,6 @@ position = Vector2( 0.850121, -60.9736 )
 texture = ExtResource( 4 )
 offset = Vector2( -0.419211, -13.2508 )
 hframes = 2
-frame = 1
 __meta__ = {
 "_edit_bone_": true
 }
@@ -486,7 +485,6 @@ __meta__ = {
 
 [node name="Mitch_right_foot" type="Sprite" parent="Parts/Hip/RightThigh/RightShin"]
 position = Vector2( -1.70338, 32.1731 )
-rotation = -0.0144885
 texture = ExtResource( 3 )
 offset = Vector2( 6.3455, 3.08642 )
 hframes = 3

@@ -60,7 +60,6 @@ script = ExtResource( 2 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -10.0
-autoplay = true
 [connection signal="player_health_change" from="." to="Interface" method="_on_player_health_changed"]
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 [connection signal="player_hit" from="Player" to="." method="_on_player_hit"]
