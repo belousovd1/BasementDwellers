@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=1]
+[ext_resource path="res://Src/CutScenes/Intro.gd" type="Script" id=2]
+[ext_resource path="res://Assets/text/Cave-Story.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Sound/IntroAudio.ogg" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="Intro" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -364.0
+margin_top = -140.0
+margin_right = 364.0
+margin_bottom = 140.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextInterfaceEngine" type="ReferenceRect" parent="Panel"]
+anchor_right = 0.99
+anchor_bottom = 1.0
+margin_right = -3.92001
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+FONT = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
