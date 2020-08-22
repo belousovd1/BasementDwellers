@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/appleeat.ogg-24b4f0d64b01e2f06c8ec05ffd746544.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/EssentialGameAudiopack/Sound Effects/RandomSfx/appleeat.ogg"
+dest_files=[ "res://.import/appleeat.ogg-24b4f0d64b01e2f06c8ec05ffd746544.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

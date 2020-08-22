@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Coin 3.wav-f942ccab4bd2e62ed61e25352bd8f607.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/8bit sounds/Coin 3.wav"
+dest_files=[ "res://.import/Coin 3.wav-f942ccab4bd2e62ed61e25352bd8f607.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

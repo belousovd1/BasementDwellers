@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/OveMelaa - Trance Bit Bit Loop.ogg-5c8b0d221bf8fc2e1f6866de832d2586.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/EssentialGameAudiopack/Loops/OveMelaa - Trance Bit Bit Loop.ogg"
+dest_files=[ "res://.import/OveMelaa - Trance Bit Bit Loop.ogg-5c8b0d221bf8fc2e1f6866de832d2586.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

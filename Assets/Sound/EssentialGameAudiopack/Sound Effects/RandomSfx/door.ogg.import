@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/door.ogg-25652521c9eab1c5bf4b0fcd3df1f6a6.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/EssentialGameAudiopack/Sound Effects/RandomSfx/door.ogg"
+dest_files=[ "res://.import/door.ogg-25652521c9eab1c5bf4b0fcd3df1f6a6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

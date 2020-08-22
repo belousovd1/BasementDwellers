@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ove Melaa - General Snus Loop B.ogg-67d9dd8f1738962e4d2c6f514a2e293d.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/EssentialGameAudiopack/Loops/Ove Melaa - General Snus Loop B.ogg"
+dest_files=[ "res://.import/Ove Melaa - General Snus Loop B.ogg-67d9dd8f1738962e4d2c6f514a2e293d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

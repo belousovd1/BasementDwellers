@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/swhit.ogg-30c8c3dcb318d465ea83a925b49ffb35.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/EssentialGameAudiopack/Sound Effects/RandomSfx/swhit.ogg"
+dest_files=[ "res://.import/swhit.ogg-30c8c3dcb318d465ea83a925b49ffb35.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

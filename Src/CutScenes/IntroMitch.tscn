@@ -1,0 +1,142 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://IntroMitch.gd" type="Script" id=1]
+[ext_resource path="res://Src/Actors/Mitch/Mitch.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sound/SFX/closing door.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sound/SFX/Walk_in.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sound/EssentialGameAudiopack/Loops/OveMelaa - Trance Bit Bit Loop.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sound/EssentialGameAudiopack/Sound Effects/AbstractPackSFX/Files/AbstractSfx/13.ogg" type="AudioStream" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "MitchEnter"
+length = 8.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("EnterPath/PathFollow2D/Mitch:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("EnterPath/PathFollow2D/Mitch:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 7, 8, 8.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 2160.0, 2160.0, 226.4 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("EnterPath/PathFollow2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 6353.19 ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 4.7423,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0, 8 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Start"
+length = 19.0
+tracks/0/type = "audio"
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0, 12.9 )
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 19 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "MitchEnter", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( -79.1978, -261.962, 79.1978, 261.962, 1112, 280, 103.566, 43.6603, -103.566, -43.6603, 944, 448, -216.377, 117.788, 216.377, -117.788, 887.606, 272, 81.2285, 40.6143, -81.2285, -40.6143, 816, 80, 32.4914, -6.09214, -32.4914, 6.09214, 552, 88, 61.9367, -83.2592, -61.9367, 83.2592, 344, 200, -38.5835, -71.075, 38.5835, 71.075, 384, 512, -86.3053, 30.4607, 86.3053, -30.4607, 632, 584, -47.7218, 98.4896, 47.7218, -98.4896, 760, 472, 65.9982, 23.3532, -65.9982, -23.3532, 799.465, 184, 63.9675, -14.215, -63.9675, 14.215, 607.157, 152, -152.683, 84.1586, 152.683, -84.1586, 647.221, 544, 105.82, 130.467, -105.82, -130.467, 631.195, 240, 41.8155, 19.7039, -41.8155, -19.7039, 486.964, 104, 81.3588, -3.20639, -81.3588, 3.20639, 358.759, 96, -65.6196, -113.923, 65.6196, 113.923, 126.387, 288, 28.2989, -130.5, -28.2989, 130.5, 535.041, 424, 36.3974, 29.9263, -36.3974, -29.9263, 78.3096, 576, -115.064, 56.8475, 115.064, -56.8475, -33.87, 144, 0, 0, 0, 0, 438.887, 288 )
+}
+
+[node name="IntroMitch" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/MitchEnter = SubResource( 1 )
+anims/Start = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="EnterPath" type="Path2D" parent="."]
+position = Vector2( 89.8158, -8 )
+scale = Vector2( 0.998398, 1 )
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="EnterPath"]
+position = Vector2( 1112, 280 )
+rotation = 2.35618
+rotate = false
+
+[node name="Mitch" parent="EnterPath/PathFollow2D" instance=ExtResource( 2 )]

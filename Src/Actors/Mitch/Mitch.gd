@@ -5,7 +5,7 @@ onready var stage1_sc = preload("res://Src/Actors/Mitch/Phases/Stage1.tscn")
 
 func _ready():
 	$AnimationPlayer.play("idle")
-	intiate_stage1()
+	#intiate_stage1()
 	
 
 func _process(delta):

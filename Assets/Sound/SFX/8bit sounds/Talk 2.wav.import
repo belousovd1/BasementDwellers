@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Talk 2.wav-fee75e88a2c872b14d71d819e96ff077.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/8bit sounds/Talk 2.wav"
+dest_files=[ "res://.import/Talk 2.wav-fee75e88a2c872b14d71d819e96ff077.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

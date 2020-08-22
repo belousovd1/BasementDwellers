@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Noise Select 3.wav-efbfd38ad0f3d1c477582e846772f0aa.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/8bit sounds/Noise Select 3.wav"
+dest_files=[ "res://.import/Noise Select 3.wav-efbfd38ad0f3d1c477582e846772f0aa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

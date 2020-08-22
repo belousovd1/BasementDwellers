@@ -2,7 +2,8 @@
 
 [ext_resource path="res://Assets/Sprites/Mitch/PaintBrush.png" type="Texture" id=1]
 [ext_resource path="res://Src/Actors/Mitch/PaintBrushBullets/BoomerangBullet.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Sound/swish8mod.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sound/SFX/swish8mod.wav" type="AudioStream" id=3]
+
 
 
 [sub_resource type="RectangleShape2D" id=1]
