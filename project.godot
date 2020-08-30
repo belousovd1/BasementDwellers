@@ -9,13 +9,37 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Button",
+"class": "ChoiceButton",
+"language": "GDScript",
+"path": "res://addons/radmatt.DialogueSystem2/other/Choices/_choice_button.gd"
+}, {
+"base": "Control",
+"class": "Choices",
+"language": "GDScript",
+"path": "res://addons/radmatt.DialogueSystem2/other/Choices/Choices.gd"
+}, {
+"base": "Control",
+"class": "Message",
+"language": "GDScript",
+"path": "res://addons/radmatt.DialogueSystem2/other/Message.gd"
+}, {
 "base": "Area2D",
 "class": "Projectiles",
 "language": "GDScript",
 "path": "res://Src/objects/Projectiles.gd"
+}, {
+"base": "Control",
+"class": "Text",
+"language": "GDScript",
+"path": "res://addons/radmatt.DialogueSystem2/custom_text_node/Text.gd"
 } ]
 _global_script_class_icons={
-"Projectiles": ""
+"ChoiceButton": "res://addons/radmatt.DialogueSystem2/icons/ChoiceButton.svg",
+"Choices": "res://addons/radmatt.DialogueSystem2/icons/Choices.svg",
+"Message": "res://addons/radmatt.DialogueSystem2/icons/Message.svg",
+"Projectiles": "",
+"Text": "res://addons/radmatt.DialogueSystem2/icons/Text.svg"
 }
 
 [application]
@@ -28,6 +52,10 @@ config/icon="res://icon.png"
 
 default_bus_layout="res://Assets/Sound/default_bus_layout.tres"
 
+[autoload]
+
+Dialogue="*res://addons/radmatt.DialogueSystem2/Dialogue.tscn"
+
 [display]
 
 window/size/width=1080
@@ -36,7 +64,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "GodotTIE" )
+enabled=PoolStringArray( "GodotTIE", "radmatt.DialogueSystem2" )
 
 [input]
 
@@ -58,6 +86,17 @@ up={
 down={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+dialogue_next={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+continue_dialogue={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
 

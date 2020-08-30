@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/radmatt.DialogueSystem2/custom_text_node/Text.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/radmatt.DialogueSystem2/other/Choices/Choices.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/radmatt.DialogueSystem2/other/Message.gd" type="Script" id=3]
+[ext_resource path="res://addons/radmatt.DialogueSystem2/other/Bubble/TextBackground.gd" type="Script" id=4]
+[ext_resource path="res://addons/radmatt.DialogueSystem2/sfx/kenney/bong_001.wav" type="AudioStream" id=5]
+[ext_resource path="res://addons/radmatt.DialogueSystem2/other/ShowContinueButton.tres.gd" type="Script" id=6]
+
+[sub_resource type="Animation" id=2]
+resource_name = "blink"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="BubbleMessage" type="Control"]
+pause_mode = 2
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+text_path = NodePath("TextBackground/Text")
+choices_path = NodePath("ChoicesLayer/Choices")
+
+[node name="SoundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -15.0
+pitch_scale = 1.8
+
+[node name="Triangle" type="PanelContainer" parent="."]
+margin_top = -17.0
+margin_right = 20.0
+margin_bottom = 3.0
+rect_rotation = 45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextBackground" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -42.0
+margin_top = -37.0
+margin_right = 42.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" parent="TextBackground" instance=ExtResource( 1 )]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 77.0
+margin_bottom = 30.0
+grow_horizontal = 2
+
+[node name="ChoicesLayer" type="ParallaxBackground" parent="."]
+layer = 100
+
+[node name="Choices" parent="ChoicesLayer" instance=ExtResource( 2 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -398.0
+margin_top = -176.0
+margin_right = 398.0
+margin_bottom = -93.0
+choices_container = NodePath("../Choices/ChoicesContainer")
+
+[node name="Continue" type="PanelContainer" parent="."]
+margin_right = 53.0
+margin_bottom = 28.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Continue"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 46.0
+margin_bottom = 21.0
+text = "SPACE"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Continue"]
+autoplay = "blink"
+anims/blink = SubResource( 2 )

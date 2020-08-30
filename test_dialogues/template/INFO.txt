@@ -1,0 +1,2 @@
+This file can be used to create dialogues manually, in a text editor of your choice. 
+It contains all available dialogue nodes.

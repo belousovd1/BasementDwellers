@@ -1,0 +1,174 @@
+[
+    {
+        "characters": [
+            "Player"
+        ],
+
+        "languages": [
+            "ENG"
+        ],
+
+        "nodes": [
+
+            {
+                "node_name": "START",
+                "node_type": "start",  
+                "next": "2023443",
+            },
+        
+            {
+                "node_name": "2023443",
+                "node_type": "show_message",
+                "character": [
+                    "Player",
+                    0
+                ],
+                "is_box": false,
+                "object_path": "",
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "This is a template for manual dialogue creation."
+                },
+                "choices": [
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "63446625",
+                        "text": {
+                            "ENG": "Choice 1"
+                        }
+                    },
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "63446625",
+                        "text": {
+                            "ENG": "Choice 2"
+                        }
+                    },
+                    {
+                        "condition": "Dialogue.selected_type == \"Box\"",
+                        "is_condition": true,
+                        "next": "63446625",
+                        "text": {
+                            "ENG": "Choice 3"
+                        }
+                    }
+                ],
+    
+            },
+
+            {
+                "node_name": "63446625",
+                "node_type": "show_message",
+                "character": [
+                    "Player",
+                    0
+                ],
+                "is_box": false,
+                "object_path": "",
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "This message does not contain choices."
+                },
+                "next":"8708074",
+    
+            },
+
+
+
+
+
+            {
+                "node_name": "8708074",
+                "node_type": "execute",
+                "text": "print(\"I printed a message\")",
+                "next": "5798059",
+            },
+        
+            {
+                "node_name": "5798059",
+                "node_type": "wait",
+                "time": 2,
+                "next": "1465315",
+            },
+
+
+            {
+                "node_name": "1465315",
+                "node_type": "condition_branch",
+                "text": "Dialogue.selected_type == \"Box\"",
+                "branches": {
+                    "False": "4739232",
+                    "True": "2794213"
+                },
+            },
+
+
+            {
+                "node_name": "2794213",
+                "node_type": "random_branch",
+                "possibilities": 2, 
+                "branches": {
+                    "1": "7363090",
+                    "2": null,
+                    "3": null,
+                    "4": null,
+                    "5": null,
+                    "6": null,
+                    "7": null,
+                    "8": null,
+                    "9": null,
+                    "10": null
+                },
+            },
+
+
+            {
+                "node_name": "4739232",
+                "node_type": "chance_branch",
+                "chance_1": 0,
+                "chance_2": 100,
+                "branches": {
+                    "1": "4162425",
+                    "2": null
+                }
+            },
+
+
+            {
+                "node_name": "7363090",
+                "node_type": "repeat",
+                "value": 0,
+                "next": null,
+                "next_done": null,
+            },
+
+
+            {
+                "node_name": "4162425",
+                "node_type": "set_local_variable",
+                "value": "new text",
+                "var_name": "string",
+                "next": null,
+            }
+        ],
+
+        "variables": {
+            "bool": {
+                "type": 2,
+                "value": false
+            },
+            "number": {
+                "type": 1,
+                "value": 0
+            },
+            "string": {
+                "type": 0,
+                "value": ""
+            }
+        }
+    }
+]

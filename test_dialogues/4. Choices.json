@@ -1,0 +1,698 @@
+[
+    {
+        "characters": [
+            "Player"
+        ],
+        "connections": [
+            {
+                "from": "START",
+                "from_port": 0,
+                "to": "6066010",
+                "to_port": 0
+            },
+            {
+                "from": "6066010",
+                "from_port": 0,
+                "to": "465153",
+                "to_port": 0
+            },
+            {
+                "from": "465153",
+                "from_port": 0,
+                "to": "9438273",
+                "to_port": 0
+            },
+            {
+                "from": "465153",
+                "from_port": 1,
+                "to": "9438273",
+                "to_port": 0
+            },
+            {
+                "from": "465153",
+                "from_port": 2,
+                "to": "9438273",
+                "to_port": 0
+            },
+            {
+                "from": "465153",
+                "from_port": 3,
+                "to": "9438273",
+                "to_port": 0
+            },
+            {
+                "from": "465153",
+                "from_port": 4,
+                "to": "9438273",
+                "to_port": 0
+            },
+            {
+                "from": "465153",
+                "from_port": 5,
+                "to": "9438273",
+                "to_port": 0
+            },
+            {
+                "from": "465153",
+                "from_port": 6,
+                "to": "9438273",
+                "to_port": 0
+            },
+            {
+                "from": "9438273",
+                "from_port": 0,
+                "to": "7299315",
+                "to_port": 0
+            },
+            {
+                "from": "51431",
+                "from_port": 0,
+                "to": "7744252",
+                "to_port": 0
+            },
+            {
+                "from": "51431",
+                "from_port": 1,
+                "to": "2467805",
+                "to_port": 0
+            },
+            {
+                "from": "3788292",
+                "from_port": 0,
+                "to": "1728840",
+                "to_port": 0
+            },
+            {
+                "from": "3788292",
+                "from_port": 1,
+                "to": "5514076",
+                "to_port": 0
+            },
+            {
+                "from": "7744252",
+                "from_port": 0,
+                "to": "2029951",
+                "to_port": 0
+            },
+            {
+                "from": "2467805",
+                "from_port": 0,
+                "to": "2029951",
+                "to_port": 0
+            },
+            {
+                "from": "1728840",
+                "from_port": 0,
+                "to": "2029951",
+                "to_port": 0
+            },
+            {
+                "from": "5514076",
+                "from_port": 0,
+                "to": "2029951",
+                "to_port": 0
+            },
+            {
+                "from": "7299315",
+                "from_port": 0,
+                "to": "7777160",
+                "to_port": 0
+            },
+            {
+                "from": "7777160",
+                "from_port": 0,
+                "to": "51431",
+                "to_port": 0
+            },
+            {
+                "from": "7299315",
+                "from_port": 1,
+                "to": "4747118",
+                "to_port": 0
+            },
+            {
+                "from": "4747118",
+                "from_port": 0,
+                "to": "3788292",
+                "to_port": 0
+            },
+            {
+                "from": "113156",
+                "from_port": 0,
+                "to": "3037646",
+                "to_port": 0
+            },
+            {
+                "from": "3037646",
+                "from_port": 0,
+                "to": "8128392",
+                "to_port": 0
+            },
+            {
+                "from": "3037646",
+                "from_port": 1,
+                "to": "5830852",
+                "to_port": 0
+            },
+            {
+                "from": "5830852",
+                "from_port": 0,
+                "to": "3216783",
+                "to_port": 0
+            },
+            {
+                "from": "8128392",
+                "from_port": 0,
+                "to": "3216783",
+                "to_port": 0
+            },
+            {
+                "from": "2029951",
+                "from_port": 0,
+                "to": "113156",
+                "to_port": 0
+            }
+        ],
+        "editor_version": "3.0.8",
+        "file_name": "4. Choices",
+        "languages": [
+            "ENG"
+        ],
+        "nodes": [
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "next": "7299315",
+                "node_name": "9438273",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    973.584167,
+                    133.091949
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "Good."
+                },
+                "title": "Show Message"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "next": "2029951",
+                "node_name": "1728840",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    2912,
+                    395.5
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "Awesome."
+                },
+                "title": "Show Message"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "next": "2029951",
+                "node_name": "5514076",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    2914,
+                    763.5
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "I'm sure you're not."
+                },
+                "title": "Show Message"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "next": "2029951",
+                "node_name": "7744252",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    2991.832031,
+                    -285.404022
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "Great, I'm glad you changed your mind."
+                },
+                "title": "Show Message"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "next": "2029951",
+                "node_name": "2467805",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    2949,
+                    42.5
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "Fine. I guess you'll have to see for yourself."
+                },
+                "title": "Show Message"
+            },
+            {
+                "filename": "res://Nodes/Comment.tscn",
+                "node_name": "5096180",
+                "node_type": "comment",
+                "offset": [
+                    2631.416504,
+                    -438.673248
+                ],
+                "rect_min_size_x": 300,
+                "rect_min_size_y": 64,
+                "text": "This is just a showcase. I promise my writing is better than this...",
+                "title": "COMMENT"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "choices": [
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "1728840",
+                        "text": {
+                            "ENG": "No problem."
+                        }
+                    },
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "5514076",
+                        "text": {
+                            "ENG": "I'm not naive."
+                        }
+                    }
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "node_name": "3788292",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    2406.664063,
+                    591.676025
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "Great, I'm glad you believe me."
+                },
+                "title": "Show Message"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "choices": [
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "9438273",
+                        "text": {
+                            "ENG": "Ok, cool."
+                        }
+                    },
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "9438273",
+                        "text": {
+                            "ENG": "That's great!"
+                        }
+                    },
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "9438273",
+                        "text": {
+                            "ENG": "Awesome."
+                        }
+                    },
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "9438273",
+                        "text": {
+                            "ENG": "Alright..."
+                        }
+                    },
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "9438273",
+                        "text": {
+                            "ENG": "Well, we'll see."
+                        }
+                    },
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "9438273",
+                        "text": {
+                            "ENG": "That's fine."
+                        }
+                    },
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "9438273",
+                        "text": {
+                            "ENG": "Can we continue?"
+                        }
+                    }
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "node_name": "465153",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    406.944214,
+                    -56.732048
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "You can add any amount of choices. Select them using a mouse, arrows| or D-pad. Press ENTER |or (A)| to choose."
+                },
+                "title": "Show Message"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "choices": [
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "7777160",
+                        "text": {
+                            "ENG": "I don't believe you."
+                        }
+                    },
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "4747118",
+                        "text": {
+                            "ENG": "Ok, great."
+                        }
+                    }
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "node_name": "7299315",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    1500.584106,
+                    135.091934
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "You can have non linear conversations with me."
+                },
+                "title": "Show Message"
+            },
+            {
+                "filename": "res://Nodes/Start.tscn",
+                "next": "6066010",
+                "node_name": "START",
+                "node_type": "start",
+                "offset": [
+                    -331.775818,
+                    88.127953
+                ],
+                "title": "Start"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "next": "465153",
+                "node_name": "6066010",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    -105.89579,
+                    -1.444063
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "This is a choices demo."
+                },
+                "title": "Show Message"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "choices": [
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "7744252",
+                        "text": {
+                            "ENG": "Ok, maybe I do believe you."
+                        }
+                    },
+                    {
+                        "condition": "",
+                        "is_condition": false,
+                        "next": "2467805",
+                        "text": {
+                            "ENG": "Yup, I don't."
+                        }
+                    }
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "node_name": "51431",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    2445,
+                    -124.5
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "What do you mean you don't believe me?"
+                },
+                "title": "Show Message"
+            },
+            {
+                "filename": "res://Nodes/Set Local Variable.tscn",
+                "next": "51431",
+                "node_name": "7777160",
+                "node_type": "set_local_variable",
+                "offset": [
+                    2079.566895,
+                    59.095245
+                ],
+                "operation_type": null,
+                "title": "Set Local Variable",
+                "toggle": false,
+                "value": false,
+                "var_name": "player_believed"
+            },
+            {
+                "filename": "res://Nodes/Set Local Variable.tscn",
+                "next": "3788292",
+                "node_name": "4747118",
+                "node_type": "set_local_variable",
+                "offset": [
+                    2035.566895,
+                    445.095245
+                ],
+                "operation_type": null,
+                "title": "Set Local Variable",
+                "toggle": false,
+                "value": true,
+                "var_name": "player_believed"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "next": "113156",
+                "node_name": "2029951",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    3714,
+                    204.5
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "So, anyway."
+                },
+                "title": "Show Message"
+            },
+            {
+                "branches": {
+                    "False": "5830852",
+                    "True": "8128392"
+                },
+                "filename": "res://Nodes/Condition Branch.tscn",
+                "node_name": "3037646",
+                "node_type": "condition_branch",
+                "offset": [
+                    5211.800781,
+                    257.326508
+                ],
+                "text": "Dialogue.get_var(\"player_believed\")",
+                "title": "Condition Branch"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "next": "3216783",
+                "node_name": "5830852",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    5638,
+                    319.5
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "When I told you that you can have no linear conversations, you did not believe me."
+                },
+                "title": "Show Message"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "next": "3216783",
+                "node_name": "8128392",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    5652,
+                    0.5
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "When I told you that you can have no linear conversations, you believed me."
+                },
+                "title": "Show Message"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "next": null,
+                "node_name": "3216783",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    6194,
+                    95.5
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "Ok, that's it. This conversations has been going for way too long."
+                },
+                "title": "Show Message"
+            },
+            {
+                "character": [
+                    "Player",
+                    0
+                ],
+                "filename": "res://Nodes/Show Message.tscn",
+                "is_box": false,
+                "next": "3037646",
+                "node_name": "113156",
+                "node_type": "show_message",
+                "object_path": "",
+                "offset": [
+                    4477,
+                    187.5
+                ],
+                "slide_camera": true,
+                "speaker_type": 0,
+                "text": {
+                    "ENG": "Oh, by the way... I have a good memory. I can remember your choices."
+                },
+                "title": "Show Message"
+            }
+        ],
+        "selected_language": "ENG",
+        "variables": {
+            "player_believed": {
+                "type": 2,
+                "value": false
+            }
+        }
+    }
+]

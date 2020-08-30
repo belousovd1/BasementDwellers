@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://addons/radmatt.DialogueSystem2/other/Message.gd" type="Script" id=1]
+[ext_resource path="res://addons/radmatt.DialogueSystem2/other/Choices/Choices.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/radmatt.DialogueSystem2/font/noto_regular.tres" type="DynamicFont" id=3]
+[ext_resource path="res://addons/radmatt.DialogueSystem2/icons/godot-icon.png" type="Texture" id=5]
+[ext_resource path="res://addons/radmatt.DialogueSystem2/custom_text_node/Text.tscn" type="PackedScene" id=13]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Label
+
+func _ready():
+	get_node(\"../../../../\").connect(\"started_new_message\", self, \"_on_BoxMessage_started_new_message\")
+
+func _on_BoxMessage_started_new_message():
+	self.text = Dialogue.current_speaker_name + \":\"
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "
+extends PanelContainer
+
+onready var back = get_node(\"../TextBackground\")
+
+func _process(delta):
+	self.rect_position.x = (back.rect_position.x + back.rect_size.x) - (self.rect_size.x)
+	self.rect_position.y = (back.rect_position.y + back.rect_size.y) - (self.rect_size.y / 4)
+"
+
+[sub_resource type="Animation" id=3]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="BoxMessage" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.950012
+margin_right = -0.950012
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+text_path = NodePath("TextBackground/_hbox/_vbox/Text")
+choices_path = NodePath("TextBackground/_hbox/_vbox/Choices")
+
+[node name="SoundEffect" type="AudioStreamPlayer" parent="."]
+volume_db = -35.0
+pitch_scale = 1.5
+
+[node name="TextBackground" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -468.0
+margin_top = -127.0
+margin_right = 469.0
+margin_bottom = -49.0
+grow_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="_hbox" type="HBoxContainer" parent="TextBackground"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 930.0
+margin_bottom = 144.0
+
+[node name="Face" type="TextureRect" parent="TextBackground/_hbox"]
+margin_right = 64.0
+margin_bottom = 137.0
+texture = ExtResource( 5 )
+
+[node name="_vbox" type="VBoxContainer" parent="TextBackground/_hbox"]
+margin_left = 68.0
+margin_right = 923.0
+margin_bottom = 137.0
+grow_vertical = 0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="TextBackground/_hbox/_vbox"]
+margin_right = 855.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "[name]:"
+script = SubResource( 1 )
+
+[node name="Text" parent="TextBackground/_hbox/_vbox" instance=ExtResource( 13 )]
+margin_top = 27.0
+margin_right = 855.0
+margin_bottom = 50.0
+autowrap = true
+
+[node name="Choices" parent="TextBackground/_hbox/_vbox" instance=ExtResource( 2 )]
+margin_top = 54.0
+margin_right = 855.0
+margin_bottom = 137.0
+choices_container = NodePath("../Choices/ChoicesContainer")
+
+[node name="Continue" type="PanelContainer" parent="."]
+margin_right = 53.0
+margin_bottom = 28.0
+script = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Continue"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 46.0
+margin_bottom = 21.0
+text = "SPACE"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Continue"]
+autoplay = "blink"
+anims/blink = SubResource( 3 )

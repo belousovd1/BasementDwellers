@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Audio Track-5.wav-4dfd01e10853d24b0cbe4102c56da5f2.sample"
+
+[deps]
+
+source_file="res://addons/radmatt.DialogueSystem2/sfx/new/Audio Track-5.wav"
+dest_files=[ "res://.import/Audio Track-5.wav-4dfd01e10853d24b0cbe4102c56da5f2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
