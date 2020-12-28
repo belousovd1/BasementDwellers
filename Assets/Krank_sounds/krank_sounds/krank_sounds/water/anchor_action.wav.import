@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/anchor_action.wav-d51c7d4697691f813c12d44772582729.sample"
+
+[deps]
+
+source_file="res://Assets/Krank_sounds/krank_sounds/krank_sounds/water/anchor_action.wav"
+dest_files=[ "res://.import/anchor_action.wav-d51c7d4697691f813c12d44772582729.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -7,7 +7,7 @@ var removed_index
 
 
 func _ready():
-	connect("newrow", $"../", "spawn_boomerang_row" )
+	var _err = connect("newrow", $"../", "spawn_boomerang_row" )
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

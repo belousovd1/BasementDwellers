@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/part.wav-c4e58f73886045f39acb85f478c84a27.sample"
+
+[deps]
+
+source_file="res://Assets/Krank_sounds/krank_sounds/krank_sounds/water/part.wav"
+dest_files=[ "res://.import/part.wav-c4e58f73886045f39acb85f478c84a27.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

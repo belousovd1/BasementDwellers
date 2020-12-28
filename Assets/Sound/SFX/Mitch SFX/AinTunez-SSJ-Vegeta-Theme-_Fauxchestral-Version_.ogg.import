@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/AinTunez-SSJ-Vegeta-Theme-_Fauxchestral-Version_.ogg-6624650fe14423a44afd9543eb9bdeba.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/Mitch SFX/AinTunez-SSJ-Vegeta-Theme-_Fauxchestral-Version_.ogg"
+dest_files=[ "res://.import/AinTunez-SSJ-Vegeta-Theme-_Fauxchestral-Version_.ogg-6624650fe14423a44afd9543eb9bdeba.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

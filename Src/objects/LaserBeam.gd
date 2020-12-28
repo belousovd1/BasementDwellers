@@ -21,7 +21,10 @@ func end_laser_animation():
 	emit_signal("laser_fired")
 
 func check_if_hit():
+	var player_hit
 	var player = $"../../../../../Player"
-	var object =ray_cast.get_collider()
-	if object == player:
+	var object = ray_cast.get_collider()
+	if player == null and object == null:
+		player_hit = false
+	if player_hit and object == player:
 		object._on_ProjectileDetector_area_entered(self)

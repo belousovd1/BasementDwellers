@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Let's_talk_about_talking_shit.wav-f93f8b28426c416557956f6435c1a98b.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Let's_talk_about_talking_shit.wav"
+dest_files=[ "res://.import/Let's_talk_about_talking_shit.wav-f93f8b28426c416557956f6435c1a98b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

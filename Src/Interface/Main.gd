@@ -1,6 +1,7 @@
 extends Node
 
 onready var attack_bar_sc = preload("res://Src/Interface/AttackBar.tscn")
+onready var mitch = $Mitch
 
 signal player_health_change(player_health)
 signal attack_finished
@@ -8,7 +9,7 @@ signal attack_finished
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	connect("attack_finished", $Mitch/Stage1, "attack4")
+	var _err = connect("attack_finished", $Mitch/Stage1, "attack4")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,7 +26,7 @@ func _on_HitTimer_timeout():
 	$OnHitCamera.clear_current()
 
 func _on_Player_dead():
-	get_tree().change_scene("res://Src/Interface/DeathMenu.tscn")
+	var _err = get_tree().change_scene("res://Src/Interface/DeathMenu.tscn")
 
 
 func attack_boss():
@@ -33,6 +34,9 @@ func attack_boss():
 	var attack_bar = attack_bar_sc.instance()
 	add_child(attack_bar)
 	attack_bar.position = Vector2(534, 510)
+	#var damage_to_boss = attack_bar.get_damage()
+	#mitch.take_damage(damage_to_boss)
+
 
 func attack_finished(anm_name):
 	if anm_name == "hit":

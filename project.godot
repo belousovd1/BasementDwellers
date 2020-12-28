@@ -9,37 +9,19 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Button",
-"class": "ChoiceButton",
-"language": "GDScript",
-"path": "res://addons/radmatt.DialogueSystem2/other/Choices/_choice_button.gd"
-}, {
 "base": "Control",
-"class": "Choices",
+"class": "DialogueBox",
 "language": "GDScript",
-"path": "res://addons/radmatt.DialogueSystem2/other/Choices/Choices.gd"
-}, {
-"base": "Control",
-"class": "Message",
-"language": "GDScript",
-"path": "res://addons/radmatt.DialogueSystem2/other/Message.gd"
+"path": "res://Src/Interface/DialogueBox.gd"
 }, {
 "base": "Area2D",
 "class": "Projectiles",
 "language": "GDScript",
 "path": "res://Src/objects/Projectiles.gd"
-}, {
-"base": "Control",
-"class": "Text",
-"language": "GDScript",
-"path": "res://addons/radmatt.DialogueSystem2/custom_text_node/Text.gd"
 } ]
 _global_script_class_icons={
-"ChoiceButton": "res://addons/radmatt.DialogueSystem2/icons/ChoiceButton.svg",
-"Choices": "res://addons/radmatt.DialogueSystem2/icons/Choices.svg",
-"Message": "res://addons/radmatt.DialogueSystem2/icons/Message.svg",
-"Projectiles": "",
-"Text": "res://addons/radmatt.DialogueSystem2/icons/Text.svg"
+"DialogueBox": "",
+"Projectiles": ""
 }
 
 [application]
@@ -52,10 +34,6 @@ config/icon="res://icon.png"
 
 default_bus_layout="res://Assets/Sound/default_bus_layout.tres"
 
-[autoload]
-
-Dialogue="*res://addons/radmatt.DialogueSystem2/Dialogue.tscn"
-
 [display]
 
 window/size/width=1080
@@ -64,7 +42,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "GodotTIE", "radmatt.DialogueSystem2" )
+enabled=PoolStringArray( "GodotTIE" )
 
 [input]
 

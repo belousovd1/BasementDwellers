@@ -9,7 +9,7 @@ signal done_attacking
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	connect("done_attacking", $"../../", "attack_boss")
+	var _err = connect("done_attacking", $"../../", "attack_boss")
 	attack1()
 	
 

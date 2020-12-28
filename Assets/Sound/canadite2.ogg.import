@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/canadite2.ogg-6152b8ddb3ad6b3046dc38d57bf3253d.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/canadite2.ogg"
+dest_files=[ "res://.import/canadite2.ogg-6152b8ddb3ad6b3046dc38d57bf3253d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -13,7 +13,6 @@
 [ext_resource path="res://Assets/Sprites/hit - yellow.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Sound/SFX/1.wav" type="AudioStream" id=12]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "hit"
 length = 1.7
@@ -404,7 +403,7 @@ __meta__ = {
 }
 
 [node name="Torso" type="Sprite" parent="Parts/Hip"]
-position = Vector2( -0.167246, -2.65392 )
+position = Vector2( -0.167246, -3.06283 )
 texture = ExtResource( 1 )
 offset = Vector2( 3.53367, -27.3458 )
 hframes = 3
@@ -429,7 +428,7 @@ __meta__ = {
 
 [node name="LeftThigh" type="Sprite" parent="Parts/Hip"]
 position = Vector2( -5.73454, 6.10409 )
-rotation = 0.0716707
+rotation = 0.0385222
 texture = ExtResource( 10 )
 offset = Vector2( -1.45352, 11.5129 )
 hframes = 3
@@ -440,7 +439,7 @@ __meta__ = {
 
 [node name="LeftShin" type="Sprite" parent="Parts/Hip/LeftThigh"]
 position = Vector2( -2.0639, 24.7519 )
-rotation = -0.125493
+rotation = -0.0674511
 texture = ExtResource( 9 )
 offset = Vector2( 0.136546, 15.7907 )
 hframes = 3
@@ -450,7 +449,7 @@ __meta__ = {
 
 [node name="LeftFoot" type="Sprite" parent="Parts/Hip/LeftThigh/LeftShin"]
 position = Vector2( 3.05539, 31.0347 )
-rotation = 0.0471822
+rotation = 0.0253599
 texture = ExtResource( 8 )
 offset = Vector2( -5.52564, 2.66158 )
 hframes = 3
@@ -466,7 +465,7 @@ __meta__ = {
 
 [node name="RightThigh" type="Sprite" parent="Parts/Hip"]
 position = Vector2( 7.01554, 6.59277 )
-rotation = -0.0724479
+rotation = -0.0389399
 texture = ExtResource( 7 )
 offset = Vector2( 3.32977, 11.153 )
 hframes = 3
@@ -477,7 +476,7 @@ __meta__ = {
 
 [node name="RightShin" type="Sprite" parent="Parts/Hip/RightThigh"]
 position = Vector2( 4.91949, 24.0289 )
-rotation = 0.124237
+rotation = 0.066776
 texture = ExtResource( 5 )
 offset = Vector2( 0.292823, 17.1195 )
 hframes = 3
@@ -487,7 +486,7 @@ __meta__ = {
 
 [node name="Mitch_right_foot" type="Sprite" parent="Parts/Hip/RightThigh/RightShin"]
 position = Vector2( -1.70338, 32.1731 )
-rotation = -0.0424198
+rotation = -0.0228001
 texture = ExtResource( 3 )
 offset = Vector2( 6.3455, 3.08642 )
 hframes = 3
@@ -515,4 +514,4 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )
 vframes = 4
 hframes = 4
-frame = 15
+frame = 2

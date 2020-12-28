@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wall.wav-a12b2bbf9c541bd79ea39b126d982685.sample"
+
+[deps]
+
+source_file="res://Assets/Krank_sounds/krank_sounds/krank_sounds/menu/wall.wav"
+dest_files=[ "res://.import/wall.wav-a12b2bbf9c541bd79ea39b126d982685.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

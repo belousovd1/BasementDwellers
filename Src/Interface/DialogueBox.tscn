@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Sprites/TextBoxSprite.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/DialogueNextIndicator.png" type="Texture" id=2]
+[ext_resource path="res://Assets/text/Cave-Story.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Src/Interface/DialogueBox.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Sound/Dialogue_blip.wav" type="AudioStream" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "IDLE"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 668.786, 135 ), Vector2( 668.786, 145 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+extra_spacing_top = 8
+extra_spacing_bottom = 4
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueBox" type="Control" parent="."]
+anchor_left = 0.474
+anchor_top = 0.987
+anchor_right = 0.474
+anchor_bottom = 0.987
+margin_left = -359.92
+margin_top = -192.2
+margin_right = 332.08
+margin_bottom = -17.2
+rect_scale = Vector2( 1.04069, 0.913363 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Box" type="TextureRect" parent="DialogueBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 672.815, -104.08 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextIndicator" type="Sprite" parent="DialogueBox"]
+position = Vector2( 668.786, 135 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogueBox/NextIndicator"]
+autoplay = "IDLE"
+anims/IDLE = SubResource( 1 )
+
+[node name="Name" type="RichTextLabel" parent="DialogueBox"]
+margin_left = 31.0
+margin_top = -26.0
+margin_right = 174.0
+margin_bottom = -5.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/normal_font = SubResource( 2 )
+text = "Mitch
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Portait" type="TextureRect" parent="DialogueBox"]
+margin_left = 31.0
+margin_top = 20.0
+margin_right = 71.0
+margin_bottom = 73.0
+rect_scale = Vector2( 2.96736, 2.43112 )
+
+[node name="DialogueText" type="RichTextLabel" parent="DialogueBox"]
+margin_left = 161.0
+margin_top = 9.0
+margin_right = 661.0
+margin_bottom = 166.0
+custom_fonts/bold_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "Get ready for a one way trip to [shake rate = 10 level = 10] FLAVOR TOWN!!![/shake]"
+text = "Get ready for a one way trip to  FLAVOR TOWN!!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bleep" type="AudioStreamPlayer" parent="DialogueBox"]
+stream = ExtResource( 5 )

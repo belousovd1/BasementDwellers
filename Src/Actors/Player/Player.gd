@@ -74,7 +74,7 @@ func player_movement():
 	else:
 		velocity = Vector2.ZERO
 
-	move_and_slide(velocity)
+	var _velocity = move_and_slide(velocity)
 
 func invisible():
 	visible = false

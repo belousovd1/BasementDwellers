@@ -1,0 +1,12 @@
+[
+    {"name":"TestBuddy", "image": "img.png", "text": "I have [color=lime]Ice cream[/color]", "time": ".05"},
+    {"name":"TestBuddy", "image": "img.png", "text": "It is[wave amp=50 freq=2] tasty[/wave]", "time": ".10"},
+    {"name":"TestBuddy", "image": "img.png", "text": "I IIII III .", "time": ".01"},
+    {"name":"TestBuddy", "image": "img.png", "text": "III .", "time": ".25"},
+    {"name":"TestBuddy", "image": "img.png", "text": "I .", "time": ".05"},
+    {"name":"TestBuddy", "image": "img.png", "text": "[wave amp=50 freq=2]IIIIIIIIII.[/wave] IIIIIIIIIIIIII", "time": ".05"},
+    {"name":"TestBuddy", "image": "img.png", "text": "II II II II II .", "time": ".05"}
+
+]
+
+

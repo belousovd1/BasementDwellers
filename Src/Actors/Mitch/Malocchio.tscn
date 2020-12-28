@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Assets/Sprites/Mitch/MalocchioSpriteSheet.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Mitch/Attacks/MalocchioSpriteSheet(1).png" type="Texture" id=1]
 [ext_resource path="res://Src/Actors/Mitch/Malocchio.gd" type="Script" id=2]
 [ext_resource path="res://Src/objects/LaserBeam.tscn" type="PackedScene" id=3]
-
+[ext_resource path="res://Assets/Texture/effect_4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sound/SFX/Mitch SFX/MalocchioPortalSFX.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sound/EssentialGameAudiopack/Sound Effects/AbstractPackSFX/Files/AbstractSfx/42.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Shaders/Malocchio.tres" type="Material" id=7]
+[ext_resource path="res://Assets/Sound/65516_iscence_deep-bass-wave-130 (online-audio-converter.com).wav" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "float"
@@ -35,14 +39,192 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "shockwave"
+loop = true
+
+[sub_resource type="Animation" id=4]
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LaserBeam:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SummonParticles:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4.9, 10.2, 12.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("SummonParticles/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 1.51482,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 5.59,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 4.9, 9.5, 14.1 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 5, 12 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 4.8, 14 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sprite:rotation_degrees")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 5, 12 ),
+"transitions": PoolRealArray( 1, 9.18959 ),
+"update": 0,
+"values": [ 0.0, 2160.0 ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("CanvasLayer/ShockWaveAni")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 12.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "shockwave", -1, 1.0, false ],
+"method": "play"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0.0107527, 1 ), 0.0, -0.0874609, 0, 0, Vector2( 1, 0.445455 ), -0.868304, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = -200.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 2.5
+scale_curve = SubResource( 7 )
+hue_variation = 0.22
+
+[sub_resource type="Animation" id=9]
+resource_name = "shockwave"
+length = 1.25
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:material:shader_param/size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.2 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
 [node name="Malocchio" type="Node2D"]
+position = Vector2( 232, 296 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -8, 0 )
+visible = false
+position = Vector2( -8, 8 )
+rotation = 37.6991
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 hframes = 2
+frame = 1
 
 [node name="LaserBeam" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -52,3 +234,34 @@ rotation = 3.14159
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/float = SubResource( 1 )
 anims/look = SubResource( 2 )
+anims/shockwave = SubResource( 3 )
+anims/summon = SubResource( 4 )
+
+[node name="SummonParticles" type="Particles2D" parent="."]
+visible = false
+self_modulate = Color( 40, 0.8, 0.06, 1 )
+material = SubResource( 5 )
+position = Vector2( -8, 8 )
+process_material = SubResource( 8 )
+texture = ExtResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SummonParticles"]
+stream = ExtResource( 6 )
+volume_db = 3.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource( 7 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShockWaveAni" type="AnimationPlayer" parent="CanvasLayer"]
+anims/shockwave = SubResource( 9 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource( 8 )
+volume_db = 15.0

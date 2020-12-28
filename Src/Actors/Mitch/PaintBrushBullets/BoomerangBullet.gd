@@ -4,7 +4,6 @@ extends "res://Src/objects/Projectiles.gd"
 var speed = 300
 var dir = Vector2.ZERO
 onready var vis_nod = $VisibilityNotifier2D
-signal projectile_passed
 
 func _ready():
 	pass

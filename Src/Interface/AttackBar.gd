@@ -13,7 +13,22 @@ func _ready():
 	mitch_anim_node.connect("animation_finished", $"../", "attack_finished")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("ui_accept"):
 		$AnimationPlayer.stop()
 		mitch_anim_node.play("hit")
+
+
+#func get_damage():
+#	var max_damage = 20
+#	var indcator_pos = $Indicator.get_position()
+#	indcator_pos = turn_pos(indcator_pos)
+#	var damage = (1 - (indcator_pos/ 512)) * max_damage
+#	return damage
+
+
+#func turn_pos(num):
+#	if num < 0:
+#		num *= -1
+
+#	return num

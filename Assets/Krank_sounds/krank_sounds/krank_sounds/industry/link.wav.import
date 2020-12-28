@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/link.wav-4bc39897d7da5b6f5862af2c3b3d38bf.sample"
+
+[deps]
+
+source_file="res://Assets/Krank_sounds/krank_sounds/krank_sounds/industry/link.wav"
+dest_files=[ "res://.import/link.wav-4bc39897d7da5b6f5862af2c3b3d38bf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

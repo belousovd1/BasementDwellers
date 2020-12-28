@@ -14,7 +14,7 @@ func _ready():
 
 
 
-func _process(delta):
+func _process(_delta):
 	var round_value = round(animated_health)
 	health_count.text = str(round_value)
 	health_bar.value = animated_health
