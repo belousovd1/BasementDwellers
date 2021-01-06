@@ -10,9 +10,6 @@ onready var current_stage = null
 
 func _ready():
 	$AnimationPlayer.play("idle")
-	#change_stage(current_stage)
-	intiate_stage1()
-	
 
 func _process(_delta):
 	pass
@@ -38,13 +35,13 @@ func take_damage(damage, stage):
 		change_stage(stage)
 
 func change_stage(stage):
-	if stage == null:
-		intiate_stage1()
-	if stage == "stage1":
+	if stage == 0:
 		intiate_stage2()
-	if stage == "stage2":
+		return 1
+	if stage == 1:
 		intiate_stage3()
-	if stage == "stage3":
-		pass
+		return 2
+	if stage == 2:
+		return 3
 
 		

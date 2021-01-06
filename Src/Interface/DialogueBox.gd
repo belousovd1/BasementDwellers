@@ -2,7 +2,7 @@ extends Control
 
 class_name DialogueBox
 
-export var dialogue_file_path = "res://Src/CutScenes/dialogues/TestDialogue.json"
+export var dialogue_file_path = "res://Src/CutScenes/dialogues/Mitch/TestDialogue.json" 
 var index = 0
 onready var dialogue = load_dialogue(dialogue_file_path).result
 onready var  skip
@@ -14,7 +14,7 @@ func _ready():
 	write_dialogue_by_text()
 
 
-func _process(delta):
+func _process(_delta):
 	$NextIndicator.visible = finished
 	if finished:
 		if Input.is_action_just_pressed("ui_accept"):
@@ -83,9 +83,9 @@ func show_all_dialogue():
 func load_dialogue(file_path):
 	var file = File.new()
 	file.open(file_path, file.READ)
-	var dialogue = JSON.parse(file.get_as_text())
+	var jason_dialogue = JSON.parse(file.get_as_text())
 	file.close()
-	return dialogue
+	return jason_dialogue
 
 func calc_draw_time(char_time):
 	var duration = $DialogueText.bbcode_text.length() * char_time

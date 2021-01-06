@@ -28,7 +28,7 @@ func follow_path(delta):
 	var max_dis = 50
 	malocchio.rotate(3.5 * delta)
 	path.set_offset(path.get_offset() + delta * speed)
-	path.v_offset = noise.get_noise_1d(time * 20) * max_dis
+	path.v_offset = noise.get_noise_1d(delta * 20) * max_dis
 
 
 func shoot_laser():

@@ -138,11 +138,12 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
 anims/MitchEnter = SubResource( 1 )
 anims/Start = SubResource( 2 )
 
 [node name="Entrance" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 5 )
 
 [node name="EnterPath" type="Path2D" parent="."]
 position = Vector2( 89.8158, -8 )

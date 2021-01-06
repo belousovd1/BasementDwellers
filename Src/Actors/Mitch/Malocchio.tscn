@@ -218,7 +218,6 @@ position = Vector2( 232, 296 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 position = Vector2( -8, 8 )
 rotation = 37.6991
 scale = Vector2( 0.25, 0.25 )
@@ -227,7 +226,6 @@ hframes = 2
 frame = 1
 
 [node name="LaserBeam" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( -48, 8 )
 rotation = 3.14159
 
@@ -252,6 +250,7 @@ volume_db = 3.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 material = ExtResource( 7 )
 anchor_right = 1.0
 anchor_bottom = 1.0

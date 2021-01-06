@@ -19,16 +19,15 @@ func _process(_delta):
 		mitch_anim_node.play("hit")
 
 
-#func get_damage():
-#	var max_damage = 20
-#	var indcator_pos = $Indicator.get_position()
-#	indcator_pos = turn_pos(indcator_pos)
-#	var damage = (1 - (indcator_pos/ 512)) * max_damage
-#	return damage
+func get_damage():
+	var max_damage = 100
+	var indcator_pos = $Indicator.get_position().x
+	indcator_pos = turn_pos(indcator_pos)
+	var damage = (1 - (indcator_pos / 512)) * max_damage
+	return round(damage)
 
 
-#func turn_pos(num):
-#	if num < 0:
-#		num *= -1
-
-#	return num
+func turn_pos(num):
+	if num < 0:
+		num *= -1
+	return num

@@ -1,9 +1,38 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/Actors/Mitch/Mitch_LegAttacks.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Mitch/Attacks/M_RightattackLeg.png" type="Texture" id=2]
 [ext_resource path="res://Src/Actors/Mitch/LeftLeg.gd" type="Script" id=3]
 [ext_resource path="res://Src/Actors/Mitch/RightLeg.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=3]
+resource_name = "Adv Alternating kicks"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("RightLeg:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -180.0, -315.0, -180.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LeftLeg:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 180.0, 180.0, 315.0 ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "AlternatingKicks"
@@ -67,14 +96,13 @@ script = ExtResource( 1 )
 
 [node name="RightLeg" type="Area2D" parent="."]
 position = Vector2( 275, 0 )
-rotation = -3.28918
+rotation = -3.14159
 scale = Vector2( 2, 2 )
 collision_layer = 4
 script = ExtResource( 4 )
 
 [node name="M_RightAttackLeg" type="Sprite" parent="RightLeg"]
 position = Vector2( 53.5002, 71.9999 )
-rotation = 0.000796351
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightLeg"]
@@ -83,7 +111,7 @@ polygon = PoolVector2Array( -12, 48, -8, 32, -4, 20, -4, 8, -4, -8, 4, -20, 8, -
 
 [node name="LeftLeg" type="Area2D" parent="."]
 position = Vector2( -275, 0 )
-rotation = 4.46676
+rotation = 3.14159
 scale = Vector2( 2, 2 )
 collision_layer = 4
 script = ExtResource( 3 )
@@ -98,5 +126,6 @@ position = Vector2( -12, 76 )
 polygon = PoolVector2Array( 12, 32, 12, 52, 7.99999, 56, 7.99999, 60, 20, 60, 32, 68, 36, 64, 20, 52, 20, 1.74846e-06, 20, -12, 24, -20, 24, -40, 16, -56, 16, -76, 12, -76, -4, -68, -12, -44, -8, -24, 4, -4, 4, 8, 4, 20, 8, 32 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Adv Alternating kicks" = SubResource( 3 )
 anims/AlternatingKicks = SubResource( 1 )
 anims/EndAlternatingKicks = SubResource( 2 )

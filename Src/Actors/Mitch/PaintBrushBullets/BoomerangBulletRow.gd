@@ -1,13 +1,13 @@
 extends Node2D
 
-var speed = 200
+onready var speed = 200
 var dir = Vector2.ZERO
 onready var boomerangs = get_children()
 var removed_index
 
 
 func _ready():
-	var _err = connect("newrow", $"../", "spawn_boomerang_row" )
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
