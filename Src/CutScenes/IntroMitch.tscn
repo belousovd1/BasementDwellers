@@ -138,7 +138,6 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-method_call_mode = 1
 anims/MitchEnter = SubResource( 1 )
 anims/Start = SubResource( 2 )
 
@@ -151,11 +150,13 @@ scale = Vector2( 0.998398, 1 )
 curve = SubResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="EnterPath"]
-position = Vector2( 1112, 280 )
+position = Vector2( 1132.32, 368.125 )
 rotation = 2.35618
+offset = 90.7599
 rotate = false
 
 [node name="Mitch" parent="EnterPath/PathFollow2D" instance=ExtResource( 2 )]
+rotation = 1.25664
 
 [node name="DialogueST" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )

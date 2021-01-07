@@ -25,6 +25,7 @@ func intiate_stage2():
 func intiate_stage3():
 	var stage3 = stage3_sc.instance()
 	add_child(stage3)
+	$AnimationPlayer.play("stage3_idle")
 
 
 

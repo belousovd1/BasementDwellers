@@ -11,10 +11,12 @@ signal laser_fired
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var _err = self.connect("laser_fired", get_node("../../../"), "stop_attacking")
+	print($"../..")
+	print($"../.." is PathFollow2D)
 
 func _process(_delta):
-	pass
-	#check_if_hit()
+	if ($"../.." is PathFollow2D):
+		check_if_hit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func end_laser_animation():
@@ -22,12 +24,9 @@ func end_laser_animation():
 
 func check_if_hit():
 	var player_hit
-	var player = $"../../../../../Player"
+	var player = $"../../../../../../Player"
 	var object = ray_cast.get_collider()
-	print(object)
 	if player == null and object == null:
-		print("no hit ")
 		player_hit = false
 	if object == player:
-		print("hit")
 		object._on_ProjectileDetector_area_entered(self)

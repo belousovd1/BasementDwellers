@@ -8,7 +8,7 @@ var speed = 400
 var noise = OpenSimplexNoise.new()
 var time = 0
 onready var malocchio = $PathFollow2D/Malocchio
-onready var player = $"../../Player"
+onready var player = $"../../../Player"
 var attacking = false
 
 # Called when the node enters the scene tree for the first time.

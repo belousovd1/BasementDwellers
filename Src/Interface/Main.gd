@@ -11,15 +11,10 @@ signal player_health_change(player_health)
 signal attack_finished
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	mitch.intiate_stage1()
 	stage_connect(current_stage)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 func _on_player_hit(hp):
 	$OnHitCamera.make_current()
 	$HitTimer.start()
@@ -74,9 +69,9 @@ func stage_connect(stage):
 func start_dialog(stage):
 	var dialog = dialog_sc.instance()
 	if stage == 0:
-		dialog.get_node("DialogueBox").dialogue_file_path = "res://Src/CutScenes/dialogues/Mitch/Stage1Convo.json"
+		dialog.get_node("DialogueBox").dialogue_file_path = "res://Src/CutScenes/dialogues/Mitch/IntoStage2Convo.json"
 	if stage == 1:
-		dialog.get_node("DialogueBox").dialogue_file_path = "res://Src/CutScenes/dialogues/IntroMitch.json"
+		dialog.get_node("DialogueBox").dialogue_file_path = "res://Src/CutScenes/dialogues/Mitch/IntoStage3Convo.json"
 	if stage == 2:
 		dialog.get_node("DialogueBox").dialogue_file_path = "res://Src/CutScenes/dialogues/IntroMitch.json"
 	add_child(dialog)
@@ -87,4 +82,12 @@ func manage_new_stage():
 	stage_connect(current_stage)
 	get_tree().call_group("defense", "visible")
 	mitch.health = 100
+	if current_stage == stages.stage3:
+		change_current_track("res://Assets/Sound/OST/Stage3Mitch.ogg")
 
+func change_current_track(file_path):
+	var player = $AudioStreamPlayer
+	player.stop()
+	var new_track = load(file_path)
+	player.set_stream(new_track)
+	player.play()

@@ -20,7 +20,7 @@ func _process(_delta):
 
 
 func get_damage():
-	var max_damage = 100
+	var max_damage = 150
 	var indcator_pos = $Indicator.get_position().x
 	indcator_pos = turn_pos(indcator_pos)
 	var damage = (1 - (indcator_pos / 512)) * max_damage

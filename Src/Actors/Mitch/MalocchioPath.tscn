@@ -9,7 +9,6 @@ _data = {
 }
 
 [node name="MalocchioPath" type="Path2D"]
-position = Vector2( 480, 32 )
 curve = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -17,13 +16,12 @@ __meta__ = {
 }
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2( 37.9311, 56.6473 )
+position = Vector2( 37.9317, 56.6473 )
 rotation = 0.575506
 offset = 1303.9
 rotate = false
 
 [node name="Malocchio" parent="PathFollow2D" instance=ExtResource( 2 )]
-position = Vector2( 0, 0 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.0
