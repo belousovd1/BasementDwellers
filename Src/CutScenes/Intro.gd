@@ -10,6 +10,10 @@ onready var tie = $"Panel/TextInterfaceEngine"
 func _ready():
 	window_one()
 
+func _process(_delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		var _err = get_tree().change_scene("res://Src/Control.tscn")
+
 
 func window_one():
 	tie.reset()
@@ -124,6 +128,7 @@ func window_seven():
 
 func next_fnc():
 	$AudioStreamPlayer.stop()
+	var _err = get_tree().change_scene("res://Src/Interface/Title Menu.tscn")
 	print("done")
 			
 		

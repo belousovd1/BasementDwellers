@@ -27,10 +27,6 @@ self_modulate = Color( 0, 0, 0, 1 )
 material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -31.0
-margin_top = -16.0
-margin_right = 34.0
-margin_bottom = 27.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -39,23 +35,26 @@ __meta__ = {
 [node name="Mitch" parent="." groups=[
 "environment",
 ] instance=ExtResource( 3 )]
-position = Vector2( 520, 184 )
+position = Vector2( 960, 336 )
+scale = Vector2( 1.8, 1.8 )
 
 [node name="BattleSquare" parent="." groups=[
 "defense",
 "environment",
 ] instance=ExtResource( 7 )]
-position = Vector2( 528, 448 )
+position = Vector2( 960, 800 )
+scale = Vector2( 1.8, 1.8 )
 script = ExtResource( 9 )
 
 [node name="Player" parent="." groups=[
 "defense",
 ] instance=ExtResource( 5 )]
-position = Vector2( 528, 432 )
+position = Vector2( 960, 800 )
 
 [node name="OnHitCamera" parent="." groups=[
 "environment",
 ] instance=ExtResource( 6 )]
+position = Vector2( 960, 544 )
 trauma = 1.0
 
 [node name="HitTimer" type="Timer" parent="." groups=[

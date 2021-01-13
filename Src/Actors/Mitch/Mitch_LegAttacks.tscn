@@ -5,7 +5,7 @@
 [ext_resource path="res://Src/Actors/Mitch/LeftLeg.gd" type="Script" id=3]
 [ext_resource path="res://Src/Actors/Mitch/RightLeg.gd" type="Script" id=4]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "Adv Alternating kicks"
 length = 1.2
 loop = true
@@ -34,8 +34,7 @@ tracks/1/keys = {
 "values": [ 180.0, 180.0, 315.0 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "AlternatingKicks"
+[sub_resource type="Animation" id=2]
 length = 1.95
 loop = true
 tracks/0/type = "value"
@@ -63,33 +62,8 @@ tracks/1/keys = {
 "values": [ 180.0, 180.0, 315.0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "EndAlternatingKicks"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("RightLeg/M_RightAttackLeg:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 180.0, 180.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("LeftLeg/M_LeftAttackLeg2:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -45.0, -179.966 ]
-}
+[sub_resource type="Animation" id=3]
+resource_name = "stomp"
 
 [node name="Mitch_LegAttacks" type="Node2D"]
 script = ExtResource( 1 )
@@ -126,6 +100,6 @@ position = Vector2( -12, 76 )
 polygon = PoolVector2Array( 12, 32, 12, 52, 7.99999, 56, 7.99999, 60, 20, 60, 32, 68, 36, 64, 20, 52, 20, 1.74846e-06, 20, -12, 24, -20, 24, -40, 16, -56, 16, -76, 12, -76, -4, -68, -12, -44, -8, -24, 4, -4, 4, 8, 4, 20, 8, 32 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/Adv Alternating kicks" = SubResource( 3 )
-anims/AlternatingKicks = SubResource( 1 )
-anims/EndAlternatingKicks = SubResource( 2 )
+"anims/Adv Alternating kicks" = SubResource( 1 )
+anims/AlternatingKicks = SubResource( 2 )
+anims/stomp = SubResource( 3 )

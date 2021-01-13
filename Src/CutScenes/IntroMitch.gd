@@ -17,6 +17,7 @@ func _process(_delta):
 		skip_intro()
 
 func start_Dialogue():
+	$EnterPath/PathFollow2D/Mitch.set_scale(Vector2(3,3))
 	$DialogueST.play()
 	var dialogue  = dialogue_sc.instance()
 	dialogue.get_node("DialogueBox").dialogue_file_path = "res://Src/CutScenes/dialogues/Mitch/IntroMitch.json"

@@ -6,11 +6,13 @@ onready var paintbrush_boomerang_attack_sc = preload("res://Src/Actors/Mitch/Pai
 onready var legattack_sc = preload("res://Src/Actors/Mitch/Mitch_LegAttacks.tscn")
 onready var mallochio_path_sc = preload("res://Src/Actors/Mitch/MalocchioPath.tscn")
 onready var mallochio_sc = preload("res://Src/Actors/Mitch/Malocchio.tscn")
+var rng = RandomNumberGenerator.new()
 
 signal done_attacking
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rng.randomize()
 	var _err = connect("done_attacking", $"../../", "attack_boss")
 	mallochio_summon()
 	
@@ -25,11 +27,12 @@ func spwn_mallochio():
 	var mallochio_attack = mallochio_path_sc.instance()
 	add_child(mallochio_attack)
 
-func spwn_boomerang(pos, dir):
+func spwn_boomerang(pos, dir, scale = Vector2(1,1)):
 	var paintbrush = paintbrush_sc.instance()
 	paintbrush.position = pos
 	paintbrush.dir = dir
 	add_child(paintbrush)
+	paintbrush.scale = scale
 	paintbrush.speed = 400
 	return paintbrush 
 
@@ -63,10 +66,95 @@ func make_timer(w_time, next_func):
 	timer.start()
 	timer.connect("timeout", self, next_func)
 
+func square_attack(): 
+	spwn_boomerang(Vector2(0,-216), Vector2(0, 1), Vector2(.8, .8))
+	spwn_boomerang(Vector2(0,584), Vector2(0, -1), Vector2(.8, .8))
+	spwn_boomerang(Vector2(400,264), Vector2(-1, 0), Vector2(.8, .8))
+	spwn_boomerang(Vector2(-400,264), Vector2(1, 0), Vector2(.8, .8))
+
+func diagonal_attack():
+	spwn_boomerang(Vector2(298, 14), Vector2(-1.2, 1), Vector2(.8, .8))
+	spwn_boomerang(Vector2(-282, 14), Vector2(1.2, 1), Vector2(.8, .8))
+	spwn_boomerang(Vector2(-282, 514), Vector2(1.2, -1), Vector2(.8, .8))
+	spwn_boomerang(Vector2(298, 514), Vector2(-1.2, -1), Vector2(.8, .8))
+
 func attack1():
 	spwn_mallochio()
+	make_timer(2, "attack2")
 
 func attack2():
+	var random_num = rng.randf_range(-1.0, 1.0)
+	if random_num > 0:
+		square_attack()
+	else:
+		diagonal_attack()
+	make_timer(2, "attack3")
+
+func attack3():
+	var random_num = rng.randf_range(-1.0, 1.0)
+	if random_num > 0:
+		square_attack()
+	else:
+		diagonal_attack()
+	make_timer(2, "attack4")
+
+func attack4():
+	var random_num = rng.randf_range(-1.0, 1.0)
+	if random_num > 0:
+		square_attack()
+	else:
+		diagonal_attack()
+	make_timer(2, "attack5")
+
+func attack5():
+	var random_num = rng.randf_range(-1.0, 1.0)
+	if random_num > 0:
+		square_attack()
+	else:
+		diagonal_attack()
+	make_timer(2, "attack6")
+
+func attack6():
+	var random_num = rng.randf_range(-1.0, 1.0)
+	if random_num > 0:
+		square_attack()
+	else:
+		diagonal_attack()
+	make_timer(2, "attack7")
+
+func attack7():
+	var random_num = rng.randf_range(-1.0, 1.0)
+	if random_num > 0:
+		square_attack()
+	else:
+		diagonal_attack()
+	make_timer(2, "attack8")
+
+func attack8():
+	var random_num = rng.randf_range(-1.0, 1.0)
+	if random_num > 0:
+		square_attack()
+	else:
+		diagonal_attack()
+	make_timer(2, "attack9")
+
+func attack9():
+	var random_num = rng.randf_range(-1.0, 1.0)
+	if random_num > 0:
+		square_attack()
+	else:
+		diagonal_attack()
+	make_timer(2, "attack10")
+
+func attack10():
+	var random_num = rng.randf_range(-1.0, 1.0)
+	if random_num > 0:
+		square_attack()
+	else:
+		diagonal_attack()
+	make_timer(2, "attack11")
+
+func attack11():
 	pass
 
 func emit_end_atc():

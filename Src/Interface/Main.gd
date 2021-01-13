@@ -33,7 +33,7 @@ func attack_boss():
 	get_tree().call_group("defense", "invisible")
 	attack_bar = attack_bar_sc.instance()
 	add_child(attack_bar)
-	attack_bar.position = Vector2(534, 510)
+	attack_bar.position = Vector2(960, 800)
 
 
 func attack_finished(_anm_name):
@@ -71,6 +71,7 @@ func start_dialog(stage):
 	if stage == 0:
 		dialog.get_node("DialogueBox").dialogue_file_path = "res://Src/CutScenes/dialogues/Mitch/IntoStage2Convo.json"
 	if stage == 1:
+		$AudioStreamPlayer.stop()
 		dialog.get_node("DialogueBox").dialogue_file_path = "res://Src/CutScenes/dialogues/Mitch/IntoStage3Convo.json"
 	if stage == 2:
 		dialog.get_node("DialogueBox").dialogue_file_path = "res://Src/CutScenes/dialogues/IntroMitch.json"

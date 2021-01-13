@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Sprites/Mitch/Attacks/MalocchioSpriteSheet(1).png" type="Texture" id=1]
 [ext_resource path="res://Src/Actors/Mitch/Malocchio.gd" type="Script" id=2]
 [ext_resource path="res://Src/objects/LaserBeam.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Texture/effect_4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Texture/NewMalPort.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sound/SFX/Mitch SFX/MalocchioPortalSFX.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Sound/EssentialGameAudiopack/Sound Effects/AbstractPackSFX/Files/AbstractSfx/42.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Assets/Shaders/Malocchio.tres" type="Material" id=7]
@@ -249,7 +249,7 @@ tracks/1/keys = {
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-rotation = 37.6991
+rotation = 0.908736
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 hframes = 2
@@ -266,14 +266,14 @@ anims/summon = SubResource( 3 )
 
 [node name="SummonParticles" type="Particles2D" parent="."]
 visible = false
-self_modulate = Color( 40, 0.8, 0.06, 1 )
+self_modulate = Color( 0.29, 0.19662, 0.0464, 1 )
 material = SubResource( 4 )
 scale = Vector2( 2, 2 )
 process_material = SubResource( 7 )
 texture = ExtResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SummonParticles"]
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = -15.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

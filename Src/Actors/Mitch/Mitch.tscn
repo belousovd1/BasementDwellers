@@ -13,7 +13,7 @@
 [ext_resource path="res://Assets/Sprites/hit - yellow.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Sound/SFX/1.wav" type="AudioStream" id=12]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 length = 1.4
 loop = true
 tracks/0/type = "value"
@@ -317,7 +317,7 @@ tracks/24/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=2]
 length = 1.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Parts:position")
@@ -706,7 +706,7 @@ __meta__ = {
 }
 
 [node name="Torso" type="Sprite" parent="Parts/Hip"]
-position = Vector2( -0.167246, -3.32234 )
+position = Vector2( -0.167246, -2.94564 )
 texture = ExtResource( 1 )
 offset = Vector2( 3.53367, -27.3458 )
 hframes = 3
@@ -731,7 +731,7 @@ __meta__ = {
 
 [node name="LeftThigh" type="Sprite" parent="Parts/Hip"]
 position = Vector2( -5.73454, 6.10409 )
-rotation = 0.0174851
+rotation = 0.0480227
 texture = ExtResource( 10 )
 offset = Vector2( -1.45352, 11.5129 )
 hframes = 3
@@ -742,7 +742,7 @@ __meta__ = {
 
 [node name="LeftShin" type="Sprite" parent="Parts/Hip/LeftThigh"]
 position = Vector2( -2.0639, 24.7519 )
-rotation = -0.0306158
+rotation = -0.0840861
 texture = ExtResource( 9 )
 offset = Vector2( 0.136546, 15.7907 )
 hframes = 3
@@ -752,7 +752,7 @@ __meta__ = {
 
 [node name="LeftFoot" type="Sprite" parent="Parts/Hip/LeftThigh/LeftShin"]
 position = Vector2( 3.05539, 31.0347 )
-rotation = 0.0115108
+rotation = 0.0316143
 texture = ExtResource( 8 )
 offset = Vector2( -5.52564, 2.66158 )
 hframes = 3
@@ -768,7 +768,7 @@ __meta__ = {
 
 [node name="RightThigh" type="Sprite" parent="Parts/Hip"]
 position = Vector2( 7.01554, 6.59277 )
-rotation = -0.0176747
+rotation = -0.0485434
 texture = ExtResource( 7 )
 offset = Vector2( 3.32977, 11.153 )
 hframes = 3
@@ -779,7 +779,7 @@ __meta__ = {
 
 [node name="RightShin" type="Sprite" parent="Parts/Hip/RightThigh"]
 position = Vector2( 4.91949, 24.0289 )
-rotation = 0.0303094
+rotation = 0.0832445
 texture = ExtResource( 5 )
 offset = Vector2( 0.292823, 17.1195 )
 hframes = 3
@@ -789,7 +789,7 @@ __meta__ = {
 
 [node name="Mitch_right_foot" type="Sprite" parent="Parts/Hip/RightThigh/RightShin"]
 position = Vector2( -1.70338, 32.1731 )
-rotation = -0.0103489
+rotation = -0.0284232
 texture = ExtResource( 3 )
 offset = Vector2( 6.3455, 3.08642 )
 hframes = 3
@@ -804,9 +804,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/Pasted Animation" = SubResource( 2 )
-anims/hit = SubResource( 1 )
-anims/idle = SubResource( 2 )
+"anims/Pasted Animation" = SubResource( 1 )
+anims/hit = SubResource( 2 )
+anims/idle = SubResource( 1 )
 anims/stage3_idle = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-var speed = 300
+var speed = 500
 var max_health = 100
 var health = max_health
 var inv = false
