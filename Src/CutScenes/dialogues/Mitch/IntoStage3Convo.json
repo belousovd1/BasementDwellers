@@ -1,8 +1,8 @@
 [
-    {"name":"Mitch", "image": "img.png", "text": "ALRIGHT!", "time": ".15"},
-    {"name":"Mitch", "image": "img.png", "text": "You want a reall fight.", "time": ".05"},
-    {"name":"Mitch", "image": "img.png", "text": "I'll give you a real fight.", "time": ".05"},
-    {"name":"Mitch", "image": "img.png", "text": "SAGE ART!! GLENN SUMMONING STYLE.", "time": ".05"},
-    {"name":"Mitch", "image": "img.png", "text": "I SUMMON", "time": ".05"},
-    {"name":"Mitch", "image": "img.png", "text": "THE [shake rate=5 level=10][color=red]MALOCHIO![/color][/shake]", "time": ".15"}
+    {"name":"Mitch", "image": "img.png", "text": "ALRIGHT", "time": ".25"},
+    {"name":"Mitch", "image": "img.png", "text": "YOU WANT A REALL FIGHT", "time": ".05"},
+    {"name":"Mitch", "image": "img.png", "text": "I'LL GIVE YOU A REAL FIGHT", "time": ".05"},
+    {"name":"Mitch", "image": "img.png", "text": "SAGE ART!!", "time": ".05"},
+    {"name":"Mitch", "image": "img.png", "text": "GLENN SUMMONING STYLE", "time": ".05"},
+    {"name":"Mitch", "image": "img.png", "text": "I summon [shake rate=5 level=10][color=red]THE MALOCHIO![/color][/shake]", "time": ".05"}
 ]

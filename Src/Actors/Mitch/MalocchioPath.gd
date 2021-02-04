@@ -39,7 +39,18 @@ func shoot_laser():
 	$PathFollow2D/Malocchio/AnimationPlayer.play("look")
 	$PathFollow2D/Malocchio/LaserBeam/AnimationPlayer.play("firelaser")
 
+func shoot_fast_laser():
+	attacking = true
+	var line_of_sight = player.global_position - malocchio.global_position
+	var turn = line_of_sight.angle() - malocchio.global_rotation
+	malocchio.rotate(turn + PI)
+	$PathFollow2D/Malocchio/AnimationPlayer.play("look")
+	$PathFollow2D/Malocchio/LaserBeam/AnimationPlayer.play("FasterFireLaser")
 
 func stop_attacking():
 	attacking = false
 	
+func rapid_fire():
+	$Timer.set_wait_time(3)
+	$Timer.disconnect("timeout", self, "shoot_laser")
+	var _err = $Timer.connect("timeout", self, "shoot_fast_laser")

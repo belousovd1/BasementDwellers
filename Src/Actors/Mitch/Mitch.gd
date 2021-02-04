@@ -45,4 +45,5 @@ func change_stage(stage):
 	if stage == 2:
 		return 3
 
-		
+func set_better_malocchio():
+	$Stage3/MalocchioPath.rapid_fire()

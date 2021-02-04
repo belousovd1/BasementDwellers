@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Src/CutScenes/IntroMitch.gd" type="Script" id=1]
 [ext_resource path="res://Src/Actors/Mitch/Mitch.tscn" type="PackedScene" id=2]
@@ -7,53 +7,42 @@
 [ext_resource path="res://Assets/Sound/EssentialGameAudiopack/Loops/OveMelaa - Trance Bit Bit Loop.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Sound/EssentialGameAudiopack/Sound Effects/AbstractPackSFX/Files/AbstractSfx/13.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Assets/Sound/Caketown.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Shaders/CurtainColorRect.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "MitchEnter"
 length = 9.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("EnterPath/PathFollow2D/Mitch:position")
+tracks/0/path = NodePath("EnterPath/PathFollow2D/Mitch:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("EnterPath/PathFollow2D/Mitch:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0, 7, 8, 8.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 5040.0, 5040.0, 226.4 ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("EnterPath/PathFollow2D:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/path = NodePath("EnterPath/PathFollow2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 15153.0 ]
 }
-tracks/3/type = "audio"
-tracks/3/path = NodePath("Entrance")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Entrance")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "clips": [ {
 "end_offset": 4.7423,
 "start_offset": 0.0,
@@ -65,13 +54,13 @@ tracks/3/keys = {
 } ],
 "times": PoolRealArray( 0, 8 )
 }
-tracks/4/type = "method"
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 9 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -121,6 +110,36 @@ _data = {
 "points": PoolVector2Array( -79.1978, -261.962, 79.1978, 261.962, 2371.8, 528, 0, 0, 0, 0, 1642.63, 256, 103.566, 43.6603, -103.566, -43.6603, 1474.36, 1016, -216.377, 117.788, 216.377, -117.788, 1546.48, 608, 81.2285, 40.6143, -81.2285, -40.6143, 1113.78, 152, 32.4914, -6.09214, -32.4914, 6.09214, 825.322, 440, 61.9367, -83.2592, -61.9367, 83.2592, 1370.2, 520, -38.5835, -71.075, 38.5835, 71.075, 1201.93, 1120, -86.3053, 30.4607, 86.3053, -30.4607, 0, 992, -47.7218, 98.4896, 47.7218, -98.4896, 1177.89, 696, 65.9982, 23.3532, -65.9982, -23.3532, 945.515, 176, 63.9675, -14.215, -63.9675, 14.215, 607.157, 152, -152.683, 84.1586, 152.683, -84.1586, 360.578, 904, 105.82, 130.467, -105.82, -130.467, 1137.82, 920, 41.8155, 19.7039, -41.8155, -19.7039, 486.964, 104, 81.3588, -3.20639, -81.3588, 3.20639, 368.59, 64, 0, 0, 0, 0, 232.372, 136, -65.6196, -113.923, 65.6196, 113.923, -64.1027, 432, 28.2989, -130.5, -28.2989, 130.5, 1185.9, 832, 36.3974, 29.9263, -36.3974, -29.9263, 104.167, 872, -115.064, 56.8475, 115.064, -56.8475, 200.321, 304, 0, 0, 0, 0, 889.425, 596 )
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/cutoff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/cutoff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
 [node name="IntroMitch" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -142,7 +161,7 @@ anims/MitchEnter = SubResource( 1 )
 anims/Start = SubResource( 2 )
 
 [node name="Entrance" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 
 [node name="EnterPath" type="Path2D" parent="."]
 position = Vector2( 72, -56 )
@@ -155,7 +174,14 @@ rotation = 2.35618
 rotate = false
 
 [node name="Mitch" parent="EnterPath/PathFollow2D" instance=ExtResource( 2 )]
+rotation = 3.95143
 scale = Vector2( 1.8, 1.8 )
 
 [node name="DialogueST" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+
+[node name="CurtainColorRect" parent="." instance=ExtResource( 8 )]
+
+[node name="CurtainAnimationPlayer" type="AnimationPlayer" parent="CurtainColorRect"]
+anims/fade_in = SubResource( 5 )
+anims/fade_out = SubResource( 4 )

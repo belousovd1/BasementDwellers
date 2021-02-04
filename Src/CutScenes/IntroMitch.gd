@@ -17,6 +17,7 @@ func _process(_delta):
 		skip_intro()
 
 func start_Dialogue():
+	print($EnterPath/PathFollow2D/Mitch.get_global_position())
 	$EnterPath/PathFollow2D/Mitch.set_scale(Vector2(3,3))
 	$DialogueST.play()
 	var dialogue  = dialogue_sc.instance()
@@ -26,6 +27,7 @@ func start_Dialogue():
 
 func end_dialogue_ST():
 	$DialogueST.stop()
+	$CurtainColorRect/CurtainAnimationPlayer.play("fade_out")
 	yield(get_tree().create_timer(1), "timeout")
 	var _err = get_tree().change_scene("res://Src/Interface/Main.tscn")
 

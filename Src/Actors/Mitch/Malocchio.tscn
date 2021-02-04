@@ -249,10 +249,10 @@ tracks/1/keys = {
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-rotation = 0.908736
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 hframes = 2
+frame = 1
 
 [node name="LaserBeam" parent="." instance=ExtResource( 3 )]
 visible = false

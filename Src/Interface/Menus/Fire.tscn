@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Src/Interface/Menus/FireSprite.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Texture/fire5.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Texture/RadialGradient.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sound/SFX/Fire.wav" type="AudioStream" id=4]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise;
+
+void fragment(){
+	vec4 base = texture(TEXTURE, UV);
+	vec4 n = texture(noise, vec2(UV.x, UV.y + TIME));
+	
+	base.r += 0.4f - distance(vec2(0.5, UV.y), UV);
+	base.r = (base.r * 0.3) + (n.r * 0.4);
+
+	COLOR = vec4(float(base.r > 0.4), float(base.r > 0.5), float(base.r > 0.6), float(base.r > 0.4));
+	
+}"
+
+[sub_resource type="OpenSimplexNoise" id=2]
+
+[sub_resource type="NoiseTexture" id=3]
+seamless = true
+noise = SubResource( 2 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 1 )
+shader_param/noise = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+lifetime_randomness = 0.1
+emission_shape = 1
+emission_sphere_radius = 100.0
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 60.0
+gravity = Vector3( 0, 600, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 10.0
+color = Color( 2, 2, 0, 1 )
+
+[sub_resource type="MeshTexture" id=6]
+
+[node name="Fire" type="Node2D"]
+
+[node name="FireSprite" type="Sprite" parent="."]
+material = SubResource( 4 )
+scale = Vector2( 0.265625, 0.3125 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="FireSprite"]
+texture = ExtResource( 3 )
+texture_scale = 2.5
+color = Color( 1, 0.498039, 0, 1 )
+energy = 2.0
+
+[node name="Particles2D" type="Particles2D" parent="FireSprite"]
+amount = 3
+lifetime = 4.0
+explosiveness = 0.2
+process_material = SubResource( 5 )
+texture = SubResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+autoplay = true

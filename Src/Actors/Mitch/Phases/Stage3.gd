@@ -96,7 +96,7 @@ func attack3():
 		square_attack()
 	else:
 		diagonal_attack()
-	make_timer(2, "attack4")
+	make_timer(2, "emit_end_atcuPP")
 
 func attack4():
 	var random_num = rng.randf_range(-1.0, 1.0)
@@ -152,7 +152,7 @@ func attack10():
 		square_attack()
 	else:
 		diagonal_attack()
-	make_timer(2, "attack11")
+	make_timer(2, "emit_end_atc")
 
 func attack11():
 	pass

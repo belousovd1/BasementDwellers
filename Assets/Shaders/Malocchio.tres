@@ -4,7 +4,7 @@
 
 [resource]
 shader = ExtResource( 1 )
-shader_param/center = Vector2( 0.47, 0.65 )
+shader_param/center = Vector2( 0.51, 0.65 )
 shader_param/force = 0.2
-shader_param/size = 0.1
+shader_param/size = 0.85
 shader_param/thickness = 0.03
