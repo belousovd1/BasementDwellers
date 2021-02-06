@@ -39,7 +39,6 @@ func attack_boss():
 
 func attack_finished(_anm_name):
 	var damage = attack_bar.get_damage()
-	print("damage: ", damage)
 	mitch.health = mitch.health - damage
 
 	if mitch.health <= 0:
@@ -48,7 +47,7 @@ func attack_finished(_anm_name):
 		$AttackBar.queue_free()
 		start_dialog(current_stage)
 
-	if (stages.stage3 == current_stage) and mitch.health <= 50:
+	elif (stages.stage3 == current_stage) and (mitch.health > 0 and mitch.health <= 50):
 		mitch.set_better_malocchio()
 		$AttackBar.queue_free()
 		get_tree().call_group("defense", "visible")
