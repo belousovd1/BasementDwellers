@@ -10,7 +10,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	rotate(10.5 * delta)
+	rotate(8.5 * delta)
 	self.position +=  dir.normalized() * speed * delta
 
 			

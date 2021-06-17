@@ -11,8 +11,6 @@ signal laser_fired
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var _err = self.connect("laser_fired", get_node("../../../"), "stop_attacking")
-	print($"../..")
-	print($"../.." is PathFollow2D)
 
 func _process(_delta):
 	if ($"../.." is PathFollow2D):

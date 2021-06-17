@@ -17,7 +17,6 @@ func _process(_delta):
 		skip_intro()
 
 func start_Dialogue():
-	print($EnterPath/PathFollow2D/Mitch.get_global_position())
 	$EnterPath/PathFollow2D/Mitch.set_scale(Vector2(3,3))
 	$DialogueST.play()
 	var dialogue  = dialogue_sc.instance()

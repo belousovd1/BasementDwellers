@@ -29,6 +29,7 @@ _global_script_class_icons={
 config/name="BasementDwellers"
 run/main_scene="res://Src/CutScenes/Intro.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://BDTempICCON-256.ico"
 
 [audio]
 
@@ -39,6 +40,8 @@ default_bus_layout="res://Assets/Sound/default_bus_layout.tres"
 window/size/width=1920
 window/size/height=1080
 window/size/fullscreen=true
+window/size/test_width=960
+window/size/test_height=540
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -88,4 +91,5 @@ continue_dialogue={
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

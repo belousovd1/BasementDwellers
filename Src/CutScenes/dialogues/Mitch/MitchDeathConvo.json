@@ -1,17 +1,14 @@
 [
-    {"name":"TestBuddy", "image": "img.png", "text": "Damn.", "time": ".05"},
-    {"name":"TestBuddy", "image": "img.png", "text": "That's not how I inteeded for things to work out.", "time": ".05"},
-    {"name":"TestBuddy", "image": "img.png", "text": "Oh?", "time": ".5"},
-    {"name":"TestBuddy", "image": "img.png", "text": "You think you've won?", "time": ".05"},
-    {"name":"TestBuddy", "image": "img.png", "text": "HA.", "time": ".5"},
-    {"name":"TestBuddy", "image": "img.png", "text": "You're just getting started kid.", "time": ".05"},
-    {"name":"TestBuddy", "image": "img.png", "text": "I might have fallen.", "time": ".05"},
-    {"name":"TestBuddy", "image": "img.png", "text": "But you can't beat all the basement dwellers in one go.", "time": ".05"},
-    {"name":"TestBuddy", "image": "img.png", "text": "And now that you're in this basement.", "time": ".05"},
-    {"name":"TestBuddy", "image": "img.png", "text": "You can't get out, until you do.", "time": ".05"},
-    {"name":"TestBuddy", "image": "img.png", "text": "I hope you're ready, because this next guy.", "time": ".05"},
+    {"name":"TestBuddy", "image": "img.png", "text": "oohh [wave amp=50 freq=2]NOOOooooooooyoooyo[/wave]", "time": ".1"},
+    {"name":"TestBuddy", "image": "img.png", "text": "welp", "time": ".05"},
+    {"name":"TestBuddy", "image": "img.png", "text": "I hope you're ready, because the next boi.", "time": ".05"},
     {"name":"TestBuddy", "image": "img.png", "text": "Was trained by THEE Dunkey himself.", "time": ".05"},
-    {"name":"TestBuddy", "image": "img.png", "text": "I'll be seeing you soon enough, chump.", "time": ".05"}
+    {"name":"TestBuddy", "image": "img.png", "text": "But I want you to know", "time": ".05"},
+    {"name":"TestBuddy", "image": "img.png", "text": "In all the years to come", "time": ".05"},
+    {"name":"TestBuddy", "image": "img.png", "text": "In your most private moments", "time": ".05"},
+    {"name":"TestBuddy", "image": "img.png", "text": "I want you to remember", "time": ".05"},
+    {"name":"TestBuddy", "image": "img.png", "text": "You may have beaten me", "time": ".05"},
+    {"name":"TestBuddy", "image": "img.png", "text": "But you'll never beat my homemade spaghetti and meatballs", "time": ".05"}
 ]
 
 

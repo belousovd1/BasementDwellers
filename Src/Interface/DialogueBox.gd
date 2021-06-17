@@ -52,9 +52,9 @@ func write_dialogue_by_text():
 				break
 			var should_bleep
 			t.start()
-			if not in_bb_tage: $DialogueText.visible_characters += 1
 			if letter == "[":
 				 in_bb_tage = true 
+			if not in_bb_tage: $DialogueText.visible_characters += 1
 			should_bleep = determine_if_bleep(letter, in_bb_tage)
 			if should_bleep: $Bleep.play()
 			if not in_bb_tage: 

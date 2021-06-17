@@ -8,7 +8,6 @@ onready var time
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(OS.get_time())
 	window_one()
 
 func _process(delta):
@@ -16,9 +15,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		var _err = get_tree().change_scene("res://Src/Interface/Menus/MainMenu.tscn")
 
-func _exit_tree():
-	print(OS.get_time())
-	print(time)
 
 func window_one():
 	tie.reset()
@@ -135,7 +131,6 @@ func next_fnc():
 	yield(get_tree().create_timer(5.0), "timeout")
 	$AudioStreamPlayer.stop()
 	var _err = get_tree().change_scene("res://Src/Interface/Menus/MainMenu.tscn")
-	print("done")
 			
 		
 

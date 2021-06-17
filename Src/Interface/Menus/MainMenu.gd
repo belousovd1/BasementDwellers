@@ -15,7 +15,6 @@ func _process(_delta):
 	pass
 
 func _on_Start_pressed():
-	print("start button pressed")
 	var _err = get_tree().change_scene("res://Src/CutScenes/IntroMitch.tscn")
 
 func _on_Load_pressed():

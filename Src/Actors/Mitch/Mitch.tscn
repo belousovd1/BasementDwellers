@@ -318,18 +318,19 @@ tracks/24/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-length = 1.7
+length = 2.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Parts:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5, 0.6, 0.8, 0.9, 1, 1.2, 1.3, 1.4, 1.6, 1.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.05, 0.1, 0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.706262, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 5, 0 ), Vector2( -5, 0 ), Vector2( 0, 0 ), Vector2( 5, 0 ), Vector2( -5, 0 ), Vector2( 0, 0 ), Vector2( 5, 0 ), Vector2( -5, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 5, 0 ), Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 5, 0 ), Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 0, 0 ), Vector2( 5, 0 ), Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 0, 0 ), Vector2( 5, 0 ), Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 0, 0 ), Vector2( 5, 0 ), Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Parts/Hip/Torso/Head:frame")
@@ -345,15 +346,15 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Hit:frame")
-tracks/2/interp = 1
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.02, 0.05, 0.11, 0.18, 0.26, 0.52, 0.68, 0.81, 0.94, 1.05, 1.17, 1.21, 1.25, 1.28 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.554785, 1, 0.210224, 0.31864, 1 ),
 "update": 1,
-"values": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
+"values": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Hit:visible")
@@ -362,7 +363,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.9 ),
+"times": PoolRealArray( 0, 1.47 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -379,7 +380,7 @@ tracks/4/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 12 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0.09 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -706,7 +707,7 @@ __meta__ = {
 }
 
 [node name="Torso" type="Sprite" parent="Parts/Hip"]
-position = Vector2( -0.167246, -2.94564 )
+position = Vector2( -0.167246, -3.53803 )
 texture = ExtResource( 1 )
 offset = Vector2( 3.53367, -27.3458 )
 hframes = 3
@@ -719,6 +720,7 @@ position = Vector2( 0.850121, -60.9736 )
 texture = ExtResource( 4 )
 offset = Vector2( -0.419211, -13.2508 )
 hframes = 3
+frame = 2
 __meta__ = {
 "_edit_bone_": true
 }
@@ -731,7 +733,6 @@ __meta__ = {
 
 [node name="LeftThigh" type="Sprite" parent="Parts/Hip"]
 position = Vector2( -5.73454, 6.10409 )
-rotation = 0.0480227
 texture = ExtResource( 10 )
 offset = Vector2( -1.45352, 11.5129 )
 hframes = 3
@@ -742,7 +743,6 @@ __meta__ = {
 
 [node name="LeftShin" type="Sprite" parent="Parts/Hip/LeftThigh"]
 position = Vector2( -2.0639, 24.7519 )
-rotation = -0.0840861
 texture = ExtResource( 9 )
 offset = Vector2( 0.136546, 15.7907 )
 hframes = 3
@@ -752,7 +752,6 @@ __meta__ = {
 
 [node name="LeftFoot" type="Sprite" parent="Parts/Hip/LeftThigh/LeftShin"]
 position = Vector2( 3.05539, 31.0347 )
-rotation = 0.0316143
 texture = ExtResource( 8 )
 offset = Vector2( -5.52564, 2.66158 )
 hframes = 3
@@ -768,7 +767,6 @@ __meta__ = {
 
 [node name="RightThigh" type="Sprite" parent="Parts/Hip"]
 position = Vector2( 7.01554, 6.59277 )
-rotation = -0.0485434
 texture = ExtResource( 7 )
 offset = Vector2( 3.32977, 11.153 )
 hframes = 3
@@ -779,7 +777,6 @@ __meta__ = {
 
 [node name="RightShin" type="Sprite" parent="Parts/Hip/RightThigh"]
 position = Vector2( 4.91949, 24.0289 )
-rotation = 0.0832445
 texture = ExtResource( 5 )
 offset = Vector2( 0.292823, 17.1195 )
 hframes = 3
@@ -789,7 +786,6 @@ __meta__ = {
 
 [node name="Mitch_right_foot" type="Sprite" parent="Parts/Hip/RightThigh/RightShin"]
 position = Vector2( -1.70338, 32.1731 )
-rotation = -0.0284232
 texture = ExtResource( 3 )
 offset = Vector2( 6.3455, 3.08642 )
 hframes = 3
@@ -811,6 +807,7 @@ anims/stage3_idle = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+volume_db = -7.0
 
 [node name="Hit" type="Sprite" parent="."]
 visible = false
@@ -819,4 +816,4 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )
 vframes = 4
 hframes = 4
-frame = 15
+frame = 12
