@@ -9,14 +9,14 @@ resource_name = "shockwave"
 length = 1.25
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("ColorRect:material:shader_param/size")
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 0.01, 1.0 ]
 }
@@ -36,7 +36,7 @@ tracks/1/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 3 )
 } ],
-"times": PoolRealArray( 0, 5.5 )
+"times": PackedFloat32Array( 0, 5.5 )
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]

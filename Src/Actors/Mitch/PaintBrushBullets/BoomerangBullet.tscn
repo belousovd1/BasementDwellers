@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/Sprites/Mitch/Attacks/PaintBrush.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Mitch/Attacks/PaintBrush.png" type="Texture2D" id=1]
 [ext_resource path="res://Src/Actors/Mitch/PaintBrushBullets/BoomerangBullet.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sound/SFX/swish8mod.wav" type="AudioStream" id=3]
 
@@ -11,7 +11,7 @@ extents = Vector2( 58, 12 )
 collision_layer = 4
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2( -24, 0 )
 rotation = 0.820305
 scale = Vector2( 1.53646, 1.68229 )
@@ -21,7 +21,7 @@ texture = ExtResource( 1 )
 position = Vector2( -12, 0 )
 shape = SubResource( 1 )
 
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2( 0, -5.96046e-08 )
 scale = Vector2( 0.9, 0.85 )
 
@@ -29,4 +29,4 @@ scale = Vector2( 0.9, 0.85 )
 stream = ExtResource( 3 )
 volume_db = -15.846
 autoplay = true
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

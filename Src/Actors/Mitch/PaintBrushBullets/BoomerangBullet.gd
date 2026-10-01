@@ -1,9 +1,9 @@
 extends "res://Src/objects/Projectiles.gd"
 
 
-onready var speed = 300
+@onready var speed = 300
 var dir = Vector2.ZERO
-onready var vis_nod = $VisibilityNotifier2D
+@onready var vis_nod = $VisibleOnScreenNotifier2D
 
 func _ready():
 	pass

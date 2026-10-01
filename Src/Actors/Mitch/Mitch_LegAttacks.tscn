@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/Actors/Mitch/Mitch_LegAttacks.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/Mitch/Attacks/M_RightattackLeg.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Mitch/Attacks/M_RightattackLeg.png" type="Texture2D" id=2]
 [ext_resource path="res://Src/Actors/Mitch/LeftLeg.gd" type="Script" id=3]
 [ext_resource path="res://Src/Actors/Mitch/RightLeg.gd" type="Script" id=4]
 
@@ -16,8 +16,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5, 0.7 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ -180.0, -315.0, -180.0 ]
 }
@@ -28,8 +28,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5, 1 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ 180.0, 180.0, 315.0 ]
 }
@@ -44,8 +44,8 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.75, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.75, 1.2 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ -180.0, -315.0, -180.0 ]
 }
@@ -56,8 +56,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.75, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.75, 1.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ 180.0, 180.0, 315.0 ]
 }
@@ -75,13 +75,13 @@ scale = Vector2( 2, 2 )
 collision_layer = 4
 script = ExtResource( 4 )
 
-[node name="M_RightAttackLeg" type="Sprite" parent="RightLeg"]
+[node name="M_RightAttackLeg" type="Sprite2D" parent="RightLeg"]
 position = Vector2( 53.5002, 71.9999 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightLeg"]
 position = Vector2( 12, 72 )
-polygon = PoolVector2Array( -12, 48, -8, 32, -4, 20, -4, 8, -4, -8, 4, -20, 8, -32, 12, -44, 4, -64, -3.8147e-06, -68, -12, -76, -16, -76, -16, -60, -16, -56, -20, -52, -24, -44, -24, -16, -20, -8, -20, -4, -20, 1.74846e-06, -20, 12, -20, 16, -20, 52, -36, 64, -32, 68, -20, 60, -7.99999, 60 )
+polygon = PackedVector2Array( -12, 48, -8, 32, -4, 20, -4, 8, -4, -8, 4, -20, 8, -32, 12, -44, 4, -64, -3.8147e-06, -68, -12, -76, -16, -76, -16, -60, -16, -56, -20, -52, -24, -44, -24, -16, -20, -8, -20, -4, -20, 1.74846e-06, -20, 12, -20, 16, -20, 52, -36, 64, -32, 68, -20, 60, -7.99999, 60 )
 
 [node name="LeftLeg" type="Area2D" parent="."]
 position = Vector2( -275, 0 )
@@ -90,14 +90,14 @@ scale = Vector2( 2, 2 )
 collision_layer = 4
 script = ExtResource( 3 )
 
-[node name="M_LeftAttackLeg2" type="Sprite" parent="LeftLeg"]
+[node name="M_LeftAttackLeg2" type="Sprite2D" parent="LeftLeg"]
 position = Vector2( -53.5002, 75.9999 )
 texture = ExtResource( 2 )
 flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftLeg"]
 position = Vector2( -12, 76 )
-polygon = PoolVector2Array( 12, 32, 12, 52, 7.99999, 56, 7.99999, 60, 20, 60, 32, 68, 36, 64, 20, 52, 20, 1.74846e-06, 20, -12, 24, -20, 24, -40, 16, -56, 16, -76, 12, -76, -4, -68, -12, -44, -8, -24, 4, -4, 4, 8, 4, 20, 8, 32 )
+polygon = PackedVector2Array( 12, 32, 12, 52, 7.99999, 56, 7.99999, 60, 20, 60, 32, 68, 36, 64, 20, 52, 20, 1.74846e-06, 20, -12, 24, -20, 24, -40, 16, -56, 16, -76, 12, -76, -4, -68, -12, -44, -8, -24, 4, -4, 4, 8, 4, 20, 8, 32 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/Adv Alternating kicks" = SubResource( 1 )

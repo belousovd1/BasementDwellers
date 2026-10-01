@@ -1,8 +1,8 @@
 extends Node2D
 
-onready var speed = 200
+@onready var speed = 200
 var dir = Vector2.ZERO
-onready var boomerangs = get_children()
+@onready var boomerangs = get_children()
 var removed_index
 
 

@@ -19,4 +19,4 @@ func _on_HSlider_value_changed(value):
 
 
 func _on_Back_pressed():
-	var _err = get_tree().change_scene("res://Src/Interface/Menus/MainMenu.tscn")
+	var _err = get_tree().change_scene_to_file("res://Src/Interface/Menus/MainMenu.tscn")

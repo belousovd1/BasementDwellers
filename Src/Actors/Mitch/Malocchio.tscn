@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Assets/Sprites/Mitch/Attacks/MalocchioSpriteSheet(1).png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Mitch/Attacks/MalocchioSpriteSheet(1).png" type="Texture2D" id=1]
 [ext_resource path="res://Src/Actors/Mitch/Malocchio.gd" type="Script" id=2]
 [ext_resource path="res://Src/objects/LaserBeam.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Texture/NewMalPort.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Texture/NewMalPort.png" type="Texture2D" id=4]
 [ext_resource path="res://Assets/Sound/SFX/Mitch SFX/MalocchioPortalSFX.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Sound/EssentialGameAudiopack/Sound Effects/AbstractPackSFX/Files/AbstractSfx/42.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Assets/Shaders/Malocchio.tres" type="Material" id=7]
@@ -12,14 +12,14 @@
 [sub_resource type="Animation" id=1]
 resource_name = "float"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ 1 ]
 }
@@ -27,14 +27,14 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=2]
 resource_name = "look"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ 0 ]
 }
@@ -42,14 +42,14 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=3]
 length = 15.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:visible")
+tracks/0/path = NodePath("Sprite2D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
@@ -60,8 +60,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ false ]
 }
@@ -72,8 +72,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 4.9, 10.2, 12.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 4.9, 10.2, 12.6 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, true, false ]
 }
@@ -97,41 +97,41 @@ tracks/3/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 6 )
 } ],
-"times": PoolRealArray( 4.9, 9.5, 14.1 )
+"times": PackedFloat32Array( 4.9, 9.5, 14.1 )
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:self_modulate")
+tracks/4/path = NodePath("Sprite2D:self_modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 5, 12 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 5, 12 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Sprite:frame")
+tracks/5/path = NodePath("Sprite2D:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 4.8, 14 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 4.8, 14 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ 0, 1 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Sprite:rotation_degrees")
+tracks/6/path = NodePath("Sprite2D:rotation_degrees")
 tracks/6/interp = 2
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 5, 12 ),
-"transitions": PoolRealArray( 1, 9.18959 ),
+"times": PackedFloat32Array( 5, 12 ),
+"transitions": PackedFloat32Array( 1, 9.18959 ),
 "update": 0,
 "values": [ 0.0, 2160.0 ]
 }
@@ -142,8 +142,8 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 12.6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 12.6 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "values": [ {
 "args": [ "shockwave", -1, 1.0, false ],
 "method": "play"
@@ -159,8 +159,8 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"clips": PoolStringArray( "shockwave", "[stop]" ),
-"times": PoolRealArray( -0.1, 12.6 )
+"clips": PackedStringArray( "shockwave", "[stop]" ),
+"times": PackedFloat32Array( -0.1, 12.6 )
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("CanvasLayer/ColorRect:visible")
@@ -169,8 +169,8 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 12.7 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 12.7 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
@@ -181,8 +181,8 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 14.9 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 14.9 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [  ],
 "method": "queue_free"
@@ -202,7 +202,7 @@ _data = [ Vector2( 0.0107527, 1 ), 0.0, -0.0874609, 0, 0, Vector2( 1, 0.445455 )
 [sub_resource type="CurveTexture" id=6]
 curve = SubResource( 5 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticleProcessMaterial" id=7]
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 angular_velocity = -200.0
@@ -219,14 +219,14 @@ resource_name = "shockwave"
 length = 1.25
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("ColorRect:material:shader_param/size")
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.2 ]
 }
@@ -242,13 +242,13 @@ tracks/1/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 8 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PackedFloat32Array( 0 )
 }
 
 [node name="Malocchio" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 hframes = 2
@@ -264,7 +264,7 @@ anims/float = SubResource( 1 )
 anims/look = SubResource( 2 )
 anims/summon = SubResource( 3 )
 
-[node name="SummonParticles" type="Particles2D" parent="."]
+[node name="SummonParticles" type="GPUParticles2D" parent="."]
 visible = false
 self_modulate = Color( 0.29, 0.19662, 0.0464, 1 )
 material = SubResource( 4 )

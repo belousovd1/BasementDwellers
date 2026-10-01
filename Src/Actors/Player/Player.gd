@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 
 var speed = 500
@@ -74,10 +74,12 @@ func player_movement():
 	else:
 		velocity = Vector2.ZERO
 
-	var _velocity = move_and_slide(velocity)
+	set_velocity(velocity)
+	move_and_slide()
+	var _velocity = velocity
 
 func invisible():
 	visible = false
 
-func visible():
+func make_visible():
 	visible = true

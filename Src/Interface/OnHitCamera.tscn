@@ -2,9 +2,13 @@
 
 [ext_resource path="res://Src/Interface/HitCamera.gd" type="Script" id=1]
 
-[sub_resource type="OpenSimplexNoise" id=1]
+[sub_resource type="FastNoiseLite" id=1]
+noise_type = 1
+frequency = 0.015625
+fractal_octaves = 3
 
 [node name="OnHitCamera" type="Camera2D"]
+enabled = false
 position = Vector2( 537, 300 )
 script = ExtResource( 1 )
 noise = SubResource( 1 )

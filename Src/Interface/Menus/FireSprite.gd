@@ -1,6 +1,6 @@
-extends Sprite
+extends Sprite2D
 var time = 0
-onready var n = (get_material().get_shader_param("noise") as NoiseTexture)
+@onready var n = (get_material().get_shader_parameter("noise") as NoiseTexture2D)
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -16,4 +16,4 @@ func _ready():
 func _process(delta):
 	time += delta * 75
 	var offset = n.noise.get_noise_1d(time)
-	$Light2D.scale = Vector2(2 + offset/2, 2 + offset/2)
+	$PointLight2D.scale = Vector2(2 + offset/2, 2 + offset/2)

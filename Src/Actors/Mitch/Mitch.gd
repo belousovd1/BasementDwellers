@@ -1,11 +1,11 @@
 extends Node2D
 
 
-onready var stage1_sc = preload("res://Src/Actors/Mitch/Phases/Stage1.tscn")
-onready var stage2_sc = preload("res://Src/Actors/Mitch/Phases/Stage2.tscn")
-onready var stage3_sc = preload("res://Src/Actors/Mitch/Phases/Stage3.tscn")
+@onready var stage1_sc = preload("res://Src/Actors/Mitch/Phases/Stage1.tscn")
+@onready var stage2_sc = preload("res://Src/Actors/Mitch/Phases/Stage2.tscn")
+@onready var stage3_sc = preload("res://Src/Actors/Mitch/Phases/Stage3.tscn")
 var health = 100
-onready var current_stage = null
+@onready var current_stage = null
 
 
 func _ready():
@@ -15,15 +15,15 @@ func _process(_delta):
 	pass
 
 func intiate_stage1():
-	var stage1 = stage1_sc.instance()
+	var stage1 = stage1_sc.instantiate()
 	add_child(stage1)
 
 func intiate_stage2():
-	var stage2 = stage2_sc.instance()
+	var stage2 = stage2_sc.instantiate()
 	add_child(stage2)
 
 func intiate_stage3():
-	var stage3 = stage3_sc.instance()
+	var stage3 = stage3_sc.instantiate()
 	add_child(stage3)
 	$AnimationPlayer.play("stage3_idle")
 

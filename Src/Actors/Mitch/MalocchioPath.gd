@@ -3,17 +3,20 @@ extends Path2D
 
 # Declare member variables here. Examples:
 # var a = 2
-onready var path = $PathFollow2D
+@onready var path = $PathFollow2D
 var speed = 400
-var noise = OpenSimplexNoise.new()
+var noise = FastNoiseLite.new()
 var time = 0
-onready var malocchio = $PathFollow2D/Malocchio
-onready var player = $"../../../Player"
+@onready var malocchio = $PathFollow2D/Malocchio
+@onready var player = $"../../../Player"
 var attacking = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	# Match Godot 3 OpenSimplexNoise defaults
+	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
+	noise.frequency = 1.0 / 64.0
+	noise.fractal_octaves = 3
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -27,7 +30,7 @@ func follow_path(delta):
 	$PathFollow2D/Malocchio/AnimationPlayer.play("float")
 	var max_dis = 50
 	malocchio.rotate(3.5 * delta)
-	path.set_offset(path.get_offset() + delta * speed)
+	path.progress += delta * speed
 	path.v_offset = noise.get_noise_1d(delta * 20) * max_dis
 
 
@@ -52,5 +55,5 @@ func stop_attacking():
 	
 func rapid_fire():
 	$Timer.set_wait_time(3)
-	$Timer.disconnect("timeout", self, "shoot_laser")
-	var _err = $Timer.connect("timeout", self, "shoot_fast_laser")
+	$Timer.disconnect("timeout", Callable(self, "shoot_laser"))
+	var _err = $Timer.connect("timeout", Callable(self, "shoot_fast_laser"))
