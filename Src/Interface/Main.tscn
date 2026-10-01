@@ -8,7 +8,6 @@
 [ext_resource path="res://Src/Interface/OnHitCamera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/objects/BattleArea/BattleSquare.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Sound/MitchSoundTrack.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Src/objects/BattleArea/BattleSquare.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Shaders/CurtainColorRect.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Shaders/ShockWave.gdshader" type="Shader" id=11]
 
@@ -45,7 +44,6 @@ scale = Vector2( 1.8, 1.8 )
 ] instance=ExtResource( 7 )]
 position = Vector2( 960, 800 )
 scale = Vector2( 1.8, 1.8 )
-script = ExtResource( 9 )
 
 [node name="Player" parent="." groups=[
 "defense",

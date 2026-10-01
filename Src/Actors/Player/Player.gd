@@ -78,8 +78,3 @@ func player_movement():
 	move_and_slide()
 	var _velocity = velocity
 
-func invisible():
-	visible = false
-
-func make_visible():
-	visible = true

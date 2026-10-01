@@ -33,7 +33,7 @@ func _on_Player_dead():
 
 
 func attack_boss():
-	get_tree().call_group("defense", "invisible")
+	get_tree().call_group("defense", "hide")
 	attack_bar = attack_bar_sc.instantiate()
 	add_child(attack_bar)
 	attack_bar.position = Vector2(960, 800)
@@ -47,7 +47,7 @@ func attack_finished(_anm_name):
 	mitch.health = mitch.health - damage
 
 	if mitch.health <= 0 and not(current_stage == stages.defeated):
-		get_tree().call_group("defense", "invisible")
+		get_tree().call_group("defense", "hide")
 		$Mitch/AnimationPlayer.play("idle")
 		$AttackBar.queue_free()
 		$Mitch/AnimationPlayer.disconnect("animation_finished", Callable(self, "attack_finished"))
@@ -57,7 +57,7 @@ func attack_finished(_anm_name):
 		mitch.set_better_malocchio()
 		$AttackBar.queue_free()
 		$Mitch/AnimationPlayer.disconnect("animation_finished", Callable(self, "attack_finished"))
-		get_tree().call_group("defense", "make_visible")
+		get_tree().call_group("defense", "show")
 		emit_signal("boss_turn_resumed")
 		$Mitch/AnimationPlayer.play("idle")
 		$Mitch/Stage3/MalocchioPath/Timer.start()
@@ -65,7 +65,7 @@ func attack_finished(_anm_name):
 	else:
 		$AttackBar.queue_free()
 		$Mitch/AnimationPlayer.disconnect("animation_finished", Callable(self, "attack_finished"))
-		get_tree().call_group("defense", "make_visible")
+		get_tree().call_group("defense", "show")
 		emit_signal("boss_turn_resumed")
 		$Mitch/AnimationPlayer.play("idle")
 
@@ -104,7 +104,7 @@ func start_dialog(stage):
 	if stage == 2:
 		mitch.set_scale(Vector2(3,3))
 		mitch.set_global_position(Vector2(950, 535))
-		get_tree().call_group("defense", "invisible")
+		get_tree().call_group("defense", "hide")
 		$Mitch/Stage3.queue_free()
 		$AudioStreamPlayer.stop()
 		dialog.get_node("DialogueBox").dialogue_file_path = "res://Src/CutScenes/dialogues/Mitch/MitchDeathConvo.json"
@@ -135,7 +135,7 @@ func manage_new_stage():
 		await $CurtainColorRect/AnimationPlayer.animation_finished
 		mitch.set_scale(Vector2(1.8,1.8))
 		mitch.set_global_position(Vector2(960, 336))
-		get_tree().call_group("defense", "make_visible")
+		get_tree().call_group("defense", "show")
 		await get_tree().create_timer(2).timeout
 		current_stage = mitch.change_stage(current_stage)
 		stage_connect(current_stage)
