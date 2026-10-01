@@ -39,8 +39,8 @@ initial_velocity_min = 500.0
 initial_velocity_max = 1000.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-scale_min = 10.0
-scale_max = 10.0
+scale_min = 0.18
+scale_max = 0.18
 lifetime_randomness = 0.1
 emission_shape = 1
 emission_sphere_radius = 100.0
@@ -50,7 +50,8 @@ spread = 60.0
 gravity = Vector3( 0, 600, 0 )
 color = Color( 2, 2, 0, 1 )
 
-[sub_resource type="MeshTexture" id=6]
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 1
 
 [node name="Fire" type="Node2D"]
 
@@ -68,14 +69,15 @@ color = Color( 1, 0.498039, 0, 1 )
 energy = 2.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="FireSprite"]
+texture_filter = 2
+material = SubResource( 7 )
 local_coords = true
 amount = 3
 lifetime = 4.0
 explosiveness = 0.2
 process_material = SubResource( 5 )
-texture = SubResource( 6 )
+texture = ExtResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -10.0
 autoplay = true

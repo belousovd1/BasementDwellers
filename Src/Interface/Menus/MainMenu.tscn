@@ -21,7 +21,7 @@
 length = 2.0
 
 [sub_resource type="Environment" id=2]
-background_mode = 4
+background_mode = 3
 glow_enabled = true
 
 [sub_resource type="Animation" id=3]
@@ -49,7 +49,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array( 0, 2, 4 ),
 "transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("../TextureRect2:modulate")
