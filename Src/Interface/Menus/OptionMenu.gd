@@ -1,22 +1,13 @@
 extends Control
+## Volume settings. The first slider sets the Master bus volume in dB; the
+## sound-effects slider is not hooked up yet.
+
+const MAIN_MENU := "res://Src/Interface/Menus/MainMenu.tscn"
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func _on_HSlider_value_changed(volume_db: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume_db)
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-func _on_HSlider_value_changed(value):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
-
-
-func _on_Back_pressed():
-	var _err = get_tree().change_scene_to_file("res://Src/Interface/Menus/MainMenu.tscn")
+func _on_Back_pressed() -> void:
+	get_tree().change_scene_to_file(MAIN_MENU)

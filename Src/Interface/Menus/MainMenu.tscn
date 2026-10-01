@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Src/Interface/Menus/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://Src/Interface/Menus/LoadButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Interface/Menus/MenuButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Interface/Menus/Fire.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Texture/basement_menu_collapsed - Copy(1).png" type="Texture2D" id=5]
 [ext_resource path="res://Assets/Sound/OST/Main MenuOST .ogg" type="AudioStream" id=6]
@@ -9,9 +9,6 @@
 [ext_resource path="res://Assets/Texture/TItle Text.png" type="Texture2D" id=8]
 [ext_resource path="res://Assets/Sprites/trash_bin_front.png" type="Texture2D" id=9]
 [ext_resource path="res://Assets/Sprites/trash_bin_back.png" type="Texture2D" id=13]
-[ext_resource path="res://Src/Interface/Menus/QuitMenuButton.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Src/Interface/Menus/OptionsMenuButton.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Src/Interface/Menus/StartMenuButton.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=1]
 length = 2.0
@@ -152,22 +149,25 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Start" parent="VBoxContainer" instance=ExtResource( 16 )]
+[node name="Start" parent="VBoxContainer" instance=ExtResource( 3 )]
+label = "Start"
 offset_right = 376.0
 offset_bottom = 90.0
 
-[node name="LoadButton" parent="VBoxContainer" instance=ExtResource( 3 )]
+[node name="Load" parent="VBoxContainer" instance=ExtResource( 3 )]
+label = "Load"
 offset_top = 130.0
 offset_right = 376.0
 offset_bottom = 220.0
 
-[node name="Options" parent="VBoxContainer" instance=ExtResource( 15 )]
+[node name="Options" parent="VBoxContainer" instance=ExtResource( 3 )]
+label = "Options"
 offset_top = 260.0
 offset_right = 376.0
 offset_bottom = 350.0
-align = 1
 
-[node name="Quit" parent="VBoxContainer" instance=ExtResource( 14 )]
+[node name="Quit" parent="VBoxContainer" instance=ExtResource( 3 )]
+label = "Quit"
 offset_top = 390.0
 offset_right = 376.0
 offset_bottom = 480.0

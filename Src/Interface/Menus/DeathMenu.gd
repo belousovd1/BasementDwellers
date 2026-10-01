@@ -1,20 +1,13 @@
 extends Control
+## Shown when the player dies; ToBeContinued.tscn reuses it after a win.
+## Restart goes straight back into the fight.
+
+const FIGHT_SCENE := "res://Src/Interface/Main.tscn"
 
 
-@onready var quit = $Quit
-@onready var restart = $Restart
+func _on_Restart_pressed() -> void:
+	get_tree().change_scene_to_file(FIGHT_SCENE)
 
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-func _on_Restart_pressed():
-	get_tree().change_scene_to_file("res://Src/Interface/Main.tscn")
-
-func _on_Quit_pressed():
+func _on_Quit_pressed() -> void:
 	get_tree().quit()

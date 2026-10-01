@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/text/MainMenuButtons.tres" type="FontVariation" id=1]
-[ext_resource path="res://Src/Interface/Menus/Button.gd" type="Script" id=2]
+[ext_resource path="res://Src/Interface/Menus/MenuButton.gd" type="Script" id=2]
 
 [node name="MenuButton" type="Button"]
 offset_right = 384.0
