@@ -19,7 +19,7 @@ func resume() -> void:
 	await wait(2)
 	_drop_pair()
 	await wait(2)
-	for i in 3:
+	for _round in 3:
 		for gap in 3:
 			spawn_boomerang_row(gap)
 			await wait(1)

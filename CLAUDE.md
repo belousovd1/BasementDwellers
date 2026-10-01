@@ -23,7 +23,8 @@ BasementDwellers is a small Godot game made for friends: a bullet-hell style bos
 - The black combat background comes from `default_clear_color`. Main's background ColorRect runs the shockwave shader, which samples the screen.
 - Most `.tscn` files are still in the old text format (numeric `id=` values). Godot rewrites a file in the new format when you save it in the editor; both formats load fine.
 - `.godot/` (Godot 4 cache) and `.import/` (old Godot 3 cache) are gitignored.
-- There are no automated tests. To check changes headlessly, use the console binary: `Godot_v4.7.2-stable_win64_console.exe --headless --path . <scene.tscn> --quit-after <frames>` runs a scene and prints script errors. Driving the fight end to end needs a throwaway `extends SceneTree` script run with `-s`. It should press `ui_accept` (via `Input.action_press`) for the attack bar and dialogue.
+- There are no automated tests. To check changes headlessly, use the console binary: `Godot_v4.7.2-stable_win64_console.exe --headless --path . <scene.tscn> --quit-after <frames>` runs a scene and prints script errors. Run `--headless --import` first after adding a `class_name`, so it is registered.
+- Driving the fight end to end needs a throwaway `extends SceneTree` script run with `-s` and `--fixed-fps 60`, which makes runs deterministic. Inject `ui_accept` from a `process_frame` handler with `Input.parse_input_event` followed by `Input.flush_buffered_events()`. That is how real input arrives, at the start of a frame, and it reaches both polling code and `_unhandled_input`.
 - `Assets/PracAnim/ShaderTester.tscn` references a missing `boyz.png`. This was already broken in Godot 3, and the scene is scratch.
 
 ## Scene flow
@@ -32,35 +33,38 @@ BasementDwellers is a small Godot game made for friends: a bullet-hell style bos
 
 Scenes switch with `get_tree().change_scene_to_file(...)` and hard-coded `res://` paths. Moving or renaming a scene file means updating those string literals.
 
-## Boss fight architecture (`Src/Interface/Main.gd`)
+## Boss fight architecture
 
-`Main.gd` is the fight's state machine. It works together with `Src/Actors/Mitch/Mitch.gd` and the stage scripts in `Src/Actors/Mitch/Phases/Stage{1,2,3}.gd`.
+`Src/Interface/Main.gd` runs the fight as a few coroutines; `Src/Actors/Mitch/Mitch.gd` owns the boss's health and his active stage.
 
-1. **Starting a stage.** `Main` holds `current_stage` (the `stages` enum: 0–2, plus 3 = defeated). Mitch instances the matching `Stage*.tscn` as a child (`intiate_stage1/2/3`, spelled that way in the code).
-2. **Stage attack script.** Each Stage node runs a scripted attack sequence. It spawns projectiles (paintbrush boomerangs, Malocchio, legs, lasers), chains steps with `make_timer(wait, "next_method_name")` and `yield` timers, then emits `done_attacking`. In `_ready` the stage connects that signal to `$"../../"` (Main) `attack_boss`.
-3. **Player's turn.** `attack_boss()` hides the `"defense"` group and spawns the `AttackBar` minigame. Mitch's `AnimationPlayer` `animation_finished` ends up calling `Main.attack_finished`, which applies `attack_bar.get_damage()` to `mitch.health`.
-4. **Back to the boss.** If Mitch survives, Main emits the `boss_turn_resumed` signal. `stage_connect()` has wired that signal to a re-entry method on the current stage, so the attack loop resumes partway through the sequence: `Stage1.attack4`, `Stage2.attack1`, `Stage3.attack2`. Stage 3 also switches to `set_better_malocchio()` once health is at or below 50.
-5. **Stage defeated.** When health reaches 0 or below, `start_dialog(stage)` instances `DialogueBox.tscn` with a JSON script. Its `finish` signal calls `manage_new_stage()`, which plays the curtain transition, calls `mitch.change_stage()`, rewires signals with `stage_connect`, and resets health to 100. After stage 3 it plays the death sequence instead.
+1. **Stages.** `Mitch.start_stage(index)` instances `Phases/Stage{1,2,3}.tscn` as his child, resets his health and forwards the stage's `attacks_finished` signal. Every stage extends `Phases/BossStage.gd` (`class_name BossStage`):
+   - `start()` is the opening and `resume()` is one round of attacks. Both are linear coroutines that use `await wait(seconds)` and end with `attacks_finished.emit()`.
+   - Use `wait()`, not `get_tree().create_timer()`. Its Timer is a child of the stage, so a freed stage drops the sequence cleanly.
+   - Spawn with `spawn_boomerang`, `spawn_boomerang_row`, `spawn_boomerang_sweep` and `spawn_leg_attack`. Projectiles are configured before `add_child` and live in Mitch's coordinate space, because the stage is his child.
+2. **Player's turn.** `Main._player_turn()` hides the `"defense"` group and calls `stage.on_player_turn_started()`. It then spawns `AttackBar` and awaits its `struck(damage)` signal, awaits `mitch.play_hit()`, and applies the damage.
+3. **After the turn.** If Mitch survives, Main calls `stage.on_player_turn_ended(health)` and then `stage.resume()`. Stage 3 uses `on_player_turn_ended` to make Malocchio fire faster at 50 health or less.
+4. **Stage beaten.** `_end_stage()` plays the dialogue from `STAGE_END_DIALOGUES`. Then `_next_stage()` runs the curtain transition and the next stage, or `_mitch_dies()` plays the ending.
 
-Signal wiring is done by hand and is order-sensitive. Every `connect` has a matching `disconnect` (in `stage_connect`, in `attack_finished`, and on the curtain `AnimationPlayer` in `fade_in`). Keep those pairs balanced when you edit the flow.
+**Node groups:**
+- `"defense"` (Player, BattleSquare): hidden and shown with the built-in `hide`/`show` around the player's turn.
+- `"environment"`: freed when the player dies.
+- `"player"`: lets Malocchio find the player without node paths.
 
-**Node groups** (assigned in `Main.tscn`) are used for broadcast calls:
-- `"defense"` (Player, BattleSquare): `call_group(..., "invisible"/"make_visible")` (a method named `visible()` would clash with the Godot 4 property) toggles the dodge arena between the boss turn and the player turn.
-- `"environment"`: `queue_free`'d on player death.
-- `"everything_but_fire"`: used by the main menu.
-
-Any node in these groups must implement the methods that get broadcast to them.
-
-**Player** (`Src/Actors/Player/Player.gd`): its `ProjectileDetector` area reads `area.damage` from whatever hits it. Projectiles therefore need a `damage` property; see `Src/objects/Projectiles.gd` (`class_name Projectiles`). Hits emit `player_hit` to Main, which handles screen shake via `OnHitCamera` and updates the UI.
+**Damage:** `Player.take_hit(damage)` is the only way to hurt the player, and it respects the invincibility timer.
+- Projectiles extend `Src/objects/Projectile.gd` (`class_name Projectile`, with a `damage` export) and sit on the "Projectiles" layer, which `ProjectileDetector` watches.
+- Malocchio's laser calls `take_hit` on whatever its RayCast2D touches.
+- The player emits `hit(health)`, which Main uses for camera shake and the HUD, and `died`.
 
 ## Dialogue and cutscenes
 
-- **In-fight dialogue:** `Src/Interface/DialogueBox.gd` (`class_name DialogueBox`) loads a JSON array from `Src/CutScenes/dialogues/Mitch/*.json`. Each entry has the shape `{"name", "image", "text", "time"}`:
+- **Dialogue:** `Src/Interface/DialogueBox.tscn` (`class_name DialogueBox` on the root). Set `dialogue_path`, `add_child` it, and `await dialogue.finished`. It frees itself afterwards. The JSON is an array of `{"name", "image", "text", "time"}` entries:
   - `text` may contain BBCode;
-  - `time` is the per-character reveal delay, stored as a string.
+  - `time` is the per-letter delay in seconds, stored as a string;
+  - `image` is unused.
 
-  `ui_accept` skips the reveal or advances to the next line.
-- **Intro text:** `Intro.gd` uses the bundled `addons/GodotTIE` plugin (`buff_text`/`buff_silence`, chained through the `buff_end` signal).
+  `ui_accept` finishes the current line, or advances to the next one.
+- **Intro crawl:** `Intro.gd` feeds its `PAGES` table to the bundled `addons/GodotTIE` text engine, and awaits `buff_end` after each page.
+- **Mitch's entrance:** `IntroMitch.tscn` is animation-driven. The `MitchEnter` animation calls `_start_dialogue()` at its end.
 
 ## Misc
 

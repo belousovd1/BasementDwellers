@@ -23,7 +23,7 @@ func start() -> void:
 
 
 func resume() -> void:
-	for i in 9:
+	for _volley in 9:
 		if rng.randf_range(-1.0, 1.0) > 0:
 			_square_volley()
 		else:
