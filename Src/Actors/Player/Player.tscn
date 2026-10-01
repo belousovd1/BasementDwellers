@@ -171,11 +171,13 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [  ],
-"method": "death_menu_signal"
+"method": "_on_death_animation_finished"
 } ]
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=[
+"player",
+]]
 motion_mode = 1
 scale = Vector2( 1.5, 1.5 )
 collision_mask = 15

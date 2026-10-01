@@ -29,4 +29,4 @@ scale = Vector2( 0.9, 0.85 )
 stream = ExtResource( 3 )
 volume_db = -15.846
 autoplay = true
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

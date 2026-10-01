@@ -1,115 +1,46 @@
-extends Node
+extends BossStage
+## Stage 2: leg kicks, plus faster paintbrushes and rows.
+
+const SPEED := 400.0
 
 
-@onready var paintbrush_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/BoomerangBullet.tscn")
-@onready var paintbrush_row_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/BoomerangBulletRow.tscn")
-@onready var paintbrush_boomerang_attack_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/PaintBrushBoomerangAttack.tscn")
-@onready var legattack_sc = preload("res://Src/Actors/Mitch/Mitch_LegAttacks.tscn")
+func resume() -> void:
+	var legs := spawn_leg_attack()
+	await wait(5)
+	legs.queue_free()
 
-signal done_attacking
+	spawn_boomerang(Vector2(0, 600), Vector2.UP, SPEED)
+	await wait(2)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	var _err = connect("done_attacking", Callable($"../../", "attack_boss"))
-	attack1()
-	
+	for i in 3:
+		for gap in 3:
+			spawn_boomerang_row(gap, Vector2(400, 264), Vector2.LEFT, 90, SPEED)
+			await wait(0.6)
+	await wait(3)
 
+	spawn_boomerang(Vector2(0, 600), Vector2.UP, SPEED)
+	spawn_boomerang_row(1, Vector2.ZERO, Vector2.DOWN, 0, SPEED)
+	await wait(2)
+	spawn_boomerang(Vector2.ZERO, Vector2.DOWN, SPEED)
+	spawn_boomerang_row(1, Vector2(0, 600), Vector2.UP, 0, SPEED)
+	await wait(2)
 
-func spwn_boomerang(pos, dir):
-	var paintbrush = paintbrush_sc.instantiate()
-	paintbrush.position = pos
-	paintbrush.dir = dir
-	add_child(paintbrush)
-	paintbrush.speed = 400
-	return paintbrush 
+	_side_sweep(Vector2.LEFT)
+	await wait(1.5)
+	_side_sweep(Vector2.LEFT)
+	await wait(2)
+	_side_sweep(Vector2.RIGHT)
+	await wait(2)
 
-func spwn_paintbrush_boom_atk(pos):
-	var paintbrush_attack = paintbrush_boomerang_attack_sc.instantiate()
-	paintbrush_attack.position.y = pos
-	add_child(paintbrush_attack)
-
-func spwn_boomerang_row(index_to_remove, pos, dir, rot = 0):
-	var boomerang_row = paintbrush_row_sc.instantiate()
-	boomerang_row.dir = dir
-	boomerang_row.removed_index = index_to_remove
-	boomerang_row.position = pos
-	boomerang_row.rotation_degrees = rot
-	add_child(boomerang_row)
-	boomerang_row.speed = 400 
-	boomerang_row.remove_boomerang()
-
-func spwn_legattack(adv = false):
-	var legattack = legattack_sc.instantiate()
-	legattack.position.y = 264
-	add_child(legattack)
-	if adv:
-		legattack.adv_alternating_kicks()
-
-func make_timer(w_time, next_func):
-	var timer = Timer.new()
-	timer.wait_time = w_time
-	timer.one_shot = true	
-	add_child(timer)
-	timer.start()
-	timer.connect("timeout", Callable(self, next_func))
-
-func attack1():
-	spwn_legattack()
-	make_timer(5, "attack2")
-
-func attack2():
-	$Mitch_LegAttacks.queue_free()
-	spwn_boomerang(Vector2(0, 600), Vector2(0, -1))
-	make_timer(2, "attack3")
-
-func attack3():
-	var count = 0
-	while count < 3:
-		spwn_boomerang_row(0, Vector2(400, 264), Vector2(-1,0), 90)
-		await get_tree().create_timer(.60).timeout
-		spwn_boomerang_row(1, Vector2(400, 264), Vector2(-1,0), 90)
-		await get_tree().create_timer(.60).timeout
-		spwn_boomerang_row(2, Vector2(400, 264), Vector2(-1,0), 90)
-		await get_tree().create_timer(.60).timeout
-		count += 1
-		
-	make_timer(3, "attack4")
- 
-
-func attack4():
-	spwn_boomerang(Vector2(0, 600), Vector2(0, -1))
-	spwn_boomerang_row(1, self.position, Vector2(0, 1))   
-	make_timer(2, "attack5")
-	
-func attack5():
-	spwn_boomerang(Vector2(0,0), Vector2(0, 1))
-	spwn_boomerang_row(1, Vector2(0, 600), Vector2(0, -1))   
-	make_timer(2, "attack6")
-
-func attack6():
-	spwn_boomerang(Vector2(600, 264), Vector2(-1, 0))
-	spwn_boomerang_row(1, Vector2(-600,264), Vector2(1, 0), 90)   
-	make_timer(1.5, "attack7")
-
-func attack7():
-	spwn_boomerang(Vector2(600, 264), Vector2(-1, 0))
-	spwn_boomerang_row(1, Vector2(-600,264), Vector2(1, 0), 90)   
-	make_timer(2, "attack8")
-
-func attack8():
-	spwn_boomerang(Vector2(-600, 264), Vector2(1, 0))
-	spwn_boomerang_row(1, Vector2(600, 264), Vector2(-1, 0), 90)
-	make_timer(2, "attack9")
-
-func attack9():
-	spwn_legattack(true)
-	make_timer(7, "attack10")
-
-func attack10():
-	$Mitch_LegAttacks.queue_free()
-	make_timer(1, "emit_end_atc")
+	legs = spawn_leg_attack(true)
+	await wait(7)
+	legs.queue_free()
+	await wait(1)
+	attacks_finished.emit()
 
 
-func emit_end_atc():
-	emit_signal("done_attacking")
-
+## A paintbrush travelling [param direction] across the arena, and a gapped
+## row coming the other way.
+func _side_sweep(direction: Vector2) -> void:
+	spawn_boomerang(Vector2(-600 * direction.x, 264), direction, SPEED)
+	spawn_boomerang_row(1, Vector2(600 * direction.x, 264), -direction, 90, SPEED)

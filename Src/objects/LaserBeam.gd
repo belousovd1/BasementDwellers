@@ -1,30 +1,27 @@
 extends Node2D
+## Malocchio's laser. The fire animations sweep the RayCast2D out along the
+## beam; while [member armed], any body the ray touches takes [member damage].
+
+## Emitted by the fire animations' method track once the beam has finished.
+signal finished
+
+@export var damage := 20
+
+## Only a Malocchio flying its attack path can hurt the player; the one shown
+## while it is being summoned cannot.
+var armed := false
+
+@onready var _ray: RayCast2D = $RayCast2D
 
 
-# Declare member variables here. Examples:
-const max_length = 2000
+func _process(_delta: float) -> void:
+	if not armed:
+		return
+	var target := _ray.get_collider()
+	if target and target.has_method("take_hit"):
+		target.take_hit(damage)
 
-@onready var ray_cast = $RayCast2D
-var damage = 20
-signal laser_fired
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	var _err = self.connect("laser_fired", Callable(get_node("../../../"), "stop_attacking"))
-
-func _process(_delta):
-	if ($"../.." is PathFollow2D):
-		check_if_hit()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func end_laser_animation():
-	emit_signal("laser_fired")
-
-func check_if_hit():
-	var player_hit
-	var player = $"../../../../../../Player"
-	var object = ray_cast.get_collider()
-	if player == null and object == null:
-		player_hit = false
-	if object == player:
-		object._on_ProjectileDetector_area_entered(self)
+# Called from the "firelaser" and "FasterFireLaser" animations.
+func end_laser_animation() -> void:
+	finished.emit()

@@ -1,17 +1,9 @@
 extends Node2D
+## Mitch's legs kicking in from both sides of the arena.
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$AnimationPlayer.play("AlternatingKicks")
+## Plays the faster kick pattern used at the end of stage 2.
+@export var advanced := false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-func adv_alternating_kicks():
-	$AnimationPlayer.play("Adv Alternating kicks")
+func _ready() -> void:
+	$AnimationPlayer.play("Adv Alternating kicks" if advanced else "AlternatingKicks")

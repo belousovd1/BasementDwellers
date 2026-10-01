@@ -1,33 +1,35 @@
 extends Node2D
+## The player's attack: an indicator sweeps back and forth across the bar and
+## the player presses accept to stop it. The closer to the centre, the more
+## damage the hit does.
 
-@onready var main = $"../"
-@onready var mitch_anim_node = $"../Mitch/AnimationPlayer"
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+## Emitted once, when the player stops the indicator.
+signal struck(damage: int)
 
+const MAX_DAMAGE := 100
+## Indicator distance from the centre at which the damage reaches zero.
+const ZERO_DAMAGE_DISTANCE := 1030.0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$AnimationPlayer.play("Run")
-	mitch_anim_node.connect("animation_finished", Callable($"../", "attack_finished"))
+## Uses the faster sweep from the final stage.
+@export var fast := false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if Input.is_action_pressed("ui_accept"):
-		$AnimationPlayer.pause()
-		mitch_anim_node.play("hit")
+var _struck := false
 
-
-func get_damage():
-	var max_damage = 100
-	var indcator_pos = $Indicator.get_position().x
-	indcator_pos = turn_pos(indcator_pos)
-	var damage = (1 - (indcator_pos / 1030)) * max_damage
-	return round(damage)
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _indicator: Sprite2D = $Indicator
 
 
-func turn_pos(num):
-	if num < 0:
-		num *= -1
-	return num
+func _ready() -> void:
+	_animation_player.play("stage3run" if fast else "Run")
+
+
+func _process(_delta: float) -> void:
+	if not _struck and Input.is_action_pressed("ui_accept"):
+		_struck = true
+		_animation_player.pause()
+		struck.emit(get_damage())
+
+
+func get_damage() -> int:
+	var off_centre := absf(_indicator.position.x)
+	return roundi((1.0 - off_centre / ZERO_DAMAGE_DISTANCE) * MAX_DAMAGE)
