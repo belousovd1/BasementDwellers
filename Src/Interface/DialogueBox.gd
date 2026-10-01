@@ -51,6 +51,9 @@ func _show_next_line() -> void:
 	_text.visible_characters = 0
 	_letter_timer.wait_time = float(line["time"])
 	_typing = true
+	# A press that landed during the previous line's last letter shouldn't
+	# skip this one.
+	_skip_requested = false
 	_next_indicator.visible = false
 
 	for letter in _text.get_parsed_text():
