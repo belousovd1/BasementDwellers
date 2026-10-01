@@ -73,11 +73,10 @@ func _end_stage() -> void:
 		mitch.end_stage()
 		music.stop()
 
-	var dialogue := DialogueBoxScene.instantiate()
-	var box := dialogue.get_node("DialogueBox")
-	box.dialogue_file_path = STAGE_END_DIALOGUES[mitch.stage_index]
+	var dialogue: DialogueBox = DialogueBoxScene.instantiate()
+	dialogue.dialogue_path = STAGE_END_DIALOGUES[mitch.stage_index]
 	add_child(dialogue)
-	await box.finish
+	await dialogue.finished
 
 	if mitch.is_final_stage():
 		_mitch_dies()

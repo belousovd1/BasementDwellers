@@ -33,14 +33,15 @@ spacing_top = 8
 spacing_bottom = 4
 base_font = ExtResource( 3 )
 
-[node name="Control" type="Control"]
+[node name="DialogueBox" type="Control"]
+script = ExtResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DialogueBox" type="Control" parent="."]
+[node name="Panel" type="Control" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -49,12 +50,11 @@ offset_left = -552.0
 offset_top = -264.0
 offset_right = 478.0
 offset_bottom = 2.0
-script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Box" type="TextureRect" parent="DialogueBox"]
+[node name="Box" type="TextureRect" parent="Panel"]
 texture_filter = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -66,17 +66,17 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="NextIndicator" type="Sprite2D" parent="DialogueBox"]
+[node name="NextIndicator" type="Sprite2D" parent="Panel"]
 position = Vector2( 976, 201.125 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogueBox/NextIndicator"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/NextIndicator"]
 autoplay = "IDLE"
 anims/IDLE = SubResource( 1 )
 
-[node name="Name" type="RichTextLabel" parent="DialogueBox"]
+[node name="Name" type="RichTextLabel" parent="Panel"]
 anchor_left = 0.023301
 anchor_top = -0.120301
 anchor_right = 0.333272
@@ -93,7 +93,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Portait" type="TextureRect" parent="DialogueBox"]
+[node name="Portait" type="TextureRect" parent="Panel"]
 anchor_left = 0.0462428
 anchor_top = 0.137143
 anchor_right = 0.217766
@@ -105,7 +105,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="DialogueText" type="RichTextLabel" parent="DialogueBox"]
+[node name="DialogueText" type="RichTextLabel" parent="Panel"]
 anchor_left = 0.23301
 anchor_top = 0.0601504
 anchor_right = 0.978641
@@ -120,6 +120,9 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Bleep" type="AudioStreamPlayer" parent="DialogueBox"]
+[node name="Bleep" type="AudioStreamPlayer" parent="Panel"]
 stream = ExtResource( 5 )
 volume_db = -5.0
+
+[node name="LetterTimer" type="Timer" parent="."]
+one_shot = true
