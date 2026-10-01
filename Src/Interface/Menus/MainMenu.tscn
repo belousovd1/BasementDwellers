@@ -4,15 +4,15 @@
 [ext_resource path="res://Src/Interface/Menus/Sprite.gd" type="Script" id=2]
 [ext_resource path="res://Src/Interface/Menus/LoadButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Interface/Menus/Fire.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Texture/basement_menu_collapsed - Copy(1).png" type="Texture" id=5]
+[ext_resource path="res://Assets/Texture/basement_menu_collapsed - Copy(1).png" type="Texture2D" id=5]
 [ext_resource path="res://Assets/Sound/OST/Main MenuOST .ogg" type="AudioStream" id=6]
-[ext_resource path="res://Assets/Texture/menu_normal.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Texture/TItle Text.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/trash_bin_front.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Texture/menu_normal.png" type="Texture2D" id=7]
+[ext_resource path="res://Assets/Texture/TItle Text.png" type="Texture2D" id=8]
+[ext_resource path="res://Assets/Sprites/trash_bin_front.png" type="Texture2D" id=9]
 [ext_resource path="res://Src/Interface/Menus/VBoxContainer.gd" type="Script" id=10]
 [ext_resource path="res://Src/Interface/Menus/trash_bin.gd" type="Script" id=11]
 [ext_resource path="res://Src/Interface/Menus/TextureRect2.gd" type="Script" id=12]
-[ext_resource path="res://Assets/Sprites/trash_bin_back.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/trash_bin_back.png" type="Texture2D" id=13]
 [ext_resource path="res://Src/Interface/Menus/QuitMenuButton.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Src/Interface/Menus/OptionsMenuButton.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Src/Interface/Menus/StartMenuButton.tscn" type="PackedScene" id=16]
@@ -21,7 +21,7 @@
 length = 2.0
 
 [sub_resource type="Environment" id=2]
-background_mode = 4
+background_mode = 3
 glow_enabled = true
 
 [sub_resource type="Animation" id=3]
@@ -34,22 +34,22 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/path = NodePath("../Sprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 2, 4 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("../TextureRect2:modulate")
@@ -58,8 +58,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 2, 4 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -70,8 +70,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 2, 4 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -82,8 +82,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 2, 4 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -94,8 +94,8 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 2, 4 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -110,11 +110,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+
+[sub_resource type="CanvasTexture" id=5]
+diffuse_texture = ExtResource( 5 )
+normal_texture = ExtResource( 7 )
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -125,21 +129,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2( 960, 544 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 5 )
-normal_map = ExtResource( 7 )
+texture = SubResource( 5 )
 script = ExtResource( 2 )
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 1893.0
-margin_bottom = 1008.0
-rect_scale = Vector2( 0.7, 0.7 )
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 1893.0
+offset_bottom = 1008.0
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 8 )
-stretch_mode = 5
+stretch_mode = 4
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -150,37 +153,37 @@ anchor_left = 0.4
 anchor_top = 0.444444
 anchor_right = 0.595833
 anchor_bottom = 0.888889
-custom_constants/separation = 40
+theme_override_constants/separation = 40
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Start" parent="VBoxContainer" instance=ExtResource( 16 )]
-margin_right = 376.0
-margin_bottom = 90.0
+offset_right = 376.0
+offset_bottom = 90.0
 
 [node name="LoadButton" parent="VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 130.0
-margin_right = 376.0
-margin_bottom = 220.0
+offset_top = 130.0
+offset_right = 376.0
+offset_bottom = 220.0
 
 [node name="Options" parent="VBoxContainer" instance=ExtResource( 15 )]
-margin_top = 260.0
-margin_right = 376.0
-margin_bottom = 350.0
+offset_top = 260.0
+offset_right = 376.0
+offset_bottom = 350.0
 align = 1
 
 [node name="Quit" parent="VBoxContainer" instance=ExtResource( 14 )]
-margin_top = 390.0
-margin_right = 376.0
-margin_bottom = 480.0
+offset_top = 390.0
+offset_right = 376.0
+offset_bottom = 480.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Enter Window"
 "anims/Enter Window" = SubResource( 1 )
 
-[node name="trashback" type="Sprite" parent="."]
+[node name="trashback" type="Sprite2D" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 536, 960 )
 scale = Vector2( 2, 2 )
@@ -190,7 +193,7 @@ texture = ExtResource( 13 )
 position = Vector2( 536, 888 )
 scale = Vector2( 0.6, 0.6 )
 
-[node name="trash_front" type="Sprite" parent="."]
+[node name="trash_front" type="Sprite2D" parent="."]
 position = Vector2( 536, 960 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )

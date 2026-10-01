@@ -19,20 +19,20 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 7, 8, 8.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 7, 8, 8.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 5040.0, 5040.0, 226.4 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("EnterPath/PathFollow2D:offset")
+tracks/1/path = NodePath("EnterPath/PathFollow2D:progress")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 7 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 7 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 15153.0 ]
 }
@@ -52,7 +52,7 @@ tracks/2/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 6 )
 } ],
-"times": PoolRealArray( 0, 8 )
+"times": PackedFloat32Array( 0, 8 )
 }
 tracks/3/type = "method"
 tracks/3/path = NodePath(".")
@@ -61,8 +61,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 9 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 9 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [  ],
 "method": "start_Dialogue"
@@ -88,7 +88,7 @@ tracks/0/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 3 )
 } ],
-"times": PoolRealArray( 0, 12.9 )
+"times": PackedFloat32Array( 0, 12.9 )
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("AnimationPlayer")
@@ -97,8 +97,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 19 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 19 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [ "MitchEnter", -1, 1.0, false ],
 "method": "play"
@@ -107,20 +107,20 @@ tracks/1/keys = {
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( -79.1978, -261.962, 79.1978, 261.962, 2371.8, 528, 0, 0, 0, 0, 1642.63, 256, 103.566, 43.6603, -103.566, -43.6603, 1474.36, 1016, -216.377, 117.788, 216.377, -117.788, 1546.48, 608, 81.2285, 40.6143, -81.2285, -40.6143, 1113.78, 152, 32.4914, -6.09214, -32.4914, 6.09214, 825.322, 440, 61.9367, -83.2592, -61.9367, 83.2592, 1370.2, 520, -38.5835, -71.075, 38.5835, 71.075, 1201.93, 1120, -86.3053, 30.4607, 86.3053, -30.4607, 0, 992, -47.7218, 98.4896, 47.7218, -98.4896, 1177.89, 696, 65.9982, 23.3532, -65.9982, -23.3532, 945.515, 176, 63.9675, -14.215, -63.9675, 14.215, 607.157, 152, -152.683, 84.1586, 152.683, -84.1586, 360.578, 904, 105.82, 130.467, -105.82, -130.467, 1137.82, 920, 41.8155, 19.7039, -41.8155, -19.7039, 486.964, 104, 81.3588, -3.20639, -81.3588, 3.20639, 368.59, 64, 0, 0, 0, 0, 232.372, 136, -65.6196, -113.923, 65.6196, 113.923, -64.1027, 432, 28.2989, -130.5, -28.2989, 130.5, 1185.9, 832, 36.3974, 29.9263, -36.3974, -29.9263, 104.167, 872, -115.064, 56.8475, 115.064, -56.8475, 200.321, 304, 0, 0, 0, 0, 889.425, 596 )
+"points": PackedVector2Array( -79.1978, -261.962, 79.1978, 261.962, 2371.8, 528, 0, 0, 0, 0, 1642.63, 256, 103.566, 43.6603, -103.566, -43.6603, 1474.36, 1016, -216.377, 117.788, 216.377, -117.788, 1546.48, 608, 81.2285, 40.6143, -81.2285, -40.6143, 1113.78, 152, 32.4914, -6.09214, -32.4914, 6.09214, 825.322, 440, 61.9367, -83.2592, -61.9367, 83.2592, 1370.2, 520, -38.5835, -71.075, 38.5835, 71.075, 1201.93, 1120, -86.3053, 30.4607, 86.3053, -30.4607, 0, 992, -47.7218, 98.4896, 47.7218, -98.4896, 1177.89, 696, 65.9982, 23.3532, -65.9982, -23.3532, 945.515, 176, 63.9675, -14.215, -63.9675, 14.215, 607.157, 152, -152.683, 84.1586, 152.683, -84.1586, 360.578, 904, 105.82, 130.467, -105.82, -130.467, 1137.82, 920, 41.8155, 19.7039, -41.8155, -19.7039, 486.964, 104, 81.3588, -3.20639, -81.3588, 3.20639, 368.59, 64, 0, 0, 0, 0, 232.372, 136, -65.6196, -113.923, 65.6196, 113.923, -64.1027, 432, 28.2989, -130.5, -28.2989, 130.5, 1185.9, 832, 36.3974, 29.9263, -36.3974, -29.9263, 104.167, 872, -115.064, 56.8475, 115.064, -56.8475, 200.321, 304, 0, 0, 0, 0, 889.425, 596 )
 }
 
 [sub_resource type="Animation" id=5]
 resource_name = "fade_in"
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:material:shader_param/cutoff")
+tracks/0/path = NodePath(".:material:shader_parameter/cutoff")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
 }
@@ -128,14 +128,14 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "fade_out"
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:material:shader_param/cutoff")
+tracks/0/path = NodePath(".:material:shader_parameter/cutoff")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 1.0, 0.0 ]
 }
@@ -171,7 +171,7 @@ curve = SubResource( 3 )
 [node name="PathFollow2D" type="PathFollow2D" parent="EnterPath"]
 position = Vector2( 2371.8, 528 )
 rotation = 2.35618
-rotate = false
+rotates = false
 
 [node name="Mitch" parent="EnterPath/PathFollow2D" instance=ExtResource( 2 )]
 rotation = 3.95143

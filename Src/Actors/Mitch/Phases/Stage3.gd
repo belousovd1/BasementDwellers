@@ -1,11 +1,11 @@
 extends Node2D
 
-onready var paintbrush_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/BoomerangBullet.tscn")
-onready var paintbrush_row_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/BoomerangBulletRow.tscn")
-onready var paintbrush_boomerang_attack_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/PaintBrushBoomerangAttack.tscn")
-onready var legattack_sc = preload("res://Src/Actors/Mitch/Mitch_LegAttacks.tscn")
-onready var mallochio_path_sc = preload("res://Src/Actors/Mitch/MalocchioPath.tscn")
-onready var mallochio_sc = preload("res://Src/Actors/Mitch/Malocchio.tscn")
+@onready var paintbrush_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/BoomerangBullet.tscn")
+@onready var paintbrush_row_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/BoomerangBulletRow.tscn")
+@onready var paintbrush_boomerang_attack_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/PaintBrushBoomerangAttack.tscn")
+@onready var legattack_sc = preload("res://Src/Actors/Mitch/Mitch_LegAttacks.tscn")
+@onready var mallochio_path_sc = preload("res://Src/Actors/Mitch/MalocchioPath.tscn")
+@onready var mallochio_sc = preload("res://Src/Actors/Mitch/Malocchio.tscn")
 var rng = RandomNumberGenerator.new()
 
 signal done_attacking
@@ -13,22 +13,22 @@ signal done_attacking
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
-	var _err = connect("done_attacking", $"../../", "attack_boss")
+	var _err = connect("done_attacking", Callable($"../../", "attack_boss"))
 	mallochio_summon()
 	
 
 func mallochio_summon():
-	var mallochio = mallochio_sc.instance()
+	var mallochio = mallochio_sc.instantiate()
 	add_child(mallochio)
-	mallochio.connect("tree_exiting", self, "attack1")
+	mallochio.connect("tree_exiting", Callable(self, "attack1"), CONNECT_DEFERRED)
 	mallochio.summon()
 
 func spwn_mallochio():
-	var mallochio_attack = mallochio_path_sc.instance()
+	var mallochio_attack = mallochio_path_sc.instantiate()
 	add_child(mallochio_attack)
 
 func spwn_boomerang(pos, dir, scale = Vector2(1,1)):
-	var paintbrush = paintbrush_sc.instance()
+	var paintbrush = paintbrush_sc.instantiate()
 	paintbrush.position = pos
 	paintbrush.dir = dir
 	add_child(paintbrush)
@@ -37,12 +37,12 @@ func spwn_boomerang(pos, dir, scale = Vector2(1,1)):
 	return paintbrush 
 
 func spwn_paintbrush_boom_atk(pos):
-	var paintbrush_attack = paintbrush_boomerang_attack_sc.instance()
+	var paintbrush_attack = paintbrush_boomerang_attack_sc.instantiate()
 	paintbrush_attack.position.y = pos
 	add_child(paintbrush_attack)
 
 func spwn_boomerang_row(index_to_remove, pos, dir, rot = 0):
-	var boomerang_row = paintbrush_row_sc.instance()
+	var boomerang_row = paintbrush_row_sc.instantiate()
 	boomerang_row.dir = dir
 	boomerang_row.removed_index = index_to_remove
 	boomerang_row.position = pos
@@ -52,7 +52,7 @@ func spwn_boomerang_row(index_to_remove, pos, dir, rot = 0):
 	boomerang_row.remove_boomerang()
 
 func spwn_legattack(adv = false):
-	var legattack = legattack_sc.instance()
+	var legattack = legattack_sc.instantiate()
 	legattack.position.y = 264
 	add_child(legattack)
 	if adv:
@@ -64,7 +64,7 @@ func make_timer(w_time, next_func):
 	timer.one_shot = true	
 	add_child(timer)
 	timer.start()
-	timer.connect("timeout", self, next_func)
+	timer.connect("timeout", Callable(self, next_func))
 
 func square_attack(): 
 	spwn_boomerang(Vector2(0,-216), Vector2(0, 1), Vector2(.8, .8))

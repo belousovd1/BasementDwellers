@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/Sprites/Mitch/mitch-sprite-sheet.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/Pixel.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Mitch/mitch-sprite-sheet.png" type="Texture2D" id=2]
+[ext_resource path="res://Assets/Sprites/Pixel.png" type="Texture2D" id=3]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type particles;
@@ -34,7 +34,7 @@ uniform float anim_speed_random;
 uniform float anim_offset_random;
 uniform float lifetime_randomness;
 uniform vec3 emission_box_extents;
-uniform vec4 color_value : hint_color;
+uniform vec4 color_value : source_color;
 uniform int trail_divisor;
 uniform vec3 gravity;
 uniform sampler2D sprite;
@@ -64,8 +64,8 @@ uint hash(uint x) {
 	return x;
 }
 
-void vertex() {
-	uint base_number = NUMBER / uint(trail_divisor);
+void process() {
+	uint base_number = INDEX / uint(trail_divisor);
 	uint alt_seed = hash(base_number + uint(1) + RANDOM_SEED);
 	float angle_rand = rand_from_seed(alt_seed);
 	float scale_rand = rand_from_seed(alt_seed);
@@ -192,41 +192,43 @@ void vertex() {
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/direction = Vector3( 1, 0, 0 )
-shader_param/spread = 0.0
-shader_param/flatness = 0.0
-shader_param/initial_linear_velocity = 0.0
-shader_param/initial_angle = 0.0
-shader_param/angular_velocity = 0.0
-shader_param/orbit_velocity = 0.0
-shader_param/linear_accel = 0.0
-shader_param/radial_accel = 0.0
-shader_param/tangent_accel = 0.0
-shader_param/damping = 0.0
-shader_param/scale = 1.0
-shader_param/hue_variation = 0.0
-shader_param/anim_speed = 0.0
-shader_param/anim_offset = 0.0
-shader_param/initial_linear_velocity_random = 0.0
-shader_param/initial_angle_random = 0.0
-shader_param/angular_velocity_random = 0.0
-shader_param/orbit_velocity_random = 0.0
-shader_param/linear_accel_random = 0.0
-shader_param/radial_accel_random = 0.0
-shader_param/tangent_accel_random = 0.0
-shader_param/damping_random = 0.0
-shader_param/scale_random = 0.0
-shader_param/hue_variation_random = 0.0
-shader_param/anim_speed_random = 0.0
-shader_param/anim_offset_random = 0.0
-shader_param/lifetime_randomness = 0.0
-shader_param/emission_box_extents = Vector3( 40, 150, 1 )
-shader_param/color_value = Color( 1, 1, 1, 1 )
-shader_param/trail_divisor = 1
-shader_param/gravity = Vector3( 0, 80, 0 )
-shader_param/sprite = ExtResource( 2 )
+shader_parameter/direction = Vector3( 1, 0, 0 )
+shader_parameter/spread = 0.0
+shader_parameter/flatness = 0.0
+shader_parameter/initial_linear_velocity = 0.0
+shader_parameter/initial_angle = 0.0
+shader_parameter/angular_velocity = 0.0
+shader_parameter/orbit_velocity = 0.0
+shader_parameter/linear_accel = 0.0
+shader_parameter/radial_accel = 0.0
+shader_parameter/tangent_accel = 0.0
+shader_parameter/damping = 0.0
+shader_parameter/scale = 1.0
+shader_parameter/hue_variation = 0.0
+shader_parameter/anim_speed = 0.0
+shader_parameter/anim_offset = 0.0
+shader_parameter/initial_linear_velocity_random = 0.0
+shader_parameter/initial_angle_random = 0.0
+shader_parameter/angular_velocity_random = 0.0
+shader_parameter/orbit_velocity_random = 0.0
+shader_parameter/linear_accel_random = 0.0
+shader_parameter/radial_accel_random = 0.0
+shader_parameter/tangent_accel_random = 0.0
+shader_parameter/damping_random = 0.0
+shader_parameter/scale_random = 0.0
+shader_parameter/hue_variation_random = 0.0
+shader_parameter/anim_speed_random = 0.0
+shader_parameter/anim_offset_random = 0.0
+shader_parameter/lifetime_randomness = 0.0
+shader_parameter/emission_box_extents = Vector3( 40, 150, 1 )
+shader_parameter/color_value = Color( 1, 1, 1, 1 )
+shader_parameter/trail_divisor = 1
+shader_parameter/gravity = Vector3( 0, 80, 0 )
+shader_parameter/sprite = ExtResource( 2 )
 
-[node name="BodySprites" type="Particles2D"]
+[node name="BodySprites" type="GPUParticles2D"]
+texture_filter = 2
+local_coords = true
 position = Vector2( 11.2194, 1.5 )
 emitting = false
 amount = 40000

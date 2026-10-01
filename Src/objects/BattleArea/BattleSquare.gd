@@ -18,5 +18,5 @@ func _ready():
 func invisible():
 	visible = false
 
-func visible():
+func make_visible():
 	visible = true

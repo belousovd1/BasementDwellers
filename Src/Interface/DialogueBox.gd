@@ -2,11 +2,11 @@ extends Control
 
 class_name DialogueBox
 
-export var dialogue_file_path = "res://Src/CutScenes/dialogues/Mitch/TestDialogue.json" 
+@export var dialogue_file_path = "res://Src/CutScenes/dialogues/Mitch/TestDialogue.json" 
 var index = 0
-onready var dialogue = load_dialogue(dialogue_file_path).result
-onready var  skip
-onready var finished = false
+@onready var dialogue = load_dialogue(dialogue_file_path)
+@onready var  skip
+@onready var finished = false
 signal finish
 
 
@@ -35,8 +35,8 @@ func write_dialogue_by_text():
 		finished = false
 
 		$DialogueText.clear()
-		$DialogueText.set_use_bbcode(true)
-		$DialogueText.set_bbcode(dialogue[index]["text"])
+		$DialogueText.bbcode_enabled = true
+		$DialogueText.text = dialogue[index]["text"]
 		$DialogueText.visible_characters = 0
 		var t = Timer.new()
 		t.set_wait_time(float(dialogue[index]["time"]))
@@ -45,7 +45,7 @@ func write_dialogue_by_text():
 		var in_bb_tage = false
 
 
-		for letter in $DialogueText.bbcode_text:
+		for letter in $DialogueText.text:
 			if skip:
 				show_all_dialogue()
 				skip = false
@@ -53,12 +53,12 @@ func write_dialogue_by_text():
 			var should_bleep
 			t.start()
 			if letter == "[":
-				 in_bb_tage = true 
+				in_bb_tage = true
 			if not in_bb_tage: $DialogueText.visible_characters += 1
 			should_bleep = determine_if_bleep(letter, in_bb_tage)
 			if should_bleep: $Bleep.play()
 			if not in_bb_tage: 
-				yield(t, "timeout")			
+				await t.timeout			
 			if letter == "]" :
 				in_bb_tage = false 
 
@@ -81,12 +81,8 @@ func show_all_dialogue():
 	$DialogueText.visible_characters = -1
 
 func load_dialogue(file_path):
-	var file = File.new()
-	file.open(file_path, file.READ)
-	var jason_dialogue = JSON.parse(file.get_as_text())
-	file.close()
-	return jason_dialogue
+	return JSON.parse_string(FileAccess.get_file_as_string(file_path))
 
 func calc_draw_time(char_time):
-	var duration = $DialogueText.bbcode_text.length() * char_time
+	var duration = $DialogueText.text.length() * char_time
 	return duration

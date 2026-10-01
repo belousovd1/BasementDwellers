@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/Texture/curtain.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Texture/curtain.png" type="Texture2D" id=1]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -8,7 +8,7 @@ render_mode unshaded;
 
 uniform float cutoff : hint_range(0.0, 1.0);
 uniform float smooth_size: hint_range(0.0, 1.0);
-uniform sampler2D mask : hint_albedo;
+uniform sampler2D mask : source_color, filter_linear;
 
 
 void fragment(){
@@ -21,21 +21,21 @@ void fragment(){
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/cutoff = 1.0
-shader_param/smooth_size = 0.107
-shader_param/mask = ExtResource( 1 )
+shader_parameter/cutoff = 1.0
+shader_parameter/smooth_size = 0.107
+shader_parameter/mask = ExtResource( 1 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "fade_in"
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:material:shader_param/cutoff")
+tracks/0/path = NodePath(".:material:shader_parameter/cutoff")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
 }
@@ -43,14 +43,14 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "fade_out"
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:material:shader_param/cutoff")
+tracks/0/path = NodePath(".:material:shader_parameter/cutoff")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 1.0, 0.0 ]
 }

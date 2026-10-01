@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var main = $"../"
-onready var mitch_anim_node = $"../Mitch/AnimationPlayer"
+@onready var main = $"../"
+@onready var mitch_anim_node = $"../Mitch/AnimationPlayer"
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -10,12 +10,12 @@ onready var mitch_anim_node = $"../Mitch/AnimationPlayer"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("Run")
-	mitch_anim_node.connect("animation_finished", $"../", "attack_finished")
+	mitch_anim_node.connect("animation_finished", Callable($"../", "attack_finished"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_pressed("ui_accept"):
-		$AnimationPlayer.stop()
+		$AnimationPlayer.pause()
 		mitch_anim_node.play("hit")
 
 

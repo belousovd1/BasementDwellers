@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/unlink.wav-7523888ae81e5d5a1a25bd2b5bd4f31a.sample"
+type="AudioStreamWAV"
+uid="uid://bfih5hxdwqk1m"
+path="res://.godot/imported/unlink.wav-7523888ae81e5d5a1a25bd2b5bd4f31a.sample"
 
 [deps]
 
 source_file="res://Assets/Krank_sounds/krank_sounds/krank_sounds/summer/unlink.wav"
-dest_files=[ "res://.import/unlink.wav-7523888ae81e5d5a1a25bd2b5bd4f31a.sample" ]
+dest_files=["res://.godot/imported/unlink.wav-7523888ae81e5d5a1a25bd2b5bd4f31a.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

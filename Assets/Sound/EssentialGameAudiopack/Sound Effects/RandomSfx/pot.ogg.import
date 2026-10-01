@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/pot.ogg-ef0cbfdc7a9939c85d9d51dfda8e300f.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://u0k4r1ecbbds"
+path="res://.godot/imported/pot.ogg-ef0cbfdc7a9939c85d9d51dfda8e300f.oggvorbisstr"
 
 [deps]
 
 source_file="res://Assets/Sound/EssentialGameAudiopack/Sound Effects/RandomSfx/pot.ogg"
-dest_files=[ "res://.import/pot.ogg-ef0cbfdc7a9939c85d9d51dfda8e300f.oggstr" ]
+dest_files=["res://.godot/imported/pot.ogg-ef0cbfdc7a9939c85d9d51dfda8e300f.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -3,8 +3,8 @@ extends Control
 
 # Declare member variables here. Examples:
 # var a = 2
-onready var tie = $"Panel/TextInterfaceEngine"
-onready var time
+@onready var tie = $"Panel/TextInterfaceEngine"
+@onready var time
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,12 +13,12 @@ func _ready():
 func _process(delta):
 	time =+ delta
 	if Input.is_action_just_pressed("ui_accept"):
-		var _err = get_tree().change_scene("res://Src/Interface/Menus/MainMenu.tscn")
+		var _err = get_tree().change_scene_to_file("res://Src/Interface/Menus/MainMenu.tscn")
 
 
 func window_one():
 	tie.reset()
-	tie.connect("buff_end", self, "window_two")
+	tie.connect("buff_end", Callable(self, "window_two"))
 	tie.buff_text("Far away,", .1)
 	tie.buff_silence(1)
 	tie.buff_text(" in the middle of bufu Egypt.\n", .1)
@@ -37,8 +37,8 @@ func window_one():
 
 func window_two():
 	tie.reset()
-	tie.disconnect("buff_end", self, "window_two")
-	tie.connect("buff_end", self, "window_three")
+	tie.disconnect("buff_end", Callable(self, "window_two"))
+	tie.connect("buff_end", Callable(self, "window_three"))
 	tie.buff_text("These sexually confident Bois had done the unimaginable.\n", .05)
 	tie.buff_silence(2)
 	tie.buff_text("They had succeeded in finding the power of true friendship.\n", .05)
@@ -57,8 +57,8 @@ func window_two():
 
 func window_three():
 	tie.reset()
-	tie.disconnect("buff_end", self, "window_three")
-	tie.connect("buff_end", self, "window_four")
+	tie.disconnect("buff_end", Callable(self, "window_three"))
+	tie.connect("buff_end", Callable(self, "window_four"))
 	tie.buff_text("At first", .05)
 	tie.buff_silence(1)
 	tie.buff_text(" nothing changed after achieving this power.\n", .05)
@@ -71,8 +71,8 @@ func window_three():
 
 func window_four():
 	tie.reset()
-	tie.disconnect("buff_end", self, "window_four")
-	tie.connect("buff_end", self, "window_five")
+	tie.disconnect("buff_end", Callable(self, "window_four"))
+	tie.connect("buff_end", Callable(self, "window_five"))
 	tie.buff_text("However,", .01)
 	tie.buff_silence(1)
 	tie.buff_text(" news of their accomplishment spread far and wide.\n", .05)
@@ -89,8 +89,8 @@ func window_four():
 
 func window_five():
 	tie.reset()
-	tie.disconnect("buff_end", self, "window_five")
-	tie.connect("buff_end", self, "window_six")
+	tie.disconnect("buff_end", Callable(self, "window_five"))
+	tie.connect("buff_end", Callable(self, "window_six"))
 	tie.buff_text("The friends quickly grew frustrated from all the toxicity that followed.\n", .05)
 	tie.buff_silence(1)
 	tie.buff_text("They then came to an agreement,", .05)
@@ -105,8 +105,8 @@ func window_five():
 
 func window_six():
 	tie.reset()
-	tie.disconnect("buff_end", self, "window_six")
-	tie.connect("buff_end", self, "window_seven")
+	tie.disconnect("buff_end", Callable(self, "window_six"))
+	tie.connect("buff_end", Callable(self, "window_seven"))
 	tie.buff_text("A potential catastrophe looms over all of us in that basement.\n", .05)
 	tie.buff_silence(2)
 	tie.buff_text("On any given day these giants could wake from their slumber", .05)
@@ -117,8 +117,8 @@ func window_six():
 
 func window_seven():
 	tie.reset()
-	tie.disconnect("buff_end", self, "window_seven")
-	tie.connect("buff_end", self, "next_fnc")
+	tie.disconnect("buff_end", Callable(self, "window_seven"))
+	tie.connect("buff_end", Callable(self, "next_fnc"))
 	tie.buff_text("You must vanquish these soon to be horsemen of the apocalypse.\n", .05)
 	tie.buff_silence(2)
 	tie.buff_text("Remove this threat once and for all,", .05)
@@ -128,9 +128,9 @@ func window_seven():
 	tie.set_state(tie.STATE_OUTPUT)
 
 func next_fnc():
-	yield(get_tree().create_timer(5.0), "timeout")
+	await get_tree().create_timer(5.0).timeout
 	$AudioStreamPlayer.stop()
-	var _err = get_tree().change_scene("res://Src/Interface/Menus/MainMenu.tscn")
+	var _err = get_tree().change_scene_to_file("res://Src/Interface/Menus/MainMenu.tscn")
 			
 		
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://nam85r4w0dlv"
+path="res://.godot/imported/Ove Melaa - Supa Powa Loop A.mp3-44432b576ba5a24a55227d228b1de78d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/EssentialGameAudiopack/Loops/Ove Melaa - Supa Powa Loop A.mp3"
+dest_files=["res://.godot/imported/Ove Melaa - Supa Powa Loop A.mp3-44432b576ba5a24a55227d228b1de78d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

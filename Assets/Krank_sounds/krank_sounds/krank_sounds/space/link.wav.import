@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/link.wav-88e4f6bf0ff92e5c269ad6a078e49410.sample"
+type="AudioStreamWAV"
+uid="uid://btcgq8ubmcunf"
+path="res://.godot/imported/link.wav-88e4f6bf0ff92e5c269ad6a078e49410.sample"
 
 [deps]
 
 source_file="res://Assets/Krank_sounds/krank_sounds/krank_sounds/space/link.wav"
-dest_files=[ "res://.import/link.wav-88e4f6bf0ff92e5c269ad6a078e49410.sample" ]
+dest_files=["res://.godot/imported/link.wav-88e4f6bf0ff92e5c269ad6a078e49410.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/laser4.wav-1a251cf2a68c16e379900bbccba0a7ed.sample"
+type="AudioStreamWAV"
+uid="uid://b1lbb08e3kpd0"
+path="res://.godot/imported/laser4.wav-1a251cf2a68c16e379900bbccba0a7ed.sample"
 
 [deps]
 
 source_file="res://Assets/Sound/SFX/Laser Sounds/laser4.wav"
-dest_files=[ "res://.import/laser4.wav-1a251cf2a68c16e379900bbccba0a7ed.sample" ]
+dest_files=["res://.godot/imported/laser4.wav-1a251cf2a68c16e379900bbccba0a7ed.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

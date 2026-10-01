@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Ove Melaa - Dark.ogg-b3b0ed2e381d282095c886ed8036e007.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bma6j58oy1uo1"
+path="res://.godot/imported/Ove Melaa - Dark.ogg-b3b0ed2e381d282095c886ed8036e007.oggvorbisstr"
 
 [deps]
 
 source_file="res://Assets/Sound/SFX/EssentialGameAudiopack/FullScores/Retro Scores/Ove Melaa - Dark.ogg"
-dest_files=[ "res://.import/Ove Melaa - Dark.ogg-b3b0ed2e381d282095c886ed8036e007.oggstr" ]
+dest_files=["res://.godot/imported/Ove Melaa - Dark.ogg-b3b0ed2e381d282095c886ed8036e007.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

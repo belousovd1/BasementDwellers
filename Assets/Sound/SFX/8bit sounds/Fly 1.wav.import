@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Fly 1.wav-7172f32c5a86b94e1786e8f12cf17803.sample"
+type="AudioStreamWAV"
+uid="uid://dqmgpg6nsnehv"
+path="res://.godot/imported/Fly 1.wav-7172f32c5a86b94e1786e8f12cf17803.sample"
 
 [deps]
 
 source_file="res://Assets/Sound/SFX/8bit sounds/Fly 1.wav"
-dest_files=[ "res://.import/Fly 1.wav-7172f32c5a86b94e1786e8f12cf17803.sample" ]
+dest_files=["res://.godot/imported/Fly 1.wav-7172f32c5a86b94e1786e8f12cf17803.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

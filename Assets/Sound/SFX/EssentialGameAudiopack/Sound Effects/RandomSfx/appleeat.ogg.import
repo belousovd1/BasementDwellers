@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/appleeat.ogg-24b4f0d64b01e2f06c8ec05ffd746544.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bs78a560y66d7"
+path="res://.godot/imported/appleeat.ogg-24b4f0d64b01e2f06c8ec05ffd746544.oggvorbisstr"
 
 [deps]
 
 source_file="res://Assets/Sound/SFX/EssentialGameAudiopack/Sound Effects/RandomSfx/appleeat.ogg"
-dest_files=[ "res://.import/appleeat.ogg-24b4f0d64b01e2f06c8ec05ffd746544.oggstr" ]
+dest_files=["res://.godot/imported/appleeat.ogg-24b4f0d64b01e2f06c8ec05ffd746544.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

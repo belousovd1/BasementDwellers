@@ -1,8 +1,8 @@
 extends Control
 
 
-onready var quit = $Quit
-onready var restart = $Restart
+@onready var quit = $Quit
+@onready var restart = $Restart
 
 
 
@@ -14,7 +14,7 @@ func _ready():
 #func _process(delta):
 #	pass
 func _on_Restart_pressed():
-	get_tree().change_scene("res://Src/Interface/Main.tscn")
+	get_tree().change_scene_to_file("res://Src/Interface/Main.tscn")
 
 func _on_Quit_pressed():
 	get_tree().quit()

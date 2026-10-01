@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Ove Melaa - Tube Ambient Loop.ogg-aafa18de9e998ae7621551098ba2fa90.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bc44cbeoaql0k"
+path="res://.godot/imported/Ove Melaa - Tube Ambient Loop.ogg-aafa18de9e998ae7621551098ba2fa90.oggvorbisstr"
 
 [deps]
 
 source_file="res://Assets/Sound/SFX/EssentialGameAudiopack/Loops/Ove Melaa - Tube Ambient Loop.ogg"
-dest_files=[ "res://.import/Ove Melaa - Tube Ambient Loop.ogg-aafa18de9e998ae7621551098ba2fa90.oggstr" ]
+dest_files=["res://.godot/imported/Ove Melaa - Tube Ambient Loop.ogg-aafa18de9e998ae7621551098ba2fa90.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/76.ogg-75a2b87e6d3b5ece38ad82b38a9768c2.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://m2p2emn4b6tb"
+path="res://.godot/imported/76.ogg-75a2b87e6d3b5ece38ad82b38a9768c2.oggvorbisstr"
 
 [deps]
 
 source_file="res://Assets/Sound/SFX/EssentialGameAudiopack/Sound Effects/AbstractPackSFX/Files/AbstractSfx/76.ogg"
-dest_files=[ "res://.import/76.ogg-75a2b87e6d3b5ece38ad82b38a9768c2.oggstr" ]
+dest_files=["res://.godot/imported/76.ogg-75a2b87e6d3b5ece38ad82b38a9768c2.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

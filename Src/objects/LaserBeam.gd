@@ -4,13 +4,13 @@ extends Node2D
 # Declare member variables here. Examples:
 const max_length = 2000
 
-onready var ray_cast = $RayCast2D
+@onready var ray_cast = $RayCast2D
 var damage = 20
 signal laser_fired
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var _err = self.connect("laser_fired", get_node("../../../"), "stop_attacking")
+	var _err = self.connect("laser_fired", Callable(get_node("../../../"), "stop_attacking"))
 
 func _process(_delta):
 	if ($"../.." is PathFollow2D):
