@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/MitchSoundTrack.ogg-b872473ee6e8d1cac17e967da2e4b530.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d3hwqsagh8mp3"
+path="res://.godot/imported/MitchSoundTrack.ogg-b872473ee6e8d1cac17e967da2e4b530.oggvorbisstr"
 
 [deps]
 
 source_file="res://Assets/Sound/MitchSoundTrack.ogg"
-dest_files=[ "res://.import/MitchSoundTrack.ogg-b872473ee6e8d1cac17e967da2e4b530.oggstr" ]
+dest_files=["res://.godot/imported/MitchSoundTrack.ogg-b872473ee6e8d1cac17e967da2e4b530.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

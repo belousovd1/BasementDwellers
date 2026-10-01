@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Hit 2.wav-7e9c1411a902c95aa47d0ab2e42a042f.sample"
+type="AudioStreamWAV"
+uid="uid://gm6pjqsn05to"
+path="res://.godot/imported/Hit 2.wav-7e9c1411a902c95aa47d0ab2e42a042f.sample"
 
 [deps]
 
 source_file="res://Assets/Sound/SFX/8bit sounds/Hit 2.wav"
-dest_files=[ "res://.import/Hit 2.wav-7e9c1411a902c95aa47d0ab2e42a042f.sample" ]
+dest_files=["res://.godot/imported/Hit 2.wav-7e9c1411a902c95aa47d0ab2e42a042f.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

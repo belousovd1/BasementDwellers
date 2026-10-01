@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bysu8w2ojivad"
+path="res://.godot/imported/Ove Melaa - Times.mp3-0042dc37fc731f738cad3e5e36ed2259.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/EssentialGameAudiopack/FullScores/Orchestral Scores/Ove Melaa - Times.mp3"
+dest_files=["res://.godot/imported/Ove Melaa - Times.mp3-0042dc37fc731f738cad3e5e36ed2259.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

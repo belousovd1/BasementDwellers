@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c10cmnunsfac5"
+path="res://.godot/imported/Ove Melaa - Theme Crystalized .mp3-371153322d9d781fad8bdc3647bd7e1c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/EssentialGameAudiopack/FullScores/Orchestral Scores/Ove Melaa - Theme Crystalized .mp3"
+dest_files=["res://.godot/imported/Ove Melaa - Theme Crystalized .mp3-371153322d9d781fad8bdc3647bd7e1c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

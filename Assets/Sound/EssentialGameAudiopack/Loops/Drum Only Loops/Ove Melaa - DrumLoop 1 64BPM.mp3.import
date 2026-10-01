@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqtqbmxw8ou2g"
+path="res://.godot/imported/Ove Melaa - DrumLoop 1 64BPM.mp3-288df78cafa53072e64aaec2ad279b45.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/EssentialGameAudiopack/Loops/Drum Only Loops/Ove Melaa - DrumLoop 1 64BPM.mp3"
+dest_files=["res://.godot/imported/Ove Melaa - DrumLoop 1 64BPM.mp3-288df78cafa53072e64aaec2ad279b45.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

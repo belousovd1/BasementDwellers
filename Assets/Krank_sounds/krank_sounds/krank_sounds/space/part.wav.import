@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/part.wav-de3617382f8a67a5ab83464e9ef24304.sample"
+type="AudioStreamWAV"
+uid="uid://dqoa415xjkcso"
+path="res://.godot/imported/part.wav-de3617382f8a67a5ab83464e9ef24304.sample"
 
 [deps]
 
 source_file="res://Assets/Krank_sounds/krank_sounds/krank_sounds/space/part.wav"
-dest_files=[ "res://.import/part.wav-de3617382f8a67a5ab83464e9ef24304.sample" ]
+dest_files=["res://.godot/imported/part.wav-de3617382f8a67a5ab83464e9ef24304.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

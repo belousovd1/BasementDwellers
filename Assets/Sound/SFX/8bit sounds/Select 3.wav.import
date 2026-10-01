@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Select 3.wav-81c007af9b8c38d9efdab4418975738e.sample"
+type="AudioStreamWAV"
+uid="uid://clrtjro1tfbgb"
+path="res://.godot/imported/Select 3.wav-81c007af9b8c38d9efdab4418975738e.sample"
 
 [deps]
 
 source_file="res://Assets/Sound/SFX/8bit sounds/Select 3.wav"
-dest_files=[ "res://.import/Select 3.wav-81c007af9b8c38d9efdab4418975738e.sample" ]
+dest_files=["res://.godot/imported/Select 3.wav-81c007af9b8c38d9efdab4418975738e.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

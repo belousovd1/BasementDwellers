@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/magnet_on.wav-3d961612313f18c3e01829f93f711392.sample"
+type="AudioStreamWAV"
+uid="uid://c28dy058h4gxd"
+path="res://.godot/imported/magnet_on.wav-3d961612313f18c3e01829f93f711392.sample"
 
 [deps]
 
 source_file="res://Assets/Krank_sounds/krank_sounds/krank_sounds/space/magnet_on.wav"
-dest_files=[ "res://.import/magnet_on.wav-3d961612313f18c3e01829f93f711392.sample" ]
+dest_files=["res://.godot/imported/magnet_on.wav-3d961612313f18c3e01829f93f711392.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/warning.wav-6c13cf618e300c3eb1579a2eace68290.sample"
+type="AudioStreamWAV"
+uid="uid://cstaaalixqos0"
+path="res://.godot/imported/warning.wav-6c13cf618e300c3eb1579a2eace68290.sample"
 
 [deps]
 
 source_file="res://Assets/Sound/SFX/Mitch SFX/warning.wav"
-dest_files=[ "res://.import/warning.wav-6c13cf618e300c3eb1579a2eace68290.sample" ]
+dest_files=["res://.godot/imported/warning.wav-6c13cf618e300c3eb1579a2eace68290.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

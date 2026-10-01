@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/OveMelaa - Trance Bit Bit Loop.ogg-5492b901b4df14e1c44fbdfad1ccb4d0.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bvhbcaqiqhjoc"
+path="res://.godot/imported/OveMelaa - Trance Bit Bit Loop.ogg-5492b901b4df14e1c44fbdfad1ccb4d0.oggvorbisstr"
 
 [deps]
 
 source_file="res://Assets/Sound/EssentialGameAudiopack/Loops/OveMelaa - Trance Bit Bit Loop.ogg"
-dest_files=[ "res://.import/OveMelaa - Trance Bit Bit Loop.ogg-5492b901b4df14e1c44fbdfad1ccb4d0.oggstr" ]
+dest_files=["res://.godot/imported/OveMelaa - Trance Bit Bit Loop.ogg-5492b901b4df14e1c44fbdfad1ccb4d0.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

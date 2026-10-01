@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/magnet_off.wav-e5bd9a49a291c2c218e219dcb3db4a5e.sample"
+type="AudioStreamWAV"
+uid="uid://cxqu1sj4xjlep"
+path="res://.godot/imported/magnet_off.wav-e5bd9a49a291c2c218e219dcb3db4a5e.sample"
 
 [deps]
 
 source_file="res://Assets/Krank_sounds/krank_sounds/krank_sounds/water/magnet_off.wav"
-dest_files=[ "res://.import/magnet_off.wav-e5bd9a49a291c2c218e219dcb3db4a5e.sample" ]
+dest_files=["res://.godot/imported/magnet_off.wav-e5bd9a49a291c2c218e219dcb3db4a5e.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

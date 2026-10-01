@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Caketown.ogg-43d01f0d1727c055a6603bac81bbc4ec.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://chdk6ja0btuao"
+path="res://.godot/imported/Caketown.ogg-43d01f0d1727c055a6603bac81bbc4ec.oggvorbisstr"
 
 [deps]
 
 source_file="res://Assets/Sound/Caketown.ogg"
-dest_files=[ "res://.import/Caketown.ogg-43d01f0d1727c055a6603bac81bbc4ec.oggstr" ]
+dest_files=["res://.godot/imported/Caketown.ogg-43d01f0d1727c055a6603bac81bbc4ec.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

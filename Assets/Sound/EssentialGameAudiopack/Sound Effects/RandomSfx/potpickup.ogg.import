@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/potpickup.ogg-aa9e7369d26bbb6331350607a7f4108d.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bnbdu1an135wl"
+path="res://.godot/imported/potpickup.ogg-aa9e7369d26bbb6331350607a7f4108d.oggvorbisstr"
 
 [deps]
 
 source_file="res://Assets/Sound/EssentialGameAudiopack/Sound Effects/RandomSfx/potpickup.ogg"
-dest_files=[ "res://.import/potpickup.ogg-aa9e7369d26bbb6331350607a7f4108d.oggstr" ]
+dest_files=["res://.godot/imported/potpickup.ogg-aa9e7369d26bbb6331350607a7f4108d.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

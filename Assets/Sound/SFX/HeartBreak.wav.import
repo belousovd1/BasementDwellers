@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/HeartBreak.wav-891c8b77b794695686024a34fb37dc69.sample"
+type="AudioStreamWAV"
+uid="uid://cahab54f3q3aa"
+path="res://.godot/imported/HeartBreak.wav-891c8b77b794695686024a34fb37dc69.sample"
 
 [deps]
 
 source_file="res://Assets/Sound/SFX/HeartBreak.wav"
-dest_files=[ "res://.import/HeartBreak.wav-891c8b77b794695686024a34fb37dc69.sample" ]
+dest_files=["res://.godot/imported/HeartBreak.wav-891c8b77b794695686024a34fb37dc69.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Coin 1.wav-0d8fbdb9b07a8fa4709bd387e16a5f18.sample"
+type="AudioStreamWAV"
+uid="uid://bx8qfdkg8wus6"
+path="res://.godot/imported/Coin 1.wav-0d8fbdb9b07a8fa4709bd387e16a5f18.sample"
 
 [deps]
 
 source_file="res://Assets/Sound/SFX/8bit sounds/Coin 1.wav"
-dest_files=[ "res://.import/Coin 1.wav-0d8fbdb9b07a8fa4709bd387e16a5f18.sample" ]
+dest_files=["res://.godot/imported/Coin 1.wav-0d8fbdb9b07a8fa4709bd387e16a5f18.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

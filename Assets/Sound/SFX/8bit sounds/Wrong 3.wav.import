@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Wrong 3.wav-aa1e7ce8106f9d508aa31ba67f8aba11.sample"
+type="AudioStreamWAV"
+uid="uid://ca5ygsxydkbk1"
+path="res://.godot/imported/Wrong 3.wav-aa1e7ce8106f9d508aa31ba67f8aba11.sample"
 
 [deps]
 
 source_file="res://Assets/Sound/SFX/8bit sounds/Wrong 3.wav"
-dest_files=[ "res://.import/Wrong 3.wav-aa1e7ce8106f9d508aa31ba67f8aba11.sample" ]
+dest_files=["res://.godot/imported/Wrong 3.wav-aa1e7ce8106f9d508aa31ba67f8aba11.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0
