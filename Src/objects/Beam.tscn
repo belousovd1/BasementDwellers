@@ -15,14 +15,15 @@ colors = PackedColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 gradient = SubResource( 1 )
 
 [sub_resource type="ParticleProcessMaterial" id=3]
-flag_disable_z = true
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.4
+scale_max = 1.0
+particle_flag_disable_z = true
 spread = 180.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 100.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 0.4
-scale_random = 1.0
 color_ramp = SubResource( 2 )
 
 [sub_resource type="CanvasItemMaterial" id=4]
@@ -76,6 +77,7 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 3 )
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Begin"]
+local_coords = true
 lifetime = 0.25
 preprocess = 0.25
 process_material = SubResource( 3 )

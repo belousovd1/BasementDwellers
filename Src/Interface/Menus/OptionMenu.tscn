@@ -3,15 +3,14 @@
 [ext_resource path="res://Assets/Sprites/trash_bin_front.png" type="Texture2D" id=1]
 [ext_resource path="res://Assets/Sprites/trash_bin_back.png" type="Texture2D" id=2]
 [ext_resource path="res://Src/Interface/Menus/Fire.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/text/MainMenuButtons.tres" type="FontFile" id=4]
+[ext_resource path="res://Assets/text/MainMenuButtons.tres" type="FontVariation" id=4]
 [ext_resource path="res://Assets/slkscrb.ttf" type="FontFile" id=5]
 [ext_resource path="res://Src/Interface/Menus/OptionMenu.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Sound/OST/Main MenuOST .ogg" type="AudioStream" id=7]
 [ext_resource path="res://Src/Interface/Menus/Button.tscn" type="PackedScene" id=8]
 
-[sub_resource type="FontFile" id=1]
-size = 128
-font_data = ExtResource( 5 )
+[sub_resource type="FontVariation" id=1]
+base_font = ExtResource( 5 )
 
 [node name="Options Menu" type="Control"]
 anchor_right = 1.0
@@ -53,9 +52,10 @@ offset_top = -412.0
 offset_right = 351.0
 offset_bottom = -151.0
 theme_override_fonts/font = SubResource( 1 )
+theme_override_font_sizes/font_size = 128
 text = "Options
 "
-align = 1
+horizontal_alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -113,6 +113,7 @@ offset_bottom = 472.0
 offset_right = 647.0
 offset_bottom = 65.0
 theme_override_fonts/font = ExtResource( 4 )
+theme_override_font_sizes/font_size = 64
 text = "Music Volume"
 
 [node name="Sound Effects Volume" type="Label" parent="Options/HBoxContainer/Names"]
@@ -120,6 +121,7 @@ offset_top = 69.0
 offset_right = 647.0
 offset_bottom = 134.0
 theme_override_fonts/font = ExtResource( 4 )
+theme_override_font_sizes/font_size = 64
 text = "Sound effects"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

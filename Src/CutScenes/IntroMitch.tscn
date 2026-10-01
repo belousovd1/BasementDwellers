@@ -171,7 +171,7 @@ curve = SubResource( 3 )
 [node name="PathFollow2D" type="PathFollow2D" parent="EnterPath"]
 position = Vector2( 2371.8, 528 )
 rotation = 2.35618
-rotate = false
+rotates = false
 
 [node name="Mitch" parent="EnterPath/PathFollow2D" instance=ExtResource( 2 )]
 rotation = 3.95143

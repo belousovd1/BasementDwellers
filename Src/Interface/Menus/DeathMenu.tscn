@@ -4,12 +4,11 @@
 [ext_resource path="res://Assets/slkscrb.ttf" type="FontFile" id=2]
 [ext_resource path="res://Assets/Sound/EndGameTheme.wav" type="AudioStream" id=3]
 
-[sub_resource type="FontFile" id=1]
-font_data = ExtResource( 2 )
+[sub_resource type="FontVariation" id=1]
+base_font = ExtResource( 2 )
 
-[sub_resource type="FontFile" id=2]
-size = 32
-font_data = ExtResource( 2 )
+[sub_resource type="FontVariation" id=2]
+base_font = ExtResource( 2 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Show"
@@ -77,9 +76,10 @@ offset_right = -1631.0
 offset_bottom = -231.0
 scale = Vector2( 8, 8 )
 theme_override_fonts/font = SubResource( 1 )
+theme_override_font_sizes/font_size = 16
 theme_override_colors/font_color = Color( 0.968627, 0.937255, 0.937255, 1 )
 text = "Game Over"
-align = 1
+horizontal_alignment = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -95,6 +95,7 @@ offset_top = 4.0
 offset_right = 116.0
 offset_bottom = 95.0
 theme_override_fonts/font = SubResource( 2 )
+theme_override_font_sizes/font_size = 32
 text = "restart"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -111,6 +112,7 @@ offset_top = 204.0
 offset_right = 116.0
 offset_bottom = 295.0
 theme_override_fonts/font = SubResource( 2 )
+theme_override_font_sizes/font_size = 32
 text = "quit"
 __meta__ = {
 "_edit_use_anchors_": false

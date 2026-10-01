@@ -14,6 +14,14 @@ BasementDwellers is a small Godot game made for friends: a bullet-hell style bos
   - Godot 4 refuses `add_child` while the tree is adding or removing nodes. Connect `tree_exiting`-style signals with `CONNECT_DEFERRED` if the handler spawns nodes.
   - Camera2D has no `clear_current()`. `OnHitCamera` is `enabled = false` and gets toggled on for hits.
   - `AnimationPlayer.stop()` resets the animation visually. The attack bar uses `pause()` to freeze the indicator where the player stopped it.
+- Collision detection is one-way in Godot 4: a node only detects layers in its *own* mask. Godot 3 also matched when the *other* node's mask covered this node's layer, and the original scenes rely on that.
+  - `Player/ProjectileDetector` mask is 5 (layer 1 + "Projectiles").
+  - The `Player` body mask is 15, which includes the BattleSquare walls on layer 4 (value 8).
+  - A new projectile must sit on a layer in the detector's mask and expose a `damage` property.
+- Fonts in Godot 4 carry no size. Fonts are `FontVariation` resources wrapping the `.ttf`, and each Control sets `theme_override_font_sizes/*`. The GodotTIE intro text uses the plugin's `FONT_SIZE` export.
+- The project-wide texture filter is Nearest (pixel art). Nodes that should be smoothed set `texture_filter = 2` (Linear). Shader samplers set filter and repeat hints on the uniform, e.g. `repeat_enable` for the scrolling fire noise.
+- The black combat background comes from `default_clear_color`. Main's background ColorRect runs the shockwave shader, which samples the screen.
+- Most `.tscn` files are still in the old text format (numeric `id=` values). Godot rewrites a file in the new format when you save it in the editor; both formats load fine.
 - `.godot/` (Godot 4 cache) and `.import/` (old Godot 3 cache) are gitignored.
 - There are no automated tests. To check changes headlessly, use the console binary: `Godot_v4.7.2-stable_win64_console.exe --headless --path . <scene.tscn> --quit-after <frames>` runs a scene and prints script errors. Driving the fight end to end needs a throwaway `extends SceneTree` script run with `-s`. It should press `ui_accept` (via `Input.action_press`) for the attack bar and dialogue.
 - `Assets/PracAnim/ShaderTester.tscn` references a missing `boyz.png`. This was already broken in Godot 3, and the scene is scratch.

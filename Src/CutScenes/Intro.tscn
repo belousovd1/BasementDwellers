@@ -2,7 +2,7 @@
 
 [ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=1]
 [ext_resource path="res://Src/CutScenes/Intro.gd" type="Script" id=2]
-[ext_resource path="res://Assets/text/Game_font.tres" type="FontFile" id=3]
+[ext_resource path="res://Assets/text/Game_font.tres" type="FontVariation" id=3]
 [ext_resource path="res://Assets/Sound/OST/IntroAudio.ogg" type="AudioStream" id=4]
 
 [node name="Intro" type="Control"]
@@ -49,6 +49,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 FONT = ExtResource( 3 )
+FONT_SIZE = 64
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

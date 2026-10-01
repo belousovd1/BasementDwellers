@@ -7,7 +7,7 @@
 [sub_resource type="Animation" id=1]
 resource_name = "shockwave"
 length = 1.25
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:material:shader_parameter/size")
 tracks/0/interp = 1

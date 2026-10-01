@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Sound/SFX/swish8mod.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 58, 12 )
+size = Vector2( 116.0, 24.0 )
 
 [node name="BoomerangBullet" type="Area2D"]
 collision_layer = 4

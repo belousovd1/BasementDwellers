@@ -227,6 +227,8 @@ shader_parameter/gravity = Vector3( 0, 80, 0 )
 shader_parameter/sprite = ExtResource( 2 )
 
 [node name="BodySprites" type="GPUParticles2D"]
+texture_filter = 2
+local_coords = true
 position = Vector2( 11.2194, 1.5 )
 emitting = false
 amount = 40000

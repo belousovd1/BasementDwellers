@@ -19,7 +19,7 @@ __meta__ = {
 position = Vector2( -194.623, 93.3895 )
 rotation = 0.575506
 progress = 1303.9
-rotate = false
+rotates = false
 
 [node name="Malocchio" parent="PathFollow2D" instance=ExtResource( 2 )]
 

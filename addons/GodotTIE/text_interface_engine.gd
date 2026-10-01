@@ -43,6 +43,7 @@ const BUFF_CLEAR = 5
 @export var LOG_SKIPPED_LINES: bool = true # false = delete every line that is not showing on screen
 @export var SCROLL_SKIPPED_LINES: bool = false # if the user will be able to scroll through the skipped lines; weird stuff can happen if this and BREAK_ON_MAX_LINE/LOG_SKIPPED_LINES
 @export var FONT: Font
+@export var FONT_SIZE: int = 0 # Godot 4 fonts carry no size; 0 keeps the theme default
 # Text input properties!
 @export var PRINT_INPUT: bool = true # If the input is going to be printed
 @export var BLINKING_INPUT: bool = true # If there is a _ blinking when input is appropriate
@@ -172,6 +173,8 @@ func _ready():
 	# Setting font of the text
 	if(FONT != null):
 		_label.add_theme_font_override("font", FONT)
+	if(FONT_SIZE > 0):
+		_label.add_theme_font_size_override("font_size", FONT_SIZE)
 	
 	# Setting size of the frame
 	_max_lines = floor(get_size().y/(_label.get_line_height()+_label.get_theme_constant("line_spacing")))
