@@ -35,9 +35,11 @@ func _ready() -> void:
 	curtain.play("fade_in")
 	mitch.attacks_finished.connect(_player_turn)
 	mitch.start_stage(0)
+	mitch.start_talking()
 
 
 func _player_turn() -> void:
+	mitch.stop_talking()
 	get_tree().call_group("defense", "hide")
 	mitch.stage.on_player_turn_started()
 
@@ -57,6 +59,7 @@ func _player_turn() -> void:
 	get_tree().call_group("defense", "show")
 	mitch.stage.resume()
 	mitch.play_idle()
+	mitch.start_talking()
 
 
 ## Mitch has been beaten for this stage: he talks, then the next stage starts
@@ -93,6 +96,7 @@ func _next_stage() -> void:
 	get_tree().call_group("defense", "show")
 	await get_tree().create_timer(2).timeout
 	mitch.start_stage(mitch.stage_index + 1)
+	mitch.start_talking()
 	if mitch.is_final_stage():
 		_play_music(load(FINAL_STAGE_MUSIC))
 
