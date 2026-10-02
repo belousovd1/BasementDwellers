@@ -68,7 +68,7 @@ func _end_stage() -> void:
 	mitch.position = DIALOGUE_POSITION
 	if mitch.stage_index == 1:
 		music.stop()
-		mitch.animation_player.play("stage3_idle")
+		mitch.power_up()
 	elif mitch.is_final_stage():
 		mitch.end_stage()
 		music.stop()

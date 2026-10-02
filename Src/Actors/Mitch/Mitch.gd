@@ -15,12 +15,13 @@ const MAX_HEALTH := 100
 var health := MAX_HEALTH
 var stage_index := -1
 var stage: BossStage
+var _idle_animation := "idle"
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
-	animation_player.play("idle")
+	play_idle()
 
 
 ## Replaces the current stage with stage [param index] (0-based) at full health.
@@ -33,7 +34,7 @@ func start_stage(index: int) -> void:
 	stage.attacks_finished.connect(attacks_finished.emit)
 	add_child(stage)
 	if is_final_stage():
-		animation_player.play("stage3_idle")
+		power_up()
 
 
 ## Removes the stage, along with everything it spawned.
@@ -54,8 +55,14 @@ func is_defeated() -> bool:
 	return health <= 0
 
 
+## Switches Mitch to his final-stage look, which he keeps from then on.
+func power_up() -> void:
+	_idle_animation = "stage3_idle"
+	play_idle()
+
+
 func play_idle() -> void:
-	animation_player.play("idle")
+	animation_player.play(_idle_animation)
 
 
 ## Plays the hit animation and returns once it has finished.
