@@ -15,7 +15,7 @@ func resume() -> void:
 	for _round in 3:
 		for gap in 3:
 			spawn_boomerang_row(gap, Vector2(400, 264), Vector2.LEFT, 90, SPEED)
-			await wait(0.6)
+			await wait(0.6, true)
 	await wait(3)
 
 	spawn_boomerang(Vector2(0, 600), Vector2.UP, SPEED)

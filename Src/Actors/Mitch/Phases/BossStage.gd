@@ -43,10 +43,17 @@ func on_player_turn_ended(_boss_health: int) -> void:
 
 ## Waits [param seconds]. The timer is a child of the stage, so if the stage is
 ## freed mid-round the waiting attack sequence is simply dropped.
-func wait(seconds: float) -> void:
+##
+## With [param before_update], the timer ticks in the physics step, so the wait
+## ends before nodes update that frame and anything spawned next moves and spins
+## in that same frame. The row volleys were tuned to that timing: without it
+## their spinning paintbrushes cross the arena a frame behind, visibly tilted.
+func wait(seconds: float, before_update := false) -> void:
 	var timer := Timer.new()
 	timer.one_shot = true
 	timer.wait_time = seconds
+	if before_update:
+		timer.process_callback = Timer.TIMER_PROCESS_PHYSICS
 	add_child(timer)
 	timer.start()
 	await timer.timeout

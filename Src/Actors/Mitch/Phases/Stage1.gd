@@ -22,7 +22,7 @@ func resume() -> void:
 	for _round in 3:
 		for gap in 3:
 			spawn_boomerang_row(gap)
-			await wait(1)
+			await wait(1, true)
 	await wait(2)
 	attacks_finished.emit()
 
