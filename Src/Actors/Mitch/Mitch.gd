@@ -11,8 +11,6 @@ const STAGES: Array[PackedScene] = [
 	preload("res://Src/Actors/Mitch/Phases/Stage3.tscn"),
 ]
 const MAX_HEALTH := 100
-## Seconds spent easing into an idle animation instead of snapping to it.
-const IDLE_BLEND_TIME := 0.25
 
 var health := MAX_HEALTH
 var stage_index := -1
@@ -23,9 +21,6 @@ var _idle_animation := "idle"
 
 
 func _ready() -> void:
-	for idle in ["idle", "stage3_idle"]:
-		animation_player.set_blend_time("hit", idle, IDLE_BLEND_TIME)
-	animation_player.set_blend_time("idle", "stage3_idle", IDLE_BLEND_TIME)
 	play_idle()
 
 
