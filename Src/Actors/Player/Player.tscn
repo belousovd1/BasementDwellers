@@ -58,27 +58,27 @@ tracks/2/keys = {
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("LeftHeart:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 1,
-"values": [ Vector2( -2, 7 ), Vector2( -6, 7 ) ]
+"times": PackedFloat32Array( 0, 1, 2, 5 ),
+"transitions": PackedFloat32Array( 0, 0, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2, 7 ), Vector2( -6, 7 ), Vector2( -6, 7 ), Vector2( -2, 500 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("RightHeart:position")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 1,
-"values": [ Vector2( -2, 7 ), Vector2( 4, 7 ) ]
+"times": PackedFloat32Array( 0, 1, 2, 5 ),
+"transitions": PackedFloat32Array( 0, 0, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2, 7 ), Vector2( 4, 7 ), Vector2( 4, 7 ), Vector2( -2, 500 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("LeftHeart:rotation_degrees")
@@ -104,37 +104,13 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 0.0, 8.9 ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("RightHeart:position")
-tracks/4/interp = 2
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PackedFloat32Array( 2, 5 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 4, 7 ), Vector2( -2, 500 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("LeftHeart:position")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PackedFloat32Array( 2, 5 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -6, 7 ), Vector2( -2, 500 ) ]
-}
-tracks/6/type = "audio"
-tracks/6/path = NodePath("AudioStreamPlayer")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
 "clips": [ {
 "end_offset": 6.55,
 "start_offset": 0.0,
@@ -146,13 +122,13 @@ tracks/6/keys = {
 } ],
 "times": PackedFloat32Array( 0, 0.001 )
 }
-tracks/7/type = "audio"
-tracks/7/path = NodePath("AudioStreamPlayer")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
+tracks/5/type = "audio"
+tracks/5/path = NodePath("AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -160,13 +136,13 @@ tracks/7/keys = {
 } ],
 "times": PackedFloat32Array( 0.7 )
 }
-tracks/8/type = "method"
-tracks/8/path = NodePath(".")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PackedFloat32Array( 5 ),
 "transitions": PackedFloat32Array( 1 ),
 "values": [ {
