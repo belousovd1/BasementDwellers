@@ -37,11 +37,9 @@ func on_player_turn_started() -> void:
 
 
 func on_player_turn_ended(boss_health: int) -> void:
-	# The laser only restarts once Mitch is badly hurt; above that it stays
-	# stopped for the rest of the stage, as in the original game.
 	if boss_health <= ENRAGE_HEALTH:
 		_malocchio_path.rapid_fire()
-		_malocchio_path.start_firing()
+	_malocchio_path.start_firing()
 
 
 func _on_summon_finished() -> void:
