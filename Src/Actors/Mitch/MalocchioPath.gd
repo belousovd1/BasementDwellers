@@ -8,6 +8,7 @@ extends Path2D
 @export var rapid_fire_interval := 3.0
 
 var _firing := false
+var _time := 0.0
 var _rapid := false
 var _noise := FastNoiseLite.new()
 
@@ -26,6 +27,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	_time += delta
 	if not _firing:
 		_fly(delta)
 
@@ -50,9 +52,8 @@ func _fly(delta: float) -> void:
 	_malocchio.animation_player.play("float")
 	_malocchio.rotate(3.5 * delta)
 	_follow.progress += delta * speed
-	# Sampled with delta rather than elapsed time, so the wobble stays almost
-	# constant. Kept as-is to preserve the original movement.
-	_follow.v_offset = _noise.get_noise_1d(delta * 20) * max_wobble
+	# Bob up and down as it flies.
+	_follow.v_offset = _noise.get_noise_1d(_time * 20) * max_wobble
 
 
 func _on_fire_timer_timeout() -> void:
