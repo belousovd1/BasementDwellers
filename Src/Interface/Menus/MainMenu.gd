@@ -1,30 +1,17 @@
 extends Control
+## The title screen. (The Load button is not hooked up yet.)
+
+const INTRO_SCENE := "res://Src/CutScenes/IntroMitch.tscn"
+const OPTIONS_SCENE := "res://Src/Interface/Menus/OptionMenu.tscn"
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func _on_Start_pressed() -> void:
+	get_tree().change_scene_to_file(INTRO_SCENE)
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _on_Options_pressed() -> void:
+	get_tree().change_scene_to_file(OPTIONS_SCENE)
 
 
-func _process(_delta):
-	pass
-
-func _on_Start_pressed():
-	var _err = get_tree().change_scene_to_file("res://Src/CutScenes/IntroMitch.tscn")
-
-func _on_Load_pressed():
-	pass
-
-func _on_Options_pressed():
-	var _err = get_tree().change_scene_to_file("res://Src/Interface/Menus/OptionMenu.tscn")
-
-func _on_Quit_pressed():
+func _on_Quit_pressed() -> void:
 	get_tree().quit()
-
-func hide_everything_but_fire():
-	get_tree().call_group("everything_but_fire", "invisible") 

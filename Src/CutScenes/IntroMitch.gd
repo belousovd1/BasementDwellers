@@ -1,34 +1,37 @@
 extends Control
+## Mitch's entrance before the fight: he rolls in along a path, introduces
+## himself, then the curtain drops and the fight starts. Each press of accept
+## jumps the entrance forward.
+
+const DialogueBoxScene := preload("res://Src/Interface/DialogueBox.tscn")
+const DIALOGUE := "res://Src/CutScenes/dialogues/Mitch/IntroMitch.json"
+const SKIP_SECONDS := 8.0
+
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _mitch: Node2D = $EnterPath/PathFollow2D/Mitch
+@onready var _dialogue_music: AudioStreamPlayer = $DialogueST
+@onready var _curtain: AnimationPlayer = $CurtainColorRect/CurtainAnimationPlayer
 
 
-@onready var dialogue_sc = preload("res://Src/Interface/DialogueBox.tscn")
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func _ready() -> void:
+	_animation_player.play("Start")
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$AnimationPlayer.play("Start")
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		_animation_player.advance(SKIP_SECONDS)
 
 
-func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		skip_intro()
-
-func start_Dialogue():
-	$EnterPath/PathFollow2D/Mitch.set_scale(Vector2(3,3))
-	$DialogueST.play()
-	var dialogue  = dialogue_sc.instantiate()
-	dialogue.get_node("DialogueBox").dialogue_file_path = "res://Src/CutScenes/dialogues/Mitch/IntroMitch.json"
+# Called from the end of the "MitchEnter" animation.
+func _start_dialogue() -> void:
+	_mitch.scale = Vector2(3, 3)
+	_dialogue_music.play()
+	var dialogue: DialogueBox = DialogueBoxScene.instantiate()
+	dialogue.dialogue_path = DIALOGUE
 	add_child(dialogue)
-	dialogue.get_node("DialogueBox").connect("finish", Callable(self, "end_dialogue_ST"))
+	await dialogue.finished
 
-func end_dialogue_ST():
-	$DialogueST.stop()
-	$CurtainColorRect/CurtainAnimationPlayer.play("fade_out")
+	_dialogue_music.stop()
+	_curtain.play("fade_out")
 	await get_tree().create_timer(1).timeout
-	var _err = get_tree().change_scene_to_file("res://Src/Interface/Main.tscn")
-
-func skip_intro():
-	$AnimationPlayer.advance(8.0)
+	get_tree().change_scene_to_file("res://Src/Interface/Main.tscn")

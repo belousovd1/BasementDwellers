@@ -79,5 +79,6 @@ process_material = SubResource( 5 )
 texture = ExtResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 stream = ExtResource( 4 )
 autoplay = true

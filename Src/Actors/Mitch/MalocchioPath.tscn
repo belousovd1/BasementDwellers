@@ -26,5 +26,4 @@ rotates = false
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.0
 autostart = true
-[connection signal="attacking" from="PathFollow2D/Malocchio" to="." method="stop_attacking"]
-[connection signal="timeout" from="Timer" to="." method="shoot_laser"]
+[connection signal="timeout" from="Timer" to="." method="_on_fire_timer_timeout"]

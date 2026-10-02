@@ -37,7 +37,7 @@ uniform vec3 emission_box_extents;
 uniform vec4 color_value : source_color;
 uniform int trail_divisor;
 uniform vec3 gravity;
-uniform sampler2D sprite;
+uniform sampler2D sprite : repeat_disable, filter_nearest;
 
 
 float rand_from_seed(inout uint seed) {

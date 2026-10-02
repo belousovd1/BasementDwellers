@@ -2,8 +2,7 @@
 
 [ext_resource path="res://Src/Actors/Mitch/Mitch_LegAttacks.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Mitch/Attacks/M_RightattackLeg.png" type="Texture2D" id=2]
-[ext_resource path="res://Src/Actors/Mitch/LeftLeg.gd" type="Script" id=3]
-[ext_resource path="res://Src/Actors/Mitch/RightLeg.gd" type="Script" id=4]
+[ext_resource path="res://Src/objects/Projectile.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Adv Alternating kicks"
@@ -73,7 +72,7 @@ position = Vector2( 275, 0 )
 rotation = -3.14159
 scale = Vector2( 2, 2 )
 collision_layer = 4
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="M_RightAttackLeg" type="Sprite2D" parent="RightLeg"]
 position = Vector2( 53.5002, 71.9999 )

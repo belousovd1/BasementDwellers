@@ -1,19 +1,16 @@
 extends Sprite2D
-var time = 0
-@onready var n = (get_material().get_shader_parameter("noise") as NoiseTexture2D)
+## The trash-can fire. Its light flickers using the same noise that drives the
+## flame shader.
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const FLICKER_SPEED := 75.0
 
+var _time := 0.0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+@onready var _noise: Noise = (material.get_shader_parameter("noise") as NoiseTexture2D).noise
+@onready var _light: PointLight2D = $PointLight2D
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	time += delta * 75
-	var offset = n.noise.get_noise_1d(time)
-	$PointLight2D.scale = Vector2(2 + offset/2, 2 + offset/2)
+func _process(delta: float) -> void:
+	_time += delta * FLICKER_SPEED
+	var flicker := _noise.get_noise_1d(_time)
+	_light.scale = Vector2.ONE * (2.0 + flicker / 2.0)

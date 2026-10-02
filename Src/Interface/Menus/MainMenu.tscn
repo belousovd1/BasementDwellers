@@ -1,21 +1,14 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Src/Interface/Menus/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://Src/Interface/Menus/Sprite.gd" type="Script" id=2]
-[ext_resource path="res://Src/Interface/Menus/LoadButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Interface/Menus/MenuButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Interface/Menus/Fire.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Texture/basement_menu_collapsed - Copy(1).png" type="Texture2D" id=5]
 [ext_resource path="res://Assets/Sound/OST/Main MenuOST .ogg" type="AudioStream" id=6]
 [ext_resource path="res://Assets/Texture/menu_normal.png" type="Texture2D" id=7]
 [ext_resource path="res://Assets/Texture/TItle Text.png" type="Texture2D" id=8]
 [ext_resource path="res://Assets/Sprites/trash_bin_front.png" type="Texture2D" id=9]
-[ext_resource path="res://Src/Interface/Menus/VBoxContainer.gd" type="Script" id=10]
-[ext_resource path="res://Src/Interface/Menus/trash_bin.gd" type="Script" id=11]
-[ext_resource path="res://Src/Interface/Menus/TextureRect2.gd" type="Script" id=12]
 [ext_resource path="res://Assets/Sprites/trash_bin_back.png" type="Texture2D" id=13]
-[ext_resource path="res://Src/Interface/Menus/QuitMenuButton.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Src/Interface/Menus/OptionsMenuButton.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Src/Interface/Menus/StartMenuButton.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=1]
 length = 2.0
@@ -133,7 +126,6 @@ __meta__ = {
 position = Vector2( 960, 544 )
 scale = Vector2( 2, 2 )
 texture = SubResource( 5 )
-script = ExtResource( 2 )
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 offset_left = 8.0
@@ -143,7 +135,6 @@ offset_bottom = 1008.0
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 8 )
 stretch_mode = 4
-script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -154,27 +145,29 @@ anchor_top = 0.444444
 anchor_right = 0.595833
 anchor_bottom = 0.888889
 theme_override_constants/separation = 40
-script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Start" parent="VBoxContainer" instance=ExtResource( 16 )]
+[node name="Start" parent="VBoxContainer" instance=ExtResource( 3 )]
+label = "Start"
 offset_right = 376.0
 offset_bottom = 90.0
 
-[node name="LoadButton" parent="VBoxContainer" instance=ExtResource( 3 )]
+[node name="Load" parent="VBoxContainer" instance=ExtResource( 3 )]
+label = "Load"
 offset_top = 130.0
 offset_right = 376.0
 offset_bottom = 220.0
 
-[node name="Options" parent="VBoxContainer" instance=ExtResource( 15 )]
+[node name="Options" parent="VBoxContainer" instance=ExtResource( 3 )]
+label = "Options"
 offset_top = 260.0
 offset_right = 376.0
 offset_bottom = 350.0
-align = 1
 
-[node name="Quit" parent="VBoxContainer" instance=ExtResource( 14 )]
+[node name="Quit" parent="VBoxContainer" instance=ExtResource( 3 )]
+label = "Quit"
 offset_top = 390.0
 offset_right = 376.0
 offset_bottom = 480.0
@@ -197,12 +190,12 @@ scale = Vector2( 0.6, 0.6 )
 position = Vector2( 536, 960 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
-script = ExtResource( 11 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 stream = ExtResource( 6 )
 autoplay = true
 

@@ -1,22 +1,10 @@
 extends Node2D
+## Mitch's floating eye. On its own it plays the summoning animation, which
+## frees it at the end; inside MalocchioPath it flies around firing [member laser].
+
+@onready var laser: Node2D = $LaserBeam
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
-# Declare member variables here. Examples:
-# var a = 2
-var damage = 20
-signal attacking
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func process(_delta):
-	pass
-
-func is_attacking():
-	emit_signal("attacking")
-
-func summon():
-	$AnimationPlayer.play("summon")
+func summon() -> void:
+	animation_player.play("summon")

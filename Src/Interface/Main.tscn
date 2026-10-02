@@ -1,16 +1,15 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Src/Interface/Main.gd" type="Script" id=1]
-[ext_resource path="res://Src/Interface/PlayerUI/Interface.gd" type="Script" id=2]
 [ext_resource path="res://Src/Actors/Mitch/Mitch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Interface/PlayerUI/Interface.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Actors/Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Interface/OnHitCamera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/objects/BattleArea/BattleSquare.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Sound/MitchSoundTrack.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Src/objects/BattleArea/BattleSquare.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Shaders/CurtainColorRect.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Shaders/ShockWave.gdshader" type="Shader" id=11]
+[ext_resource path="res://Assets/Sound/SFX/426318__mtjohnson__rocks-falling.wav" type="AudioStream" id=12]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 11 )
@@ -45,7 +44,6 @@ scale = Vector2( 1.8, 1.8 )
 ] instance=ExtResource( 7 )]
 position = Vector2( 960, 800 )
 scale = Vector2( 1.8, 1.8 )
-script = ExtResource( 9 )
 
 [node name="Player" parent="." groups=[
 "defense",
@@ -58,25 +56,23 @@ position = Vector2( 960, 800 )
 position = Vector2( 960, 544 )
 trauma = 1.0
 
-[node name="HitTimer" type="Timer" parent="." groups=[
-"environment",
-]]
-wait_time = 0.5
-
 [node name="Interface" parent="." groups=[
 "environment",
 ] instance=ExtResource( 4 )]
-script = ExtResource( 2 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 stream = ExtResource( 8 )
 volume_db = -5.0
 autoplay = true
 
+[node name="MitchDeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+bus = "SFX"
+
 [node name="CurtainColorRect" parent="." instance=ExtResource( 10 )]
-[connection signal="player_health_change" from="." to="Interface" method="_on_player_health_changed"]
-[connection signal="dead" from="Player" to="." method="_on_Player_dead"]
-[connection signal="player_hit" from="Player" to="." method="_on_player_hit"]
-[connection signal="timeout" from="HitTimer" to="." method="_on_HitTimer_timeout"]
+[connection signal="died" from="Player" to="." method="_on_player_died"]
+[connection signal="death_animation_finished" from="Player" to="." method="_on_player_death_animation_finished"]
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
 
 [editable path="CurtainColorRect"]

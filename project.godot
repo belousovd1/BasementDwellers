@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.7")
 config/icon="res://icon.png"
 config/windows_native_icon="res://BDTempICCON-256.ico"
 
+[autoload]
+
+Settings="*res://Src/Settings.gd"
+
 [audio]
 
 buses/default_bus_layout="res://Assets/Sound/default_bus_layout.tres"

@@ -1,163 +1,65 @@
-extends Node2D
+extends BossStage
+## Stage 3: Malocchio circles the arena firing its laser while paintbrushes
+## close in from the sides or from the corners.
 
-@onready var paintbrush_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/BoomerangBullet.tscn")
-@onready var paintbrush_row_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/BoomerangBulletRow.tscn")
-@onready var paintbrush_boomerang_attack_sc = preload("res://Src/Actors/Mitch/PaintBrushBullets/PaintBrushBoomerangAttack.tscn")
-@onready var legattack_sc = preload("res://Src/Actors/Mitch/Mitch_LegAttacks.tscn")
-@onready var mallochio_path_sc = preload("res://Src/Actors/Mitch/MalocchioPath.tscn")
-@onready var mallochio_sc = preload("res://Src/Actors/Mitch/Malocchio.tscn")
-var rng = RandomNumberGenerator.new()
+const MalocchioScene := preload("res://Src/Actors/Mitch/Malocchio.tscn")
+const MalocchioPathScene := preload("res://Src/Actors/Mitch/MalocchioPath.tscn")
+const SPEED := 400.0
+const SIZE := Vector2(0.8, 0.8)
+## At or below this health, Malocchio fires faster.
+const ENRAGE_HEALTH := 50
 
-signal done_attacking
+var rng := RandomNumberGenerator.new()
+var _malocchio_path: Node2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+
+func start() -> void:
 	rng.randomize()
-	var _err = connect("done_attacking", Callable($"../../", "attack_boss"))
-	mallochio_summon()
-	
-
-func mallochio_summon():
-	var mallochio = mallochio_sc.instantiate()
-	add_child(mallochio)
-	mallochio.connect("tree_exiting", Callable(self, "attack1"), CONNECT_DEFERRED)
-	mallochio.summon()
-
-func spwn_mallochio():
-	var mallochio_attack = mallochio_path_sc.instantiate()
-	add_child(mallochio_attack)
-
-func spwn_boomerang(pos, dir, scale = Vector2(1,1)):
-	var paintbrush = paintbrush_sc.instantiate()
-	paintbrush.position = pos
-	paintbrush.dir = dir
-	add_child(paintbrush)
-	paintbrush.scale = scale
-	paintbrush.speed = 400
-	return paintbrush 
-
-func spwn_paintbrush_boom_atk(pos):
-	var paintbrush_attack = paintbrush_boomerang_attack_sc.instantiate()
-	paintbrush_attack.position.y = pos
-	add_child(paintbrush_attack)
-
-func spwn_boomerang_row(index_to_remove, pos, dir, rot = 0):
-	var boomerang_row = paintbrush_row_sc.instantiate()
-	boomerang_row.dir = dir
-	boomerang_row.removed_index = index_to_remove
-	boomerang_row.position = pos
-	boomerang_row.rotation_degrees = rot
-	add_child(boomerang_row)
-	boomerang_row.speed = 400 
-	boomerang_row.remove_boomerang()
-
-func spwn_legattack(adv = false):
-	var legattack = legattack_sc.instantiate()
-	legattack.position.y = 264
-	add_child(legattack)
-	if adv:
-		legattack.adv_alternating_kicks()
-
-func make_timer(w_time, next_func):
-	var timer = Timer.new()
-	timer.wait_time = w_time
-	timer.one_shot = true	
-	add_child(timer)
-	timer.start()
-	timer.connect("timeout", Callable(self, next_func))
-
-func square_attack(): 
-	spwn_boomerang(Vector2(0,-216), Vector2(0, 1), Vector2(.8, .8))
-	spwn_boomerang(Vector2(0,584), Vector2(0, -1), Vector2(.8, .8))
-	spwn_boomerang(Vector2(400,264), Vector2(-1, 0), Vector2(.8, .8))
-	spwn_boomerang(Vector2(-400,264), Vector2(1, 0), Vector2(.8, .8))
-
-func diagonal_attack():
-	spwn_boomerang(Vector2(298, 14), Vector2(-1.2, 1), Vector2(.8, .8))
-	spwn_boomerang(Vector2(-282, 14), Vector2(1.2, 1), Vector2(.8, .8))
-	spwn_boomerang(Vector2(-282, 514), Vector2(1.2, -1), Vector2(.8, .8))
-	spwn_boomerang(Vector2(298, 514), Vector2(-1.2, -1), Vector2(.8, .8))
-
-func attack1():
-	spwn_mallochio()
-	make_timer(2, "attack2")
-
-func attack2():
-	var random_num = rng.randf_range(-1.0, 1.0)
-	if random_num > 0:
-		square_attack()
-	else:
-		diagonal_attack()
-	make_timer(2, "attack3")
-
-func attack3():
-	var random_num = rng.randf_range(-1.0, 1.0)
-	if random_num > 0:
-		square_attack()
-	else:
-		diagonal_attack()
-	make_timer(2, "attack4")
-
-func attack4():
-	var random_num = rng.randf_range(-1.0, 1.0)
-	if random_num > 0:
-		square_attack()
-	else:
-		diagonal_attack()
-	make_timer(2, "attack5")
-
-func attack5():
-	var random_num = rng.randf_range(-1.0, 1.0)
-	if random_num > 0:
-		square_attack()
-	else:
-		diagonal_attack()
-	make_timer(2, "attack6")
-
-func attack6():
-	var random_num = rng.randf_range(-1.0, 1.0)
-	if random_num > 0:
-		square_attack()
-	else:
-		diagonal_attack()
-	make_timer(2, "attack7")
-
-func attack7():
-	var random_num = rng.randf_range(-1.0, 1.0)
-	if random_num > 0:
-		square_attack()
-	else:
-		diagonal_attack()
-	make_timer(2, "attack8")
-
-func attack8():
-	var random_num = rng.randf_range(-1.0, 1.0)
-	if random_num > 0:
-		square_attack()
-	else:
-		diagonal_attack()
-	make_timer(2, "attack9")
-
-func attack9():
-	var random_num = rng.randf_range(-1.0, 1.0)
-	if random_num > 0:
-		square_attack()
-	else:
-		diagonal_attack()
-	make_timer(2, "attack10")
-
-func attack10():
-	var random_num = rng.randf_range(-1.0, 1.0)
-	if random_num > 0:
-		square_attack()
-	else:
-		diagonal_attack()
-	make_timer(2, "emit_end_atc")
-
-func attack11():
-	pass
-
-func emit_end_atc():
-	emit_signal("done_attacking")
+	var summoned := MalocchioScene.instantiate()
+	add_child(summoned)
+	# The summon animation frees this Malocchio when it ends.
+	summoned.tree_exiting.connect(_on_summon_finished, CONNECT_DEFERRED)
+	summoned.summon()
 
 
+func resume() -> void:
+	for _volley in 9:
+		if rng.randf_range(-1.0, 1.0) > 0:
+			_square_volley()
+		else:
+			_diagonal_volley()
+		await wait(2)
+	attacks_finished.emit()
+
+
+func on_player_turn_started() -> void:
+	_malocchio_path.stop_firing()
+
+
+func on_player_turn_ended(boss_health: int) -> void:
+	if boss_health <= ENRAGE_HEALTH:
+		_malocchio_path.rapid_fire()
+	_malocchio_path.start_firing()
+
+
+func _on_summon_finished() -> void:
+	_malocchio_path = MalocchioPathScene.instantiate()
+	add_child(_malocchio_path)
+	await wait(2)
+	resume()
+
+
+## Four paintbrushes closing in from above, below, left and right.
+func _square_volley() -> void:
+	spawn_boomerang(Vector2(0, -216), Vector2.DOWN, SPEED, SIZE)
+	spawn_boomerang(Vector2(0, 584), Vector2.UP, SPEED, SIZE)
+	spawn_boomerang(Vector2(400, 264), Vector2.LEFT, SPEED, SIZE)
+	spawn_boomerang(Vector2(-400, 264), Vector2.RIGHT, SPEED, SIZE)
+
+
+## Four paintbrushes closing in from the corners.
+func _diagonal_volley() -> void:
+	spawn_boomerang(Vector2(298, 14), Vector2(-1.2, 1), SPEED, SIZE)
+	spawn_boomerang(Vector2(-282, 14), Vector2(1.2, 1), SPEED, SIZE)
+	spawn_boomerang(Vector2(-282, 514), Vector2(1.2, -1), SPEED, SIZE)
+	spawn_boomerang(Vector2(298, 514), Vector2(-1.2, -1), SPEED, SIZE)

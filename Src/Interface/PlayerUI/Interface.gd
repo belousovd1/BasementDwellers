@@ -1,29 +1,26 @@
 extends Control
+## The player's health counter and bar. Both animate to each new value.
 
-@onready var health_count = $HealthBar/Counter/Count
-@onready var health_bar = $HealthBar/TextureProgressBar
-var tween: Tween
+const ANIMATION_TIME := 0.6
 
-var animated_health = 100
+var _tween: Tween
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	var player_max_health = $"../Player/".max_health
-	health_bar.max_value = player_max_health
-	update_health(player_max_health)
+@onready var _count: Label = $HealthBar/Counter/Count
+@onready var _bar: TextureProgressBar = $HealthBar/TextureProgressBar
 
 
+func set_max_health(value: int) -> void:
+	_bar.max_value = value
+	show_health(value)
 
-func _process(_delta):
-	var round_value = round(animated_health)
-	health_count.text = str(round_value)
-	health_bar.value = animated_health
 
-func _on_player_health_changed(player_health):
-	update_health(player_health)
+func show_health(value: int) -> void:
+	if _tween:
+		_tween.kill()
+	_tween = create_tween()
+	_tween.tween_method(_display, _bar.value, float(value), ANIMATION_TIME)
 
-func update_health(new_value):
-	if tween:
-		tween.kill()
-	tween = create_tween()
-	tween.tween_property(self, "animated_health", new_value, 0.6).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+
+func _display(value: float) -> void:
+	_count.text = str(roundi(value))
+	_bar.value = value

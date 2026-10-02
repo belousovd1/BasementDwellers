@@ -123,6 +123,7 @@ autoplay = "Show"
 anims/Show = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 stream = ExtResource( 3 )
 autoplay = true
 [connection signal="pressed" from="Restart" to="." method="_on_Restart_pressed"]

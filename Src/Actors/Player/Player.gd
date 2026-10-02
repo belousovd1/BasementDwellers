@@ -1,85 +1,62 @@
 extends CharacterBody2D
+## The heart the player steers around the arena.
+
+## Emitted after every hit that gets through, with the remaining health.
+signal hit(health: int)
+signal died
+## Emitted by the death animation when it ends.
+signal death_animation_finished
+
+@export var speed := 500.0
+@export var max_health := 100
+
+var health: int
+var alive := true
+var invincible := false
+
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _invincibility_timer: Timer = $InvTimer
 
 
-var speed = 500
-var max_health = 100
-var health = max_health
-var inv = false
-var alive = true
-signal player_hit(health)
-signal dead
+func _ready() -> void:
+	health = max_health
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-func _physics_process(_delta):
+func _physics_process(_delta: float) -> void:
 	if alive:
-		player_movement()
+		velocity = Input.get_vector("left", "right", "up", "down") * speed
+		move_and_slide()
+
+
+## Damages the player, unless they are still invincible from the last hit or
+## hidden (the arena is put away during the player's turn and dialogue).
+func take_hit(damage: int) -> void:
+	if invincible or not alive or not is_visible_in_tree():
+		return
+	health = maxi(health - damage, 0)
+	if health == 0:
+		_die()
 	else:
-		pass
+		_animation_player.play("Hit")
+	invincible = true
+	_invincibility_timer.start()
+	hit.emit(health)
 
 
-func _on_ProjectileDetector_area_entered(area2D):
-	if not(inv):
-		var hp = take_damage(area2D.damage)
-		inv = true
-		$InvTimer.start()
-		emit_signal("player_hit", hp)
-	else:
-		pass	
-
-
-func take_damage(dmg):
-	health -= dmg
-	if health <= 0:
-		end_game()
-		return 0
-	else:
-		$AnimationPlayer.play("Hit")
-		return health
-
-
-
-func _on_InvTimer_timeout():
-	inv = false
-
-func end_game():
+func _die() -> void:
 	alive = false
-	$"../AudioStreamPlayer".stop()
-	get_tree().call_group("environment", "queue_free")
-	$AnimationPlayer.play("death")
+	died.emit()
+	_animation_player.play("death")
 
 
-func death_menu_signal():
-	emit_signal("dead")
+func _on_ProjectileDetector_area_entered(area: Area2D) -> void:
+	take_hit(area.damage)
 
 
-func player_movement():
-	var velocity = Vector2.ZERO
+func _on_InvTimer_timeout() -> void:
+	invincible = false
 
-	if Input.is_action_pressed("left"):
-		velocity.x += -1 
-	if Input.is_action_pressed("right"):
-		velocity.x += 1
-	if Input.is_action_pressed("up"):
-		velocity.y += -1
-	if Input.is_action_pressed("down"):
-		velocity.y += 1
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-	else:
-		velocity = Vector2.ZERO
 
-	set_velocity(velocity)
-	move_and_slide()
-	var _velocity = velocity
-
-func invisible():
-	visible = false
-
-func make_visible():
-	visible = true
+# Called from the end of the "death" animation.
+func _on_death_animation_finished() -> void:
+	death_animation_finished.emit()

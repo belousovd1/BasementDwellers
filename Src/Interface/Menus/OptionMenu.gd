@@ -1,22 +1,29 @@
 extends Control
+## Music and sound-effect volume. Changes are heard immediately (the menu music
+## and the fire's crackle) and saved when leaving the menu.
+
+const MAIN_MENU := "res://Src/Interface/Menus/MainMenu.tscn"
+
+@onready var _music_slider: HSlider = %MusicVolume
+@onready var _sfx_slider: HSlider = %SfxVolume
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func _ready() -> void:
+	_music_slider.set_value_no_signal(Settings.get_volume(&"Music"))
+	_sfx_slider.set_value_no_signal(Settings.get_volume(&"SFX"))
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _exit_tree() -> void:
+	Settings.save()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-func _on_HSlider_value_changed(value):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+func _on_music_volume_changed(volume: float) -> void:
+	Settings.set_volume(&"Music", volume)
 
 
-func _on_Back_pressed():
-	var _err = get_tree().change_scene_to_file("res://Src/Interface/Menus/MainMenu.tscn")
+func _on_sfx_volume_changed(volume: float) -> void:
+	Settings.set_volume(&"SFX", volume)
+
+
+func _on_Back_pressed() -> void:
+	get_tree().change_scene_to_file(MAIN_MENU)
