@@ -71,6 +71,9 @@ Scenes switch with `get_tree().change_scene_to_file(...)` and hard-coded `res://
   - `image` is unused.
 
   `ui_accept` finishes the current line, or advances to the next one.
+- **Mid-fight banter:** `Mitch.say(line)` shows a `Src/Interface/SpeechBubble.tscn` at his mouth.
+  - The bubble is top-level and follows the head in whole pixels. Its text is wrapped by hand, so the bubble's size is known before it is drawn.
+  - While Mitch is attacking, `start_talking()` picks a line from the exported `banter` array every `banter_interval` seconds. Main calls `stop_talking()` when the player's turn starts.
 - **Intro crawl:** `Intro.gd` feeds its `PAGES` table to the bundled `addons/GodotTIE` text engine, and awaits `buff_end` after each page.
 - **Mitch's entrance:** `IntroMitch.tscn` is animation-driven. The `MitchEnter` animation calls `_start_dialogue()` at its end.
 

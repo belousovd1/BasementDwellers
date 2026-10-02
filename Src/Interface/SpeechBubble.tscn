@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://Src/Interface/SpeechBubble.gd" id="1"]
+[ext_resource type="FontVariation" path="res://Assets/text/GameFont.tres" id="2"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/Dialogue_blip.wav" id="3"]
+
+[sub_resource type="StyleBoxFlat" id="bubble"]
+content_margin_left = 18.0
+content_margin_top = 12.0
+content_margin_right = 18.0
+content_margin_bottom = 14.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 3
+anti_aliasing = false
+
+[node name="SpeechBubble" type="Node2D"]
+z_index = 10
+script = ExtResource("1")
+
+[node name="Box" type="PanelContainer" parent="."]
+theme_override_styles/panel = SubResource("bubble")
+
+[node name="Text" type="Label" parent="Box"]
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 32
+text = "..."
+visible_characters_behavior = 2
+
+[node name="TailOutline" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 24, 30, 50, 30)
+
+[node name="TailFill" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(9, 11, 28, 31, 44, 31)
+
+[node name="Bleep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="LetterTimer" type="Timer" parent="."]
+one_shot = true
