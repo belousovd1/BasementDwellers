@@ -86,17 +86,23 @@ offset_bottom = 472.0
 size_flags_horizontal = 3
 theme_override_constants/separation = 60
 
-[node name="HSlider" type="HSlider" parent="Options/HBoxContainer/VBoxContainer"]
+[node name="MusicVolume" type="HSlider" parent="Options/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 offset_right = 501.0
 offset_bottom = 16.0
 size_flags_vertical = 1
-min_value = -80.0
-max_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSlider2" type="HSlider" parent="Options/HBoxContainer/VBoxContainer"]
+[node name="SfxVolume" type="HSlider" parent="Options/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+max_value = 1.0
+step = 0.05
+value = 1.0
 offset_top = 76.0
 offset_right = 501.0
 offset_bottom = 92.0
@@ -125,6 +131,7 @@ theme_override_font_sizes/font_size = 64
 text = "Sound effects"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 stream = ExtResource( 7 )
 autoplay = true
 
@@ -139,6 +146,7 @@ offset_top = -70.0
 offset_right = 192.0
 offset_bottom = 70.0
 
-[connection signal="value_changed" from="Options/HBoxContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="Options/HBoxContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_changed"]
+[connection signal="value_changed" from="Options/HBoxContainer/VBoxContainer/SfxVolume" to="." method="_on_sfx_volume_changed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 

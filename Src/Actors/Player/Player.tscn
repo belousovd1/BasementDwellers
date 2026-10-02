@@ -187,6 +187,6 @@ anims/death = SubResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-bus = "Player HIt"
+bus = "Player Hit"
 [connection signal="area_entered" from="ProjectileDetector" to="." method="_on_ProjectileDetector_area_entered"]
 [connection signal="timeout" from="InvTimer" to="." method="_on_InvTimer_timeout"]

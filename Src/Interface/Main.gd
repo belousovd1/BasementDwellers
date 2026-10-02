@@ -13,7 +13,6 @@ const STAGE_END_DIALOGUES: Array[String] = [
 	"res://Src/CutScenes/dialogues/Mitch/MitchDeathConvo.json",
 ]
 const FINAL_STAGE_MUSIC := "res://Assets/Sound/OST/Stage3Mitch.ogg"
-const MITCH_DEATH_SOUND := "res://Assets/Sound/SFX/426318__mtjohnson__rocks-falling.wav"
 
 # Mitch is drawn larger and lower while he talks between stages.
 const FIGHT_POSITION := Vector2(960, 336)
@@ -27,6 +26,7 @@ const ATTACK_BAR_POSITION := Vector2(960, 800)
 @onready var hud: Control = $Interface
 @onready var camera: Camera2D = $OnHitCamera
 @onready var music: AudioStreamPlayer = $Music
+@onready var mitch_death_sound: AudioStreamPlayer = $MitchDeathSound
 @onready var curtain: AnimationPlayer = $CurtainColorRect/AnimationPlayer
 
 
@@ -105,7 +105,7 @@ func _mitch_dies() -> void:
 	mitch.hide()
 	add_child(effect)
 	effect.emitting = true
-	_play_music(load(MITCH_DEATH_SOUND))
+	mitch_death_sound.play()
 	await get_tree().create_timer(4).timeout
 	get_tree().change_scene_to_file("res://Src/Interface/Menus/ToBeContinued.tscn")
 

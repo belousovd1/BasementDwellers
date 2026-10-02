@@ -54,5 +54,6 @@ FONT_SIZE = 64
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 stream = ExtResource( 4 )
 autoplay = true

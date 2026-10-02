@@ -195,6 +195,7 @@ texture = ExtResource( 9 )
 environment = SubResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 stream = ExtResource( 6 )
 autoplay = true
 

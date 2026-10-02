@@ -292,4 +292,5 @@ anims/FasterFireLaser = SubResource( 5 )
 anims/firelaser = SubResource( 6 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 stream = ExtResource( 4 )

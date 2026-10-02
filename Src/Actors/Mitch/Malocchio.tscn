@@ -278,6 +278,7 @@ process_material = SubResource( 7 )
 texture = ExtResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SummonParticles"]
+bus = "SFX"
 stream = ExtResource( 6 )
 volume_db = -15.0
 
@@ -296,5 +297,6 @@ __meta__ = {
 anims/shockwave = SubResource( 8 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
+bus = "SFX"
 stream = ExtResource( 8 )
 volume_db = -10.0

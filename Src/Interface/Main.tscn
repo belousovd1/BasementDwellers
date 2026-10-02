@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Sound/MitchSoundTrack.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Assets/Shaders/CurtainColorRect.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Shaders/ShockWave.gdshader" type="Shader" id=11]
+[ext_resource path="res://Assets/Sound/SFX/426318__mtjohnson__rocks-falling.wav" type="AudioStream" id=12]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 11 )
@@ -60,9 +61,14 @@ trauma = 1.0
 ] instance=ExtResource( 4 )]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 stream = ExtResource( 8 )
 volume_db = -5.0
 autoplay = true
+
+[node name="MitchDeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+bus = "SFX"
 
 [node name="CurtainColorRect" parent="." instance=ExtResource( 10 )]
 [connection signal="died" from="Player" to="." method="_on_player_died"]

@@ -44,15 +44,11 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
 "clips": [ {
-"end_offset": 4.7423,
-"start_offset": 0.0,
-"stream": ExtResource( 5 )
-}, {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource( 6 )
 } ],
-"times": PackedFloat32Array( 0, 8 )
+"times": PackedFloat32Array( 8 )
 }
 tracks/3/type = "method"
 tracks/3/path = NodePath(".")
@@ -67,6 +63,20 @@ tracks/3/keys = {
 "args": [  ],
 "method": "_start_dialogue"
 } ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("EntranceMusic")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 4.7423,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PackedFloat32Array( 0 )
 }
 
 [sub_resource type="Animation" id=2]
@@ -161,7 +171,11 @@ anims/MitchEnter = SubResource( 1 )
 anims/Start = SubResource( 2 )
 
 [node name="Entrance" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 stream = ExtResource( 6 )
+
+[node name="EntranceMusic" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 
 [node name="EnterPath" type="Path2D" parent="."]
 position = Vector2( 72, -56 )
@@ -178,6 +192,7 @@ rotation = 3.95143
 scale = Vector2( 1.8, 1.8 )
 
 [node name="DialogueST" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 stream = ExtResource( 7 )
 
 [node name="CurtainColorRect" parent="." instance=ExtResource( 8 )]

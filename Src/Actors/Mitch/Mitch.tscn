@@ -806,6 +806,7 @@ anims/idle = SubResource( 1 )
 anims/stage3_idle = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 stream = ExtResource( 12 )
 volume_db = -7.0
 
