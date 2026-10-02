@@ -28,9 +28,10 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 
 
-## Damages the player unless they are still invincible from the last hit.
+## Damages the player, unless they are still invincible from the last hit or
+## hidden (the arena is put away during the player's turn and dialogue).
 func take_hit(damage: int) -> void:
-	if invincible or not alive:
+	if invincible or not alive or not is_visible_in_tree():
 		return
 	health = maxi(health - damage, 0)
 	if health == 0:
