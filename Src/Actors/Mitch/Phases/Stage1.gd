@@ -1,4 +1,4 @@
-extends BossStage
+extends MitchStage
 ## Stage 1: paintbrushes only.
 
 

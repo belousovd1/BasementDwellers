@@ -1,4 +1,4 @@
-extends BossStage
+extends MitchStage
 ## Stage 3: Malocchio circles the arena firing its laser while paintbrushes
 ## close in from the sides or from the corners.
 

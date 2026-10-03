@@ -1,88 +1,85 @@
 extends Node
-## The boss fight. Alternates Mitch's attack rounds with the player's attack
+## A boss fight. Alternates the boss's attack rounds with the player's attack
 ## bar, plays the dialogue between stages, and handles winning and losing.
+##
+## Main.tscn fights Mitch; MikeFight.tscn inherits it and sets [member boss_scene]
+## to Mike. The boss supplies its own stages, dialogue and music.
 
 const AttackBarScene := preload("res://Src/Interface/AttackBar.tscn")
 const DialogueBoxScene := preload("res://Src/Interface/DialogueBox.tscn")
-const DeathEffectScene := preload("res://Assets/Shaders/BodySprites.tscn")
-
-## Dialogue played when each stage is beaten.
-const STAGE_END_DIALOGUES: Array[String] = [
-	"res://Src/CutScenes/dialogues/Mitch/IntoStage2Convo.json",
-	"res://Src/CutScenes/dialogues/Mitch/IntoStage3Convo.json",
-	"res://Src/CutScenes/dialogues/Mitch/MitchDeathConvo.json",
-]
-const FINAL_STAGE_MUSIC := "res://Assets/Sound/OST/Stage3Mitch.ogg"
-
-# Mitch is drawn larger and lower while he talks between stages.
-const FIGHT_POSITION := Vector2(960, 336)
-const FIGHT_SCALE := Vector2(1.8, 1.8)
-const DIALOGUE_POSITION := Vector2(950, 535)
-const DIALOGUE_SCALE := Vector2(3, 3)
 const ATTACK_BAR_POSITION := Vector2(960, 800)
 
-@onready var mitch: Mitch = $Mitch
+## The [Boss] to fight. It is added behind the arena when the fight starts.
+@export var boss_scene: PackedScene
+
+var boss: Boss
+
+@onready var background: ColorRect = $ColorRect
 @onready var player: CharacterBody2D = $Player
 @onready var hud: Control = $Interface
 @onready var camera: Camera2D = $OnHitCamera
 @onready var music: AudioStreamPlayer = $Music
-@onready var mitch_death_sound: AudioStreamPlayer = $MitchDeathSound
 @onready var curtain: AnimationPlayer = $CurtainColorRect/AnimationPlayer
 
 
 func _ready() -> void:
+	DeathMenu.fight_scene = scene_file_path
+	boss = boss_scene.instantiate()
+	boss.position = boss.fight_position
+	boss.scale = boss.fight_scale
+	boss.add_to_group("environment")
+	background.add_sibling(boss)
+
 	hud.set_max_health(player.max_health)
 	curtain.play("fade_in")
-	mitch.attacks_finished.connect(_player_turn)
-	mitch.start_stage(0)
-	mitch.start_talking()
+	boss.attacks_finished.connect(_player_turn)
+	_play_music(boss.music_for_stage(0))
+	boss.start_stage(0)
+	boss.start_talking()
 
 
 func _player_turn() -> void:
-	mitch.stop_talking()
+	boss.stop_talking()
 	get_tree().call_group("defense", "hide")
-	mitch.stage.on_player_turn_started()
+	boss.stage.on_player_turn_started()
 
 	var attack_bar := AttackBarScene.instantiate()
 	attack_bar.position = ATTACK_BAR_POSITION
-	attack_bar.fast = mitch.is_final_stage()
+	attack_bar.fast = boss.is_final_stage()
 	add_child(attack_bar)
 	var damage: int = await attack_bar.struck
-	await mitch.play_hit()
+	await boss.play_hit()
 	attack_bar.queue_free()
 
-	mitch.take_damage(damage)
-	if mitch.is_defeated():
+	boss.take_damage(damage)
+	if boss.is_defeated():
 		_end_stage()
 		return
-	mitch.stage.on_player_turn_ended(mitch.health)
+	boss.stage.on_player_turn_ended(boss.health)
 	get_tree().call_group("defense", "show")
-	mitch.stage.resume()
-	mitch.play_idle()
-	mitch.start_talking()
+	boss.stage.resume()
+	boss.play_idle()
+	boss.start_talking()
 
 
-## Mitch has been beaten for this stage: he talks, then the next stage starts
-## or he dies.
+## The boss has been beaten for this stage: it talks, then the next stage
+## starts or it dies.
 func _end_stage() -> void:
 	get_tree().call_group("defense", "hide")
-	mitch.play_idle()
-	mitch.scale = DIALOGUE_SCALE
-	mitch.position = DIALOGUE_POSITION
-	if mitch.stage_index == 1:
-		music.stop()
-		mitch.power_up()
-	elif mitch.is_final_stage():
-		mitch.end_stage()
+	boss.play_idle()
+	boss.scale = boss.dialogue_scale
+	boss.position = boss.dialogue_position
+	boss.on_stage_beaten()
+	if boss.is_final_stage() or boss.music_for_stage(boss.stage_index + 1):
 		music.stop()
 
 	var dialogue: DialogueBox = DialogueBoxScene.instantiate()
-	dialogue.dialogue_path = STAGE_END_DIALOGUES[mitch.stage_index]
+	dialogue.dialogue_path = boss.stage_end_dialogues[boss.stage_index]
 	add_child(dialogue)
 	await dialogue.finished
 
-	if mitch.is_final_stage():
-		_mitch_dies()
+	if boss.is_final_stage():
+		_boss_dies()
 	else:
 		_next_stage()
 
@@ -91,27 +88,20 @@ func _next_stage() -> void:
 	curtain.play("fade_out")
 	await curtain.animation_finished
 	curtain.play("fade_in")
-	mitch.scale = FIGHT_SCALE
-	mitch.position = FIGHT_POSITION
+	boss.scale = boss.fight_scale
+	boss.position = boss.fight_position
 	get_tree().call_group("defense", "show")
 	await get_tree().create_timer(2).timeout
-	mitch.start_stage(mitch.stage_index + 1)
-	mitch.start_talking()
-	if mitch.is_final_stage():
-		_play_music(load(FINAL_STAGE_MUSIC))
+	boss.start_stage(boss.stage_index + 1)
+	boss.start_talking()
+	var stage_music := boss.music_for_stage(boss.stage_index)
+	if stage_music:
+		_play_music(stage_music)
 
 
-func _mitch_dies() -> void:
-	await mitch.play_hit()
-	var effect := DeathEffectScene.instantiate()
-	effect.scale = Vector2(3.5, 3.3)
-	effect.position = Vector2(984, 440)
-	mitch.hide()
-	add_child(effect)
-	effect.emitting = true
-	mitch_death_sound.play()
-	await get_tree().create_timer(4).timeout
-	get_tree().change_scene_to_file("res://Src/Interface/Menus/ToBeContinued.tscn")
+func _boss_dies() -> void:
+	await boss.die()
+	get_tree().change_scene_to_file(boss.next_scene)
 
 
 func _play_music(stream: AudioStream) -> void:

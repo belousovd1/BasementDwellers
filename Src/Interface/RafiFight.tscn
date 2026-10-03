@@ -1,0 +1,7 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Src/Interface/Main.tscn" id="1_main"]
+[ext_resource type="PackedScene" path="res://Src/Actors/Rafi/Rafi.tscn" id="2_rafi"]
+
+[node name="RafiFight" instance=ExtResource("1_main")]
+boss_scene = ExtResource("2_rafi")

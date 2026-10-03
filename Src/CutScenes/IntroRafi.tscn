@@ -1,0 +1,35 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Src/CutScenes/IntroRafi.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://Src/Actors/Rafi/Rafi.tscn" id="2_rafi"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/EssentialGameAudiopack/Loops/Ove Melaa - General Snus Loop B.ogg" id="3_music"]
+[ext_resource type="PackedScene" path="res://Assets/Shaders/CurtainColorRect.tscn" id="4_curtain"]
+
+[node name="IntroRafi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Rafi" parent="." instance=ExtResource("2_rafi")]
+position = Vector2(960, 460)
+scale = Vector2(1.25, 1.25)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_music")
+autoplay = true
+bus = &"Music"
+
+[node name="CurtainColorRect" parent="." instance=ExtResource("4_curtain")]

@@ -1,0 +1,11 @@
+[
+    {"name": "Mike", "image": "img.png", "text": "Wow.", "time": ".15"},
+    {"name": "Mike", "image": "img.png", "text": "You actually did it.", "time": ".05"},
+    {"name": "Mike", "image": "img.png", "text": "My render... it's all noise.", "time": ".05"},
+    {"name": "Mike", "image": "img.png", "text": "I should have turned on the denoiser.", "time": ".05"},
+    {"name": "Mike", "image": "img.png", "text": "Gabe. Save my blend file.", "time": ".05"},
+    {"name": "Mike", "image": "img.png", "text": "[wave amp=30 freq=2]Ctrl+S... Ctrl+S...[/wave]", "time": ".08"},
+    {"name": "Mike", "image": "img.png", "text": "Wait.", "time": ".1"},
+    {"name": "Mike", "image": "img.png", "text": "Has it been autosaving to /tmp this whole time?", "time": ".05"},
+    {"name": "Mike", "image": "img.png", "text": "[wave amp=50 freq=2]NOOOOooooooooo[/wave]", "time": ".1"}
+]

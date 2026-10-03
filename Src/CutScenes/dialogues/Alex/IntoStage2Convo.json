@@ -1,0 +1,5 @@
+[
+    {"name": "Alex", "image": "img.png", "text": "Not bad! You've got rhythm.", "time": ".04"},
+    {"name": "Alex", "image": "img.png", "text": "But can you keep up?", "time": ".05"},
+    {"name": "Alex", "image": "img.png", "text": "[wave amp=30 freq=2]Grab a controller. Let's play.[/wave]", "time": ".05"}
+]

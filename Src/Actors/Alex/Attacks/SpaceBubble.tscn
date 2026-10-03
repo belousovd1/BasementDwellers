@@ -1,0 +1,22 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Src/Actors/Alex/Attacks/SpaceBubble.gd" id="1_script"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/SFX/8bit sounds/Fly 3.wav" id="2_sound"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hitbox"]
+radius = 70.0
+
+[node name="SpaceBubble" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hitbox")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sound")
+volume_db = -14.0
+autoplay = true
+bus = &"SFX"

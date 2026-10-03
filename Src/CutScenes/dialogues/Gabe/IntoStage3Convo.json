@@ -1,0 +1,8 @@
+[
+    {"name": "Gabe", "image": "img.png", "text": "[color=#ffaa40]\"It doesn't work.\"[/color]", "time": ".08"},
+    {"name": "Gabe", "image": "img.png", "text": "[color=#ffaa40]\"His plan doesn't work.\"[/color]", "time": ".05"},
+    {"name": "Gabe", "image": "img.png", "text": "You can't dodge forever. I've got AppleCare.", "time": ".03"},
+    {"name": "Gabe", "image": "img.png", "text": "Time to put the pedal down.", "time": ".04"},
+    {"name": "Gabe", "image": "img.png", "text": "[color=#b050ff][shake rate=20 level=5]Menacing...[/shake][/color]", "time": ".08"},
+    {"name": "Gabe", "image": "img.png", "text": "[shake rate=15 level=10]ROAD ROLLER![/shake]", "time": ".05"}
+]

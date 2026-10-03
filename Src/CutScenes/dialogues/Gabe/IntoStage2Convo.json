@@ -1,0 +1,8 @@
+[
+    {"name": "Gabe", "image": "img.png", "text": "[color=#ffaa40]\"Whoops! An accident!\"[/color]", "time": ".05"},
+    {"name": "Gabe", "image": "img.png", "text": "OK. Forget the Genius Bar.", "time": ".03"},
+    {"name": "Gabe", "image": "img.png", "text": "Let me tell you about my car.", "time": ".04"},
+    {"name": "Gabe", "image": "img.png", "text": "Dunkey said it best:", "time": ".04"},
+    {"name": "Gabe", "image": "img.png", "text": "[color=#ffaa40]\"I will pursue him in my yellow Bumblebee car and run him over, because that's funny.\"[/color]", "time": ".03"},
+    {"name": "Gabe", "image": "img.png", "text": "[shake rate=15 level=10]Because that's FUNNY.[/shake]", "time": ".05"}
+]
