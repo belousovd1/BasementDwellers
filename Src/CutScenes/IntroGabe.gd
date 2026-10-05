@@ -1,10 +1,11 @@
 extends Control
 ## Gabe's entrance before his fight: after a moment of black he drifts in from
-## the right like he's parking, the air around him turns menacing, he
-## introduces himself, then the curtain drops and the fight starts. Accept
-## skips the drift.
+## the right like he's parking, he introduces himself and begs Dunkey for
+## power, Dunkey blesses him, then the curtain drops and the fight starts.
+## Accept skips the drift.
 
 const DialogueBoxScene := preload("res://Src/Interface/DialogueBox.tscn")
+const BlessingScene := preload("res://Src/Actors/Gabe/Blessing.tscn")
 const DIALOGUE := "res://Src/CutScenes/dialogues/Gabe/IntroGabe.json"
 const FIGHT_SCENE := "res://Src/Interface/GabeFight.tscn"
 const BLACK_SECONDS := 1.2
@@ -29,7 +30,9 @@ func _ready() -> void:
 	_arrival.tween_callback(_arrival_sound.play)
 	_arrival.tween_property(_gabe, "position:x", landing, DRIFT_SECONDS) \
 			.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	_arrival.tween_callback(_gabe.menace)
+	# The swish is imported looping, for Mitch's boomerangs, so stop it once
+	# he's parked.
+	_arrival.tween_callback(_arrival_sound.stop)
 	await _arrival.finished
 	_start_dialogue()
 
@@ -44,10 +47,22 @@ func _unhandled_input(event: InputEvent) -> void:
 func _start_dialogue() -> void:
 	var dialogue: DialogueBox = DialogueBoxScene.instantiate()
 	dialogue.dialogue_path = DIALOGUE
+	dialogue.line_event.connect(_on_line_event)
 	add_child(dialogue)
 	await dialogue.finished
 
-	_music.stop()
+	var blessing := BlessingScene.instantiate()
+	blessing.target = _gabe
+	add_child(blessing)
+	await blessing.finished
+
 	_curtain.play("fade_out")
 	await get_tree().create_timer(1).timeout
+	# The fight carries on with the same track from where it has got to.
+	Main.carry_music(_music.stream, _music.get_playback_position())
 	get_tree().change_scene_to_file(FIGHT_SCENE)
+
+
+func _on_line_event(event: String) -> void:
+	if event == "music":
+		_music.play()

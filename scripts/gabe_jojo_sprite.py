@@ -7,7 +7,8 @@ white skin and trousers. Rerun it after changing the head or the pose:
 
     python scripts/gabe_jojo_sprite.py
 
-It also writes gabe_preview.png, five times the size, next to this script."""
+It also writes gabe_head.png, the head on its own for the dialogue portrait,
+and gabe_preview.png, five times the size, next to this script."""
 import math
 import os
 import struct
@@ -17,28 +18,12 @@ W, H = 96, 128
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASE = os.path.join(ROOT, 'Assets', 'Sprites', 'Gabe', 'gabe.ase')
 OUT = os.path.join(ROOT, 'Assets', 'Sprites', 'Gabe', 'gabe.png')
+HEAD_OUT = os.path.join(ROOT, 'Assets', 'Sprites', 'Gabe', 'gabe_head.png')
 PREVIEW = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'gabe_preview.png')
 WHITE, BLACK = 'W', 'B'
 
 # Where Gabe's 30x32 head cel goes on the canvas.
 HEAD_AT = (38, 3)
-
-# The raised hand: palm beside the face, index and middle fingers held up in a
-# V across the temple. Top-left pixel goes at HAND_AT.
-HAND = [
-    '........##..##',
-    '.......##..##.',
-    '......##..##..',
-    '.....##..##...',
-    '....######....',
-    '...#######....',
-    '..########....',
-    '..#######.....',
-    '...######.....',
-    '....####......',
-    '....###.......',
-]
-HAND_AT = (31, 7)
 
 
 def polygon(points):
@@ -76,31 +61,48 @@ def ellipse(cx, cy, rx, ry):
     return lambda x, y: ((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2 <= 1
 
 
-# Back to front. Each part: name, fill, shape.
+# Back to front. Each part: name, fill, shape. A JoJo pose: weight on one
+# straight leg, the other knee swung across, hips cocked one way and shoulders
+# tilted the other, one arm flung up with the hand splayed and the other thrust
+# out pointing down at whoever he's fighting.
 PARTS = [
     # Weight-bearing leg on the right, nearly straight.
-    ('back_leg', WHITE, limb([(64, 72), (69, 95), (68, 115)], [5.5, 4.2, 3.4])),
-    ('back_shoe', BLACK, polygon([(63, 113), (71, 113), (78, 117), (78, 121), (62, 121)])),
+    ('back_leg', WHITE, limb([(64, 72), (69, 95), (68, 115)], [6.5, 5.0, 3.8])),
+    ('back_shoe', BLACK, polygon([(63, 113), (71, 113), (79, 117), (79, 121), (62, 121)])),
     # Bent leg, knee swung in across the other one, foot out on tiptoe.
-    ('front_leg', WHITE, limb([(51, 72), (61, 93), (49, 112)], [5.5, 4.3, 3.4])),
+    ('front_leg', WHITE, limb([(51, 72), (61, 93), (49, 112)], [6.5, 5.0, 3.8])),
     ('front_shoe', BLACK, polygon([(45, 109), (53, 110), (52, 117), (42, 120), (40, 117)])),
-    # Arm on the hip, elbow out; the upper arm is behind the body.
-    ('hip_arm_upper', WHITE, limb([(66, 40), (80, 52)], [4.2, 3.6])),
-    ('hip_sleeve', BLACK, limb([(66, 39), (73, 45)], [5.0, 4.6])),
-    # Torso, leaning left at the shoulders, waist pinched, hips pushed right.
-    ('torso', BLACK, polygon([(43, 35), (53, 32), (66, 35), (70, 41), (66, 51), (63, 58), (68, 67),
-                              (46, 68), (46, 56), (41, 44)])),
+    # Broad, tilted shoulders down to a pinched waist, hips pushed right.
+    ('torso', BLACK, polygon([(32, 36), (44, 31), (63, 32), (75, 39), (73, 48), (66, 56), (63, 62),
+                              (68, 67), (46, 68), (47, 57), (39, 47)])),
     ('hips', WHITE, polygon([(46, 66), (68, 65), (71, 75), (47, 76)])),
-    ('hip_arm_lower', WHITE, limb([(80, 52), (70, 63)], [3.6, 3.0])),
-    ('hip_hand', WHITE, ellipse(68.5, 64.5, 3.5, 3.2)),
-    # Raised arm: elbow high out to the side, forearm up to the face.
-    ('raised_arm_upper', WHITE, limb([(43, 39), (25, 26)], [4.2, 3.6])),
-    ('raised_sleeve', BLACK, limb([(44, 39), (36, 33)], [5.0, 4.6])),
-    ('raised_arm_lower', WHITE, limb([(25, 26), (36, 17)], [3.6, 3.0])),
+    # Raised arm: upper arm up and out with the bicep bulging under it, elbow
+    # high, forearm angled back in towards his head.
+    ('raised_arm_upper', WHITE, limb([(36, 37), (21, 25)], [6.0, 4.6])),
+    ('raised_bicep', WHITE, ellipse(26.5, 32.5, 6.0, 4.6)),
+    ('raised_arm_lower', WHITE, limb([(21, 25), (28, 17)], [4.8, 2.8])),
+    ('raised_sleeve', BLACK, limb([(40, 38), (36.5, 36)], [6.0, 5.6])),
+    # Pointing arm: out and down, forearm tapering to the wrist, then a fist
+    # with the thumb on top and the index finger aimed down at the player.
+    ('point_arm_upper', WHITE, limb([(73, 43), (83, 50)], [6.0, 4.8])),
+    ('point_arm_lower', WHITE, limb([(83, 50), (87, 56)], [4.8, 3.0])),
+    ('point_fist', WHITE, ellipse(88, 59, 3.8, 3.4)),
+    ('point_thumb', WHITE, limb([(87, 56), (91.5, 57.5)], [1.4, 1.1])),
+    ('point_finger', WHITE, limb([(89.5, 60.5), (94.5, 66)], [1.4, 1.1])),
+    ('point_sleeve', BLACK, limb([(70, 40), (73, 42)], [6.0, 5.6])),
     ('head', None, None),
-    ('raised_hand', WHITE, bitmap(HAND, HAND_AT)),
+    # The raised hand clawed beside his face, fingers splayed.
+    ('raised_palm', WHITE, ellipse(30, 14, 3.5, 3.3)),
+    ('raised_thumb', WHITE, limb([(28, 11), (27.5, 7), (29.5, 4)], [1.4, 1.2, 1.0])),
+    ('raised_index', WHITE, limb([(32, 11), (34.5, 6.5), (37, 5)], [1.3, 1.2, 1.0])),
+    ('raised_middle', WHITE, limb([(33, 13), (36.5, 10.5), (38.5, 11.5)], [1.3, 1.2, 1.0])),
+    ('raised_ring', WHITE, limb([(33, 15), (36.5, 15.5), (38, 17.5)], [1.3, 1.2, 1.0])),
+    ('raised_pinky', WHITE, limb([(32, 17), (34.5, 20), (35.5, 22.5)], [1.3, 1.1, 0.9])),
 ]
 ORDER = {name: i for i, (name, _, _) in enumerate(PARTS)}
+# Parts outlined in black where they meet the rest of the same limb, so the
+# muscles and hands show inside the white of the arm.
+CONTOURED = {'raised_bicep', 'raised_arm_lower', 'raised_palm', 'point_arm_lower', 'point_fist'}
 
 
 def read_head():
@@ -158,15 +160,18 @@ def draw():
                 elif other != name and other != 'head' and ORDER[other] < ORDER[name] \
                         and color[ny][nx] == color[y][x] and not _same_cloth(name, other):
                     out[y][x] = BLACK if color[y][x] == WHITE else WHITE
+                elif name in CONTOURED and other != name and _same_cloth(name, other):
+                    out[y][x] = BLACK
     _details(out, part_at)
     return out, part_at
 
 
 def _same_cloth(a, b):
     """Parts that are one piece of clothing or body, so no line between them."""
-    groups = [{'torso', 'hip_sleeve', 'raised_sleeve'}, {'hips', 'back_leg'}, {'hips', 'front_leg'},
-              {'hip_arm_upper', 'hip_arm_lower', 'hip_hand'},
-              {'raised_arm_upper', 'raised_arm_lower', 'raised_hand'}]
+    groups = [{'torso', 'raised_sleeve', 'point_sleeve'}, {'hips', 'back_leg'}, {'hips', 'front_leg'},
+              {'raised_arm_upper', 'raised_bicep', 'raised_arm_lower', 'raised_palm', 'raised_pinky',
+               'raised_ring', 'raised_middle', 'raised_index', 'raised_thumb'},
+              {'point_arm_upper', 'point_arm_lower', 'point_fist', 'point_thumb', 'point_finger'}]
     return any(a in g and b in g for g in groups)
 
 
@@ -176,27 +181,33 @@ def _set(out, x, y, c):
 
 
 def _details(out, part_at):
-    # The Apple logo on the chest.
+    # Pecs: a line down the middle of the chest and one under each side.
+    for y in range(37, 46):
+        _set(out, 55, y, WHITE)
+    for x, y in [(45, 44), (46, 45), (47, 46), (48, 46), (49, 46), (50, 46), (51, 46), (52, 46), (53, 45), (54, 45),
+                 (56, 45), (57, 45), (58, 46), (59, 46), (60, 46), (61, 46), (62, 46), (63, 46), (64, 45), (65, 44)]:
+        _set(out, x, y, WHITE)
+    # Abs.
+    for y in (51, 56, 61):
+        for x in list(range(51, 54)) + list(range(57, 60)):
+            _set(out, x, y, WHITE)
+    for y in range(49, 64):
+        _set(out, 55, y, WHITE)
+    # The Apple logo, small, on the left pec.
     logo = [
-        '...#.',
-        '..#..',
-        '.##.#',
-        '####.',
-        '###..',
-        '####.',
-        '.###.',
+        '..#.',
+        '.##.',
+        '####',
+        '###.',
+        '.##.',
     ]
     for yy, row in enumerate(logo):
         for xx, ch in enumerate(row):
             if ch == '#':
-                _set(out, 57 + xx, 42 + yy, WHITE)
-    # A lanyard from the collar to a badge.
-    for x, y in [(49, 35), (49, 36), (50, 37), (50, 38), (50, 39), (51, 40), (51, 41), (51, 42),
-                 (51, 43), (51, 44), (51, 45)]:
-        _set(out, x, y, WHITE)
-    for x in range(49, 54):
-        for y in range(46, 50):
-            _set(out, x, y, WHITE if x in (49, 53) or y in (46, 49) else BLACK)
+                _set(out, 47 + xx, 37 + yy, WHITE)
+    # The curled fingers on the pointing fist.
+    for x, y in [(86, 60), (87, 61)]:
+        _set(out, x, y, BLACK)
     # Belt line and fly on the trousers.
     for x in range(46, 70):
         if part_at[67][x] == 'hips':
@@ -207,15 +218,9 @@ def _details(out, part_at):
     for x, y in [(60, 91), (61, 92), (62, 92), (68, 94), (69, 95)]:
         _set(out, x, y, BLACK)
     # Shoe soles.
-    for x in range(62, 79):
+    for x in range(40, 80):
         if part_at[120][x] == 'back_shoe':
             _set(out, x, 120, WHITE)
-    # Curled fingers on the raised hand.
-    for x, y in [(35, 14), (36, 15), (37, 15), (35, 16)]:
-        _set(out, x, y, BLACK)
-    # Shirt folds at the waist.
-    for x, y in [(49, 58), (50, 59), (61, 55), (60, 56)]:
-        _set(out, x, y, WHITE)
 
 
 def write_png(path, w, h, rgba):
@@ -237,6 +242,15 @@ def main():
             if c is not None:
                 rgba[(y * W + x) * 4:(y * W + x) * 4 + 4] = b'\xff\xff\xff\xff' if c == WHITE else b'\x00\x00\x00\xff'
     write_png(OUT, W, H, bytes(rgba))
+    # The head alone, without the raised hand in front of it.
+    hw, hh, head = read_head()
+    pixels = []
+    for i in range(0, hw * hh * 4, 4):
+        if not head[i + 3]:
+            pixels.append(b'\x00\x00\x00\x00')
+        else:
+            pixels.append(b'\xff\xff\xff\xff' if head[i] > 128 else b'\x00\x00\x00\xff')
+    write_png(HEAD_OUT, hw, hh, b''.join(pixels))
     scale = 5
     prev = bytearray()
     for y in range(H):

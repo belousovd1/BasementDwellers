@@ -17,18 +17,18 @@ const BOSSES: Array[Dictionary] = [
 		"blurb": "Sauce master of the basement.",
 	},
 	{
+		"name": "Gabe",
+		"scene": "res://Src/CutScenes/IntroGabe.tscn",
+		"picture": preload("res://Assets/Sprites/Gabe/gabe.png"),
+		"region": Rect2(15, 2, 81, 120),
+		"blurb": "Apple Genius, car guy, Dunkey fan.",
+	},
+	{
 		"name": "Mike",
 		"scene": "res://Src/CutScenes/IntroMike.tscn",
 		"picture": preload("res://Assets/Sprites/Mike/mike.png"),
 		"region": Rect2(18, 9, 56, 103),
 		"blurb": "Blender guru. Meditates. Extrudes.",
-	},
-	{
-		"name": "Gabe",
-		"scene": "res://Src/CutScenes/IntroGabe.tscn",
-		"picture": preload("res://Assets/Sprites/Gabe/gabe.png"),
-		"region": Rect2(20, 2, 65, 120),
-		"blurb": "Apple Genius, car guy, Dunkey fan.",
 	},
 	{
 		"name": "Rafi",

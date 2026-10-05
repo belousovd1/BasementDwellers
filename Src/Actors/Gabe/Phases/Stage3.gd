@@ -1,68 +1,70 @@
 extends GabeStage
-## Stage 3: menacing. Loose tyres bounce around the arena for the whole round
-## while road rollers drop onto the player, traffic speeds through and rainbow
-## apples rain down. The tyres leave during the player's turn and come back
-## fresh each round.
+## Stage 3: menacing. Gabe summons Gerald, his first car, an old Subaru
+## Forester, who rises out of a summoning circle and hunts the player all over
+## the screen for the whole round. Traffic speeds through and rainbow apples
+## rain down, with stretches between where it's just him. Gerald drives off for
+## the player's turn and is summoned again after it.
 
-## Corners the tyres appear in, and the way each one sets off.
-const TIRE_STARTS: Array[Vector2] = [Vector2(-1, -1), Vector2(1, 1), Vector2(1, -1)]
-## At or below this health, a third tyre joins and everything is a bit faster.
+## Where Gerald is summoned: between Gabe and the top of the arena.
+const SUMMON_AT := Vector2(0, -400)
+
+## At or below this health, Gerald drives and charges harder and everything else
+## is a bit faster.
 const ENRAGE_HEALTH := 50
 
 var rng := RandomNumberGenerator.new()
-var _tires: Array[Tire] = []
-var _tire_count := 2
+var _gerald: Node2D
 var _speed := 1.0
 
 
 func start() -> void:
 	rng.randomize()
-	call_out("Menacing...")
-	_launch_tires()
-	await wait(1.5)
+	call_out("Come forth... GERALD!")
+	_summon_gerald()
+	await wait(2.2)
 	resume()
 
 
 func resume() -> void:
-	# Road rollers drop on wherever the player is standing.
-	call_out("ROAD ROLLER!")
-	for _roller in 3:
-		spawn_road_roller(player_position(), 1.0 / _speed)
-		await wait(1.5)
+	# Just Gerald for a while.
+	await wait(3.0)
+	await _traffic()
 	await wait(1.0)
 
-	# Traffic in every lane, one after another, alternating sides.
+	# Rainbow apples rain down at random.
+	for _apple in 10:
+		spawn_apple(Vector2(rng.randf_range(-240, 240), -310), Vector2.DOWN, 280 * _speed, true)
+		await wait(0.35)
+	await wait(1.0)
+
+	# Gerald on his own again, then one last rush of traffic.
+	await wait(4.0)
+	await _traffic()
+	await wait(2.0)
+	attacks_finished.emit()
+
+
+## Traffic in every lane, one after another, alternating sides.
+func _traffic() -> void:
 	var from_left := rng.randf() < 0.5
 	for lane in LANES.size():
 		spawn_car(lane, from_left, 0.8, 1000 * _speed)
 		from_left = not from_left
 		await wait(0.5)
-	await wait(1.5)
-
-	# Rainbow apples rain down at random.
-	for _apple in 8:
-		spawn_apple(Vector2(rng.randf_range(-240, 240), -310), Vector2.DOWN, 280 * _speed, true)
-		await wait(0.35)
-	await wait(2.0)
-	attacks_finished.emit()
 
 
 func on_player_turn_started() -> void:
-	for tire in _tires:
-		if is_instance_valid(tire):
-			tire.queue_free()
-	_tires.clear()
+	if is_instance_valid(_gerald):
+		_gerald.leave()
 
 
 func on_player_turn_ended(boss_health: int) -> void:
 	if boss_health <= ENRAGE_HEALTH:
-		_tire_count = TIRE_STARTS.size()
 		_speed = 1.25
-	_launch_tires()
+	_summon_gerald()
 
 
-## Tyres appear in the corners, away from the middle, and set off inwards.
-func _launch_tires() -> void:
-	for i in _tire_count:
-		var corner := TIRE_STARTS[i]
-		_tires.append(spawn_tire(corner * (ARENA_HALF_SIZE - Vector2(60, 60)), -corner, 220 * _speed))
+func _summon_gerald() -> void:
+	if is_instance_valid(_gerald):
+		_gerald.queue_free()
+	_gerald = spawn_gerald(SUMMON_AT, 380 * _speed, 2.2 / _speed)

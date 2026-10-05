@@ -63,8 +63,8 @@ func _draw() -> void:
 
 func _start_run() -> void:
 	var side := 1.0 if randf() < 0.5 else -1.0
-	var start := Vector2(side * randf_range(reach.x, reach.y), randf_range(heights.x, heights.y))
+	var run_start := Vector2(side * randf_range(reach.x, reach.y), randf_range(heights.x, heights.y))
 	if side < 0:
-		start.x -= PixelArt.bitmap_size(GLYPH).x
+		run_start.x -= PixelArt.bitmap_size(GLYPH).x
 	for i in RUN_LENGTH:
-		_symbols.append({"at": start + Vector2(side * RUN_STEP.x, RUN_STEP.y) * i, "age": -RUN_DELAY * i})
+		_symbols.append({"at": run_start + Vector2(side * RUN_STEP.x, RUN_STEP.y) * i, "age": -RUN_DELAY * i})

@@ -9,9 +9,10 @@
 [ext_resource type="PackedScene" path="res://Src/Actors/Gabe/Phases/Stage1.tscn" id="7_stage1"]
 [ext_resource type="PackedScene" path="res://Src/Actors/Gabe/Phases/Stage2.tscn" id="8_stage2"]
 [ext_resource type="PackedScene" path="res://Src/Actors/Gabe/Phases/Stage3.tscn" id="9_stage3"]
-[ext_resource type="AudioStream" path="res://Assets/Sound/EssentialGameAudiopack/FullScores/Retro Scores/Ove Melaa - Italo Unlimited.mp3" id="10_music"]
-[ext_resource type="AudioStream" path="res://Assets/Sound/EssentialGameAudiopack/FullScores/Retro Scores/Ove Melaa - Power Of Thy YES.mp3" id="11_final_music"]
+[ext_resource type="AudioStreamSynchronized" path="res://Src/Actors/Gabe/GabeTheme.tres" id="10_music"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/GabeFinalTheme.wav" id="11_final_music"]
 [ext_resource type="Script" path="res://Src/Actors/Gabe/Menacing.gd" id="12_menacing"]
+[ext_resource type="Script" path="res://Src/Actors/Gabe/Halo.gd" id="13_halo"]
 
 [sub_resource type="Animation" id="Animation_idle"]
 resource_name = "idle"
@@ -109,11 +110,11 @@ script = ExtResource("1_gabe")
 stages = Array[PackedScene]([ExtResource("7_stage1"), ExtResource("8_stage2"), ExtResource("9_stage3")])
 stage_end_dialogues = Array[String](["res://Src/CutScenes/dialogues/Gabe/IntoStage2Convo.json", "res://Src/CutScenes/dialogues/Gabe/IntoStage3Convo.json", "res://Src/CutScenes/dialogues/Gabe/GabeDeathConvo.json"])
 stage_music = Array[AudioStream]([ExtResource("10_music"), null, ExtResource("11_final_music")])
-next_scene = "res://Src/CutScenes/IntroRafi.tscn"
+next_scene = "res://Src/CutScenes/IntroMike.tscn"
 fight_position = Vector2(960, 290)
 dialogue_position = Vector2(960, 470)
 dialogue_scale = Vector2(1.25, 1.25)
-banter = Array[String](["Not even close, baby!", "Uh oh...", "Whoops! An accident!", "Another day, another dolla'!", "This is amazing.", "Your warranty just expired.", "Zero to sixty in 3.2 seconds.", "Have you tried turning it off and on again?", "Seeya!", "It's a masterpiece! I'm a genius!"])
+banter = Array[String](["Not even close, baby!", "Snot get off me! I'm trying to kill a guy!", "We going BIG MODE BABBY!", "Another day, another dolla'!", "Your warranty just expired.", "Zero to sixty in 3.2 seconds.", "your death is gonna be, a MASTERPIECE!!"])
 mouth = NodePath("Parts/Body")
 mouth_offset = Vector2(10, -34)
 death_texture = ExtResource("2_body")
@@ -151,3 +152,7 @@ bus = &"SFX"
 
 [node name="Menacing" type="Node2D" parent="."]
 script = ExtResource("12_menacing")
+
+[node name="Halo" type="Node2D" parent="."]
+position = Vector2(2, -256)
+script = ExtResource("13_halo")

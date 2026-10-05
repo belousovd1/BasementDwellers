@@ -1,3 +1,4 @@
+class_name Main
 extends Node
 ## A boss fight. Alternates the boss's attack rounds with the player's attack
 ## bar, plays the dialogue between stages, and handles winning and losing.
@@ -8,11 +9,26 @@ extends Node
 const AttackBarScene := preload("res://Src/Interface/AttackBar.tscn")
 const DialogueBoxScene := preload("res://Src/Interface/DialogueBox.tscn")
 const ATTACK_BAR_POSITION := Vector2(960, 800)
+## Fight music made of layers played in sync (an [AudioStreamSynchronized])
+## starts on its first layer and evolves into its last as the fight starts:
+## after EVOLVE_DELAY seconds it crossfades over EVOLVE_SECONDS.
+const EVOLVE_DELAY := 1.0
+const EVOLVE_SECONDS := 4.0
+## Quieter than this counts as silent.
+const SILENT_DB := -80.0
+
+## Music that was already playing when the fight scene was entered, and how far
+## into it, so the fight can carry on with it. See [method carry_music].
+static var _carried_music: AudioStream
+static var _carried_position := 0.0
 
 ## The [Boss] to fight. It is added behind the arena when the fight starts.
 @export var boss_scene: PackedScene
 
-var boss: Boss
+# The instantiated boss scene is a runtime object; its concrete type is provided by
+# the scene that owns this script, so avoid a hard type reference here to prevent
+# editor errors when the Boss class is not resolvable in this scope.
+var boss
 
 @onready var background: ColorRect = $ColorRect
 @onready var player: CharacterBody2D = $Player
@@ -94,7 +110,7 @@ func _next_stage() -> void:
 	await get_tree().create_timer(2).timeout
 	boss.start_stage(boss.stage_index + 1)
 	boss.start_talking()
-	var stage_music := boss.music_for_stage(boss.stage_index)
+	var stage_music: AudioStream = boss.music_for_stage(boss.stage_index)
 	if stage_music:
 		_play_music(stage_music)
 
@@ -104,10 +120,40 @@ func _boss_dies() -> void:
 	get_tree().change_scene_to_file(boss.next_scene)
 
 
+## Has the next fight's first music carry on from [param position] in
+## [param stream], if that is the music it starts with.
+static func carry_music(stream: AudioStream, position: float) -> void:
+	_carried_music = stream
+	_carried_position = position
+
+
 func _play_music(stream: AudioStream) -> void:
+	var carried := stream == _carried_music
+	var layered := stream as AudioStreamSynchronized
+	if layered:
+		# Music that was carried in may be this one's first layer. Work on a
+		# copy, so evolving it doesn't change the shared resource.
+		carried = carried or layered.get_sync_stream(0) == _carried_music
+		layered = layered.duplicate()
+		stream = layered
 	music.stop()
 	music.stream = stream
-	music.play()
+	music.play(_carried_position if carried else 0.0)
+	_carried_music = null
+	if layered:
+		_evolve_music(layered)
+
+
+## Crossfades [param layered] from its first layer into its last.
+func _evolve_music(layered: AudioStreamSynchronized) -> void:
+	var last := layered.stream_count - 1
+	for i in layered.stream_count:
+		layered.set_sync_stream_volume(i, 0.0 if i == 0 else SILENT_DB)
+	var fade := func(t: float) -> void:
+		# Equal power, so the music doesn't dip in the middle.
+		layered.set_sync_stream_volume(0, maxf(linear_to_db(cos(t * PI / 2)), SILENT_DB))
+		layered.set_sync_stream_volume(last, maxf(linear_to_db(sin(t * PI / 2)), SILENT_DB))
+	create_tween().tween_method(fade, 0.0, 1.0, EVOLVE_SECONDS).set_delay(EVOLVE_DELAY)
 
 
 func _on_player_hit(health: int) -> void:

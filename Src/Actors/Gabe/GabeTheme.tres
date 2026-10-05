@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamSynchronized" format=3]
+
+[ext_resource type="AudioStream" path="res://Assets/Sound/EssentialGameAudiopack/Loops/Ove Melaa - General Snus Loop A.ogg" id="1_jrf6t"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/EssentialGameAudiopack/Loops/Ove Melaa - General Snus Loop B.ogg" id="2_xrfoc"]
+
+[resource]
+stream_count = 2
+stream_0/stream = ExtResource("1_jrf6t")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_xrfoc")
+stream_1/volume = -80.0
