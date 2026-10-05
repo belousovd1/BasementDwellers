@@ -1,0 +1,158 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Src/Actors/Gabe/Gabe.gd" id="1_gabe"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Gabe/gabe.png" id="2_body"]
+[ext_resource type="Script" path="res://Src/objects/HitSpark.gd" id="3_hit"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/SFX/1.wav" id="4_hit_sound"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/SFX/8bit sounds/Explosion 5.wav" id="5_death_sound"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/SFX/8bit sounds/Powerup 3.wav" id="6_power_up_sound"]
+[ext_resource type="PackedScene" path="res://Src/Actors/Gabe/Phases/Stage1.tscn" id="7_stage1"]
+[ext_resource type="PackedScene" path="res://Src/Actors/Gabe/Phases/Stage2.tscn" id="8_stage2"]
+[ext_resource type="PackedScene" path="res://Src/Actors/Gabe/Phases/Stage3.tscn" id="9_stage3"]
+[ext_resource type="AudioStreamSynchronized" path="res://Src/Actors/Gabe/GabeTheme.tres" id="10_music"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/GabeFinalTheme.wav" id="11_final_music"]
+[ext_resource type="Script" path="res://Src/Actors/Gabe/Menacing.gd" id="12_menacing"]
+[ext_resource type="Script" path="res://Src/Actors/Gabe/Halo.gd" id="13_halo"]
+
+[sub_resource type="Animation" id="Animation_idle"]
+resource_name = "idle"
+length = 2.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Parts/Body:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1.2, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -4), Vector2(0, -4), Vector2(0, -4), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hit"]
+resource_name = "hit"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Parts:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.05, 0.1, 0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(8, 0), Vector2(0, 0), Vector2(-8, 0), Vector2(8, 0), Vector2(0, 0), Vector2(-8, 0), Vector2(0, 0), Vector2(8, 0), Vector2(0, 0), Vector2(-8, 0), Vector2(0, 0), Vector2(8, 0), Vector2(0, 0), Vector2(-8, 0), Vector2(0, 0), Vector2(8, 0), Vector2(0, 0), Vector2(-8, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Parts/Body:modulate")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0.2), Color(1, 1, 1, 1), Color(1, 1, 1, 0.2), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hit:frame")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.05, 0.11, 0.18, 0.26, 0.52, 0.68, 0.81, 0.94, 1.05, 1.17, 1.21, 1.25, 1.28),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.554785, 1, 0.210224, 0.31864, 1),
+"update": 1,
+"values": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hit:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.47),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_hit_sound")
+}],
+"times": PackedFloat32Array(0.09)
+}
+tracks/4/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gabe"]
+_data = {
+&"hit": SubResource("Animation_hit"),
+&"idle": SubResource("Animation_idle")
+}
+
+[node name="Gabe" type="Node2D" node_paths=PackedStringArray("mouth")]
+script = ExtResource("1_gabe")
+stages = Array[PackedScene]([ExtResource("7_stage1"), ExtResource("8_stage2"), ExtResource("9_stage3")])
+stage_end_dialogues = Array[String](["res://Src/CutScenes/dialogues/Gabe/IntoStage2Convo.json", "res://Src/CutScenes/dialogues/Gabe/IntoStage3Convo.json", "res://Src/CutScenes/dialogues/Gabe/GabeDeathConvo.json"])
+stage_music = Array[AudioStream]([ExtResource("10_music"), null, ExtResource("11_final_music")])
+next_scene = "res://Src/CutScenes/IntroMike.tscn"
+fight_position = Vector2(960, 290)
+dialogue_position = Vector2(960, 470)
+dialogue_scale = Vector2(1.25, 1.25)
+banter = Array[String](["Not even close, baby!", "Snot get off me! I'm trying to kill a guy!", "We going BIG MODE BABBY!", "Another day, another dolla'!", "Your warranty just expired.", "Zero to sixty in 3.2 seconds.", "your death is gonna be, a MASTERPIECE!!"])
+mouth = NodePath("Parts/Body")
+mouth_offset = Vector2(10, -34)
+death_texture = ExtResource("2_body")
+death_offset = Vector2(-16, 12)
+death_scale = Vector2(4, 4)
+
+[node name="Parts" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Parts"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_body")
+offset = Vector2(-4, 3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries/ = SubResource("AnimationLibrary_gabe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hit_sound")
+volume_db = -7.0
+bus = &"SFX"
+
+[node name="Hit" type="Node2D" parent="."]
+visible = false
+position = Vector2(12, -52)
+script = ExtResource("3_hit")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_death_sound")
+bus = &"SFX"
+
+[node name="PowerUpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_power_up_sound")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="Menacing" type="Node2D" parent="."]
+script = ExtResource("12_menacing")
+
+[node name="Halo" type="Node2D" parent="."]
+position = Vector2(2, -256)
+script = ExtResource("13_halo")

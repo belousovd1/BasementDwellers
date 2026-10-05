@@ -1,4 +1,4 @@
-extends BossStage
+extends MitchStage
 ## Stage 2: leg kicks, plus faster paintbrushes and rows.
 
 const SPEED := 400.0

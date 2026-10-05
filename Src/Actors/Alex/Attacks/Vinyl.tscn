@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Src/Actors/Alex/Attacks/Vinyl.gd" id="1_script"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/SFX/8bit sounds/Jump 3.wav" id="2_sound"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hitbox"]
+radius = 33.0
+
+[node name="Vinyl" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hitbox")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sound")
+volume_db = -16.0
+bus = &"SFX"

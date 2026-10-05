@@ -1,0 +1,9 @@
+[
+    {"name": "Alex", "image": "img.png", "text": ". . .", "time": ".15"},
+    {"name": "Alex", "image": "img.png", "text": "Is this thing on?", "time": ".05"},
+    {"name": "Alex", "image": "img.png", "text": "So you made it past Rafi. Quite the tour you've been on.", "time": ".03"},
+    {"name": "Alex", "image": "img.png", "text": "Every tour needs a headliner.", "time": ".04"},
+    {"name": "Alex", "image": "img.png", "text": "Tonight, that's me.", "time": ".05"},
+    {"name": "Alex", "image": "img.png", "text": "Hope you can keep a beat.", "time": ".04"},
+    {"name": "Alex", "image": "img.png", "text": "[shake rate=15 level=10]ONE, TWO, THREE, FOUR![/shake]", "time": ".05"}
+]

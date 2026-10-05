@@ -1,0 +1,5 @@
+[
+    {"name": "Rafi", "image": "img.png", "text": "OK.", "time": ".15"},
+    {"name": "Rafi", "image": "img.png", "text": "No more holding back.", "time": ".04"},
+    {"name": "Rafi", "image": "img.png", "text": "[shake rate=15 level=10]Everything. At once.[/shake]", "time": ".05"}
+]

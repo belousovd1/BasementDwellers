@@ -94,16 +94,12 @@ __meta__ = {
 }
 
 [node name="Portait" type="TextureRect" parent="Panel"]
-anchor_left = 0.0462428
-anchor_top = 0.137143
-anchor_right = 0.217766
-anchor_bottom = 0.873425
-offset_right = -78.6944
-offset_bottom = -75.8493
-scale = Vector2( 2.96736, 2.43112 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
+offset_left = 49.0
+offset_top = 48.0
+offset_right = 219.0
+offset_bottom = 218.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="DialogueText" type="RichTextLabel" parent="Panel"]
 anchor_left = 0.23301

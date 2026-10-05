@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Src/Interface/Menus/DeathMenu.tscn" id="1_menu"]
+
+[node name="TheEnd" instance=ExtResource("1_menu")]
+
+[node name="Label" parent="." index="1"]
+text = "The End"

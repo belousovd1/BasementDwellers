@@ -1,0 +1,16 @@
+[
+    {"name": "Gabe", "image": "img.png", "text": "what", "time": ".20"},
+    {"name": "Gabe", "image": "img.png", "text": "FUCKING WHAT", "time": ".03"},
+    {"name": "Gabe", "image": "img.png", "text": "[shake rate=15 level=10]YOU KILLED MITCH!![/shake]", "time": ".03"},
+    {"name": "Gabe", "image": "img.png", "text": "[shake rate=25 level=10]YOU FUCKING INCINERATED HIM!![/shake]", "time": ".03"},
+    {"name": "Gabe", "image": "img.png", "text": ".  .  .  .", "time": ".25"},
+    {"name": "Gabe", "image": "img.png", "text": "[color=#9aa7b8][wave amp=30 freq=3]my boiiii[/wave][/color]", "time": ".15"},
+    {"name": "Gabe", "image": "img.png", "text": "[color=#9aa7b8][wave amp=30 freq=3]his skin[/wave][/color]", "time": ".15"},
+    {"name": "Gabe", "image": "img.png", "text": "[color=#9aa7b8][wave amp=30 freq=3]his skin is gone[/wave][/color]", "time": ".13"},
+    {"name": "Gabe", "image": "img.png", "text": "[color=#9aa7b8][wave amp=30 freq=3]forever[/wave][/color]", "time": ".10"},
+    {"name": "Gabe", "image": "img.png", "text": "that skin", "time": ".20"},
+    {"name": "Gabe", "image": "img.png", "text": "[color=#F54927]WASN'T YOURS TO TAKE!![/color]", "time": ".05"},
+    {"name": "Gabe", "image": "img.png", "text": "[rage level=5][font_size=80][color=#F54927]VIDEO GAME DUNKEY!![/color][/font_size][/rage]", "event": "music", "time": ".08"},
+    {"name": "Gabe", "image": "img.png", "text": "[rage level=5][font_size=80][color=#F54927]I NEED YOU DUNKEY!![/color][/font_size][/rage]", "event": "music", "time": ".08"},
+    {"name": "Gabe", "image": "img.png", "text": "[rage level=8 heat=0.9 slam=5][font_size=96][color=#F54927]GRANT ME[/color], [color=#ffaa40][font_size=130]\"YOUR DIE MOVE!!\"[/font_size][/color][/font_size][/rage]", "time": ".08"}
+]

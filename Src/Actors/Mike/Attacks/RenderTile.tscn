@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Src/Actors/Mike/Attacks/RenderTile.gd" id="1_script"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/SFX/8bit sounds/Noise Select 1.wav" id="2_sound"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hitbox"]
+resource_local_to_scene = true
+
+[node name="RenderTile" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hitbox")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sound")
+volume_db = -14.0
+bus = &"SFX"

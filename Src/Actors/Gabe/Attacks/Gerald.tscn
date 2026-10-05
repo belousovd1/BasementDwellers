@@ -1,0 +1,39 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Src/Actors/Gabe/Attacks/Gerald.gd" id="1_script"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/SFX/beep.wav" id="2_honk"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/EssentialGameAudiopack/Sound Effects/AbstractPackSFX/Files/AbstractSfx/42.ogg" id="3_summon"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/SFX/8bit sounds/Explosion 2.wav" id="4_roar"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/SFX/8bit sounds/Noise Select 2.wav" id="5_screech"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hitbox"]
+resource_local_to_scene = true
+
+[node name="Gerald" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hitbox")
+
+[node name="Honk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_honk")
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="SummonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_summon")
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="Roar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_roar")
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="Screech" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_screech")
+volume_db = -8.0
+bus = &"SFX"

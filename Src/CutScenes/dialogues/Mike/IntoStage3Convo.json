@@ -1,0 +1,9 @@
+[
+    {"name": "Mike", "image": "img.png", "text": "OK.", "time": ".15"},
+    {"name": "Mike", "image": "img.png", "text": "OK OK OK.", "time": ".05"},
+    {"name": "Mike", "image": "img.png", "text": "I didn't want to do this.", "time": ".04"},
+    {"name": "Mike", "image": "img.png", "text": "[color=#ffaa40]Select all.[/color]", "time": ".08"},
+    {"name": "Mike", "image": "img.png", "text": "Every vertex. Every edge. Every face.", "time": ".04"},
+    {"name": "Mike", "image": "img.png", "text": "[color=#e83030]Shift+A.[/color] Wherever you stand, a cube.", "time": ".04"},
+    {"name": "Mike", "image": "img.png", "text": "[shake rate=15 level=10]AND THEN WE RENDER.[/shake]", "time": ".05"}
+]

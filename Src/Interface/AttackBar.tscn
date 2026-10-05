@@ -1,59 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene format=3]
 
-[ext_resource path="res://Assets/Sprites/AttackBar.png" type="Texture2D" id=1]
-[ext_resource path="res://Assets/Sprites/Indicator.png" type="Texture2D" id=2]
-[ext_resource path="res://Src/Interface/AttackBar.gd" type="Script" id=3]
+[ext_resource type="Script" path="res://Src/Interface/AttackBar.gd" id="1_script"]
+[ext_resource type="FontFile" path="res://Assets/slkscrb.ttf" id="2_font"]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Hit"
-
-[sub_resource type="Animation" id=2]
-length = 4.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Indicator:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1, 3, 4 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1030, 0 ), Vector2( -1030, 0 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "stage3run"
-length = 2.0
-loop_mode = 1
-step = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Indicator:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.5, 1.5, 2 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1030, 0 ), Vector2( -1030, 0 ), Vector2( 0, 0 ) ]
-}
+[sub_resource type="FontVariation" id="FontVariation_rating"]
+base_font = ExtResource("2_font")
 
 [node name="AttackBar" type="Node2D"]
-scale = Vector2( 0.8, 0.8 )
-script = ExtResource( 3 )
+script = ExtResource("1_script")
 
-[node name="Bar" type="Sprite2D" parent="."]
-scale = Vector2( 2, 2 )
-texture = ExtResource( 1 )
-
-[node name="Indicator" type="Sprite2D" parent="."]
-scale = Vector2( 1.2, 2 )
-texture = ExtResource( 2 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Hit = SubResource( 1 )
-anims/Run = SubResource( 2 )
-anims/stage3run = SubResource( 3 )
+[node name="Rating" type="Label" parent="."]
+offset_top = -136.0
+offset_bottom = -76.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = SubResource("FontVariation_rating")
+theme_override_font_sizes/font_size = 48
+text = "GREAT 84"
+horizontal_alignment = 1

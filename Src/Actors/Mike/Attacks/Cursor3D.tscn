@@ -1,0 +1,12 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Src/Actors/Mike/Attacks/Cursor3D.gd" id="1_script"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/SFX/beep.wav" id="2_sound"]
+
+[node name="Cursor3D" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="LockSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sound")
+volume_db = -12.0
+bus = &"SFX"

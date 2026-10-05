@@ -1,0 +1,6 @@
+[
+    {"name": "Alex", "image": "img.png", "text": "OK OK OK.", "time": ".06"},
+    {"name": "Alex", "image": "img.png", "text": "You want an encore?", "time": ".05"},
+    {"name": "Alex", "image": "img.png", "text": "Lights. Confetti. One giant bubble.", "time": ".04"},
+    {"name": "Alex", "image": "img.png", "text": "[rainbow freq=.25 sat=10 val=20]This one's for you![/rainbow]", "time": ".05"}
+]
