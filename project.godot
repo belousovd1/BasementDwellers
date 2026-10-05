@@ -19,6 +19,7 @@ config/windows_native_icon="res://BDTempICCON-256.ico"
 [autoload]
 
 Settings="*res://Src/Settings.gd"
+Progress="*res://Src/Progress.gd"
 
 [audio]
 

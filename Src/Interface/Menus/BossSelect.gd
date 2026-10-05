@@ -1,7 +1,9 @@
 extends Control
 ## The Load screen: pick which boss to fight instead of starting from the first
-## one. Each boss starts with its entrance, and once it is beaten the story
-## carries on to the next boss as usual. Hovering a boss shows its picture.
+## one. Only the first boss and the ones the player has reached, by beating the
+## boss before them, are offered (see Progress.gd). Each boss starts with its
+## entrance, and once it is beaten the story carries on to the next boss as
+## usual. Hovering a boss shows its picture.
 
 const MAIN_MENU := "res://Src/Interface/Menus/MainMenu.tscn"
 const MenuButtonScene := preload("res://Src/Interface/Menus/MenuButton.tscn")
@@ -52,7 +54,10 @@ const BOSSES: Array[Dictionary] = [
 
 
 func _ready() -> void:
-	for boss in BOSSES:
+	for i in BOSSES.size():
+		var boss := BOSSES[i]
+		if i > 0 and not Progress.is_unlocked(boss.scene):
+			continue
 		var button := MenuButtonScene.instantiate()
 		button.label = boss.name
 		button.pressed.connect(_on_boss_pressed.bind(boss.scene))

@@ -117,6 +117,8 @@ func _next_stage() -> void:
 
 func _boss_dies() -> void:
 	await boss.die()
+	# Beating a boss unlocks the next one on the Load screen.
+	Progress.unlock(boss.next_scene)
 	get_tree().change_scene_to_file(boss.next_scene)
 
 

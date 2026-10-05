@@ -40,7 +40,8 @@ BasementDwellers is a small Godot game made for friends: bullet-hell style boss 
 
 `Src/CutScenes/Intro.tscn` (main scene) → `Src/Interface/Menus/MainMenu.tscn` → `Src/CutScenes/IntroMitch.tscn` → `Src/Interface/Main.tscn` (Mitch's fight) → `Src/CutScenes/IntroGabe.tscn` → `Src/Interface/GabeFight.tscn` → `Src/CutScenes/IntroMike.tscn` → `Src/Interface/MikeFight.tscn` → `Src/CutScenes/IntroRafi.tscn` → `Src/Interface/RafiFight.tscn` → `Src/CutScenes/IntroAlex.tscn` → `Src/Interface/AlexFight.tscn` → `Src/Interface/Menus/TheEnd.tscn` after Alex's third stage.
 
-- The main menu's Load button opens `Src/Interface/Menus/BossSelect.tscn`, which starts at any boss's entrance instead of at Mitch. The story carries on from there as usual. A new boss needs a line in `BossSelect.gd`'s `BOSSES` table to show up there.
+- The main menu's Load button opens `Src/Interface/Menus/BossSelect.tscn`, which starts at a boss's entrance instead of at Mitch. The story carries on from there as usual. A new boss needs a line in `BossSelect.gd`'s `BOSSES` table to show up there.
+  - It only lists Mitch and the bosses the player has reached. When a boss dies, `Main._boss_dies()` unlocks its `next_scene` through the `Progress` autoload (`Src/Progress.gd`), saved in `user://progress.cfg`. Delete that file to lock them all again.
 - Each boss's `next_scene` export says where to go once it dies.
 - Dying in a fight goes to `DeathMenu.tscn`. Its Restart button returns to that same fight: every fight stores its own path in the static `DeathMenu.fight_scene` when it starts.
 
