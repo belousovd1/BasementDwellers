@@ -8,7 +8,7 @@ signal died
 signal death_animation_finished
 
 @export var speed := 500.0
-@export var max_health := 100
+@export var max_health := 140
 
 var health: int
 var alive := true

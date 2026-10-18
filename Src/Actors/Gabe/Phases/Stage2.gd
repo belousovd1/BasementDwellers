@@ -45,10 +45,10 @@ func resume() -> void:
 
 	# Ice cream cakes shooting slices of themselves: down from the top wall,
 	# then across from both sides at once.
-	call_out("This was gonna be ice cream cake for alex, buttttt")
+	call_out("This was gonna be ice cream cake for Alex, buttttt")
 	spawn_ice_cream_cake(Vector2.UP)
 	await wait(4.5)
-	call_out(" HE CAN WAIT TELL HE'S THRITY!!")
+	call_out("HE CAN WAIT TILL HE'S THIRTY!!")
 	spawn_ice_cream_cake(Vector2.LEFT, -110)
 	spawn_ice_cream_cake(Vector2.RIGHT, 110)
 	await wait(5.5)

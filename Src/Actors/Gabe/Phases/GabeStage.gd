@@ -14,8 +14,9 @@ const GeraldScene := preload("res://Src/Actors/Gabe/Attacks/Gerald.tscn")
 ## Heights of the traffic lanes across the arena. There's room to stand between
 ## any two of them.
 const LANES: Array[float] = [-170, -85, 0, 85, 170]
+## Shades of grey for the traffic, which is black and white like the arena.
 const CAR_PAINTS: Array[Color] = [
-	Color("e83030"), Color("f7d13c"), Color("2f9bf0"), Color("5ac739"), Color("f5872b"), Color.WHITE,
+	Color.WHITE, Color(0.78, 0.78, 0.8), Color(0.58, 0.58, 0.6), PixelArt.GREY,
 ]
 ## How far outside the arena walls cars start.
 const CAR_START := 480.0

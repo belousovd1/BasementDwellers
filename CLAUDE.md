@@ -62,7 +62,7 @@ A boss scene also needs an `AnimationPlayer` with `idle` and `hit` animations, a
 1. **Stages.** `boss.start_stage(index)` instances that stage as the boss's child, resets the boss's health and forwards the stage's `attacks_finished` signal. Every stage extends `Src/Actors/BossStage.gd` (`class_name BossStage`):
    - `start()` is the opening and `resume()` is one round of attacks. Both are linear coroutines that use `await wait(seconds)` and end with `attacks_finished.emit()`.
    - Use `wait()`, not `get_tree().create_timer()`. Its Timer is a child of the stage, so a freed stage drops the sequence cleanly.
-   - Mitch's stages extend `MitchStage`, which has `spawn_boomerang`, `spawn_boomerang_row`, `spawn_boomerang_sweep` and `spawn_leg_attack`. Projectiles are configured before `add_child` and live in Mitch's coordinate space, because the stage is his child.
+   - Mitch's stages extend `MitchStage`, which has `spawn_boomerang`, `spawn_boomerang_row`, `spawn_boomerang_sweep` and `spawn_kidney_stone`. Projectiles are configured before `add_child` and live in Mitch's coordinate space, because the stage is his child. The exception is his kidney stones (`Mitch/Attacks/KidneyStone.gd`), drawn in pixel art like the other bosses' attacks: they are top-level and placed in arena space, so they don't get his 1.8x scale. A shadow grows where one will land as it falls; it sits there briefly after landing, and the ones in the second half of stage 2 shatter into `KidneyShard`s.
    - Mike's, Gabe's and Alex's stages extend `MikeStage`, `GabeStage` and `AlexStage`, which share `Src/Actors/ArenaStage.gd`. They spawn into `arena`, a top-level node at the arena's centre, so positions are in arena space (the inner walls are `ARENA_HALF_SIZE` away) and stay put when the boss moves.
    - Rafi's fight is a placeholder until he has a theme: his stage 1 extends `MikeStage` and his stages 2 and 3 extend `GabeStage`, reusing their attacks.
    - Alex's rounds keep time: `AlexStage.beats(n)` waits n beats at its `BPM`.
@@ -94,7 +94,7 @@ A boss scene also needs an `AnimationPlayer` with `idle` and `hit` animations, a
   - `text` may contain BBCode, including the custom `[rage]` effect (`Src/Interface/RageEffect.gd`, installed on the box's text): letters slam in big and white-hot, then shake and flicker. Its parameters are documented at the top of the script;
   - `time` is the per-letter delay in seconds, stored as a string;
   - `image` is unused.
-  - `event` is optional. The box emits `line_event(event)` as that line starts, so a scene can react to it (Gabe's intro starts its music on "VIDEO GAME DUNKEY!!").
+  - `event` is optional. The box emits `line_event(event)` as that line starts, so a scene can react to it (Gabe's intro starts its music on "VIDEO GAME DUNKEY!!"). In the dialogue between stages, a `music` event starts the next stage's music on that line instead of when the stage begins (Gabe's "I SUMMON" before Gerald).
 
   `ui_accept` finishes the current line, or advances to the next one.
 - Each boss's dialogue lives in `Src/CutScenes/dialogues/<Boss>/`.

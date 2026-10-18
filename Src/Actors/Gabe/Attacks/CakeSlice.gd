@@ -15,12 +15,12 @@ const SHAPE: Array[String] = [
 	"#bbbbbbbb#",
 	" ######## ",
 ]
-## The colours of the cake: # outline, r cherry, w whipped cream, f fudge,
-## p strawberry ice cream and P the berries in it, v vanilla ice cream and
-## b the cookie crumb base.
+## The cake in black and white: # outline, r cherry, w whipped cream,
+## f fudge, p strawberry ice cream and P the berries in it, v vanilla ice cream
+## and b the cookie crumb base.
 const PALETTE := {
-	"#": Color.WHITE, "r": Color("dc1e32"), "w": Color("faf8f0"), "f": Color("5a321e"),
-	"p": Color("ff96b4"), "P": Color("c8285a"), "v": Color("fff0c8"), "b": Color("8c5f37"),
+	"#": Color.WHITE, "r": Color.BLACK, "w": Color.WHITE, "f": Color.BLACK,
+	"p": Color(0.72, 0.72, 0.74), "P": PixelArt.GREY, "v": Color.WHITE, "b": PixelArt.GREY,
 }
 ## How far off the screen it can go before it is freed.
 const SCREEN_MARGIN := 200.0

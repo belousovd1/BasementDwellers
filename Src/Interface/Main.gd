@@ -30,6 +30,9 @@ static var _carried_position := 0.0
 # editor errors when the Boss class is not resolvable in this scope.
 var boss
 
+## Whether the dialogue before this stage already started its music.
+var _music_started_early := false
+
 @onready var background: ColorRect = $ColorRect
 @onready var player: CharacterBody2D = $Player
 @onready var hud: Control = $Interface
@@ -91,6 +94,7 @@ func _end_stage() -> void:
 
 	var dialogue: DialogueBox = DialogueBoxScene.instantiate()
 	dialogue.dialogue_path = boss.stage_end_dialogues[boss.stage_index]
+	dialogue.line_event.connect(_on_dialogue_event)
 	add_child(dialogue)
 	await dialogue.finished
 
@@ -111,8 +115,20 @@ func _next_stage() -> void:
 	boss.start_stage(boss.stage_index + 1)
 	boss.start_talking()
 	var stage_music: AudioStream = boss.music_for_stage(boss.stage_index)
-	if stage_music:
+	if stage_music and not _music_started_early:
 		_play_music(stage_music)
+	_music_started_early = false
+
+
+## A line of the dialogue between stages with a "music" event starts the next
+## stage's music there and then, rather than when the stage begins.
+func _on_dialogue_event(event: String) -> void:
+	if event != "music":
+		return
+	var next_music: AudioStream = boss.music_for_stage(boss.stage_index + 1)
+	if next_music:
+		_play_music(next_music)
+		_music_started_early = true
 
 
 func _boss_dies() -> void:

@@ -17,10 +17,11 @@ const SHAPE: Array[String] = [
 	"    #kkkk#           #kkkk#  ",
 	"     ####             ####   ",
 ]
-const WINDOWS := Color("6e788c")
-const HEADLIGHT := Color("fff096")
-const TAIL_LIGHT := Color("ff3c3c")
-const BEAM := Color(1.0, 0.95, 0.55, 0.16)
+## In black and white, like the rest of the arena; only Gerald gets colour.
+const WINDOWS := Color(0.15, 0.15, 0.17)
+const HEADLIGHT := Color.WHITE
+const TAIL_LIGHT := Color(0.72, 0.72, 0.74)
+const BEAM := Color(1.0, 1.0, 1.0, 0.12)
 ## How far off the screen it can go before it is freed.
 const SCREEN_MARGIN := 300.0
 
@@ -30,7 +31,7 @@ const SCREEN_MARGIN := 300.0
 @export var lane_length := 1000.0
 ## 1 to drive right, -1 to drive left.
 @export var heading := 1
-@export var paint := Color("e83030")
+@export var paint := Color.WHITE
 
 var _time := 0.0
 
@@ -64,8 +65,8 @@ func _draw() -> void:
 		var start_x := size.x / 2 if heading > 0 else -size.x / 2 - lane_length
 		var beam := Rect2(start_x, -size.y / 2 + PixelArt.SIZE, lane_length, size.y - 2 * PixelArt.SIZE)
 		draw_rect(beam, BEAM)
-		PixelArt.line(self, beam.position, Vector2(beam.end.x, beam.position.y), PixelArt.YELLOW, 1, 3)
-		PixelArt.line(self, Vector2(beam.position.x, beam.end.y), beam.end, PixelArt.YELLOW, 1, 3)
+		PixelArt.line(self, beam.position, Vector2(beam.end.x, beam.position.y), PixelArt.WHITE, 1, 3)
+		PixelArt.line(self, Vector2(beam.position.x, beam.end.y), beam.end, PixelArt.WHITE, 1, 3)
 	var palette := {"#": PixelArt.WHITE, "r": paint, "w": WINDOWS, "k": PixelArt.BLACK, ".": PixelArt.BLACK,
 			"h": HEADLIGHT, "t": TAIL_LIGHT}
 	PixelArt.bitmap(self, SHAPE, -size / 2, palette, heading < 0)

@@ -1,7 +1,7 @@
 extends Node2D
 ## A whole ice cream cake against an arena wall that shoots slices of itself
 ## into the arena. It jiggles for [member warn_time] seconds, its candles
-## flickering, while dashed lines mark how wide it will fire, then shoots
+## flickering, while dashed white lines mark how wide it will fire, then shoots
 ## slices for [member spray_time] seconds in a fan that sweeps to one side and
 ## back, kicking with every shot, and frees itself. The cake doesn't hurt; the
 ## slices do.
@@ -28,11 +28,11 @@ const SHAPE: Array[String] = [
 ## The colours of the cake, as for a slice (see CakeSlice.gd), plus
 ## F candle flames and k candles.
 const PALETTE := {
-	"#": Color.WHITE, "r": Color("dc1e32"), "w": Color("faf8f0"), "f": Color("5a321e"),
-	"p": Color("ff96b4"), "P": Color("c8285a"), "v": Color("fff0c8"), "b": Color("8c5f37"),
-	"F": Color("ffc83c"), "k": Color("78b4ff"),
+	"#": Color.WHITE, "r": Color.BLACK, "w": Color.WHITE, "f": Color.BLACK,
+	"p": Color(0.72, 0.72, 0.74), "P": PixelArt.GREY, "v": Color.WHITE, "b": PixelArt.GREY,
+	"F": Color.WHITE, "k": Color(0.72, 0.72, 0.74),
 }
-const FLICKER := Color("ff7a2a")
+const FLICKER := PixelArt.GREY
 ## How far the dashed lines reach into the arena during the warning.
 const GUIDE_LENGTH := 260.0
 ## Seconds it kicks back after each shot.
@@ -87,7 +87,7 @@ func _draw() -> void:
 	if warning and fmod(_time, 0.2) < 0.12:
 		for side in [-1.0, 1.0]:
 			var edge: Vector2 = direction.rotated(sweep * side).normalized() * GUIDE_LENGTH
-			PixelArt.line(self, Vector2.ZERO, edge, PixelArt.YELLOW, 1, 2)
+			PixelArt.line(self, Vector2.ZERO, edge, PixelArt.WHITE, 1, 2)
 	var corner := -PixelArt.bitmap_size(SHAPE) / 2
 	if warning:
 		# Jiggling as it gets ready.

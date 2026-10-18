@@ -15,7 +15,7 @@ func resume() -> void:
 
 
 	# Rapid shots from above, each aimed at wherever the player is standing.
-	call_out("EAT CORPERATE TECH.")
+	call_out("EAT CORPORATE TECH.")
 	for x in [-200, 120, -60, 220, -160, 40, 180, -100, 0, 140]:
 		var from := Vector2(x, -310)
 		spawn_apple_shot(from, player_position() - from)
@@ -31,7 +31,7 @@ func resume() -> void:
 
 	# The beach ball spins in the middle while shots rip across the arena from
 	# alternating sides.
-	call_out("I'm gonna put your head in a jar, and fuck you for a life time")
+	call_out("I'm gonna put your head in a jar, and fuck you for a lifetime")
 	spawn_beach_ball()
 	await wait(1.6)
 	for i in 10:

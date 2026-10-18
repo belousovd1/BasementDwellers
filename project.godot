@@ -16,14 +16,14 @@ config/features=PackedStringArray("4.7")
 config/icon="res://icon.png"
 config/windows_native_icon="res://BDTempICCON-256.ico"
 
+[audio]
+
+buses/default_bus_layout="res://Assets/Sound/default_bus_layout.tres"
+
 [autoload]
 
 Settings="*res://Src/Settings.gd"
 Progress="*res://Src/Progress.gd"
-
-[audio]
-
-buses/default_bus_layout="res://Assets/Sound/default_bus_layout.tres"
 
 [display]
 

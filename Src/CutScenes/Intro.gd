@@ -20,7 +20,7 @@ const PAGES := [
 		1.0,
 		["A gaggle of bozos,", 0.05],
 		1.0,
-		[" the kind that would clean up a little BBQ sauce on their homies lips\n", 0.05],
+		[" the kind that would clean up a little BBQ sauce on their homies' lips\n", 0.05],
 		1.0,
 		["(If you know what I'm saying)", 0.01],
 		1.5,

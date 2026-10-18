@@ -63,15 +63,15 @@ const SIDE_WHEELS: Array[Vector2] = [Vector2(9, 13), Vector2(22, 13)]
 const FRONT_HEADLIGHTS: Array[Rect2i] = [Rect2i(4, 9, 6, 3), Rect2i(18, 9, 6, 3)]
 const WHEEL_RADIUS := 2.6
 
-## The colours of the pictures: # outline, g paint, p the grey primer door,
+## The colours of the pictures: # outline, g his white paint, p the grey primer door,
 ## w windows, x the cracks in them, E headlights, G grille, t tail light,
 ## r rust, c cladding, . wheel arches, k tyres, l the luggage box on the roof
 ## and L its strap, R the roof rack, d door seams and b the badge.
 const PALETTE := {
-	"#": Color.WHITE, "g": Color("3f7a62"), "p": Color("8f97a6"), "w": Color("6e788c"),
+	"#": Color.WHITE, "g": Color(0.93, 0.93, 0.95), "p": Color("8f97a6"), "w": Color("6e788c"),
 	"x": Color("e6ebf5"), "E": Color("fff096"), "G": Color("2a2a32"), "t": Color("ff3c3c"),
 	"r": Color("965028"), "c": Color("6e6e78"), ".": Color.BLACK, "k": Color("141418"),
-	"l": Color("8c5a32"), "L": Color("3c2819"), "R": Color("aaaab4"), "d": Color("1e3c2d"),
+	"l": Color("8c5a32"), "L": Color("3c2819"), "R": Color("aaaab4"), "d": Color(0.6, 0.6, 0.64),
 	"b": Color("bec8d7"),
 }
 const TYRE := Color("141418")

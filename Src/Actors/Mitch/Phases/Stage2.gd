@@ -1,13 +1,19 @@
 extends MitchStage
-## Stage 2: leg kicks, plus faster paintbrushes and rows.
+## Stage 2: Mitch passes his kidney stones and drops them on the player, plus
+## faster paintbrushes and rows.
 
 const SPEED := 400.0
+## How far inside the arena walls the stones land.
+const STONE_MARGIN := Vector2(50, 50)
 
 
 func resume() -> void:
-	var legs := spawn_leg_attack()
-	await wait(5)
-	legs.queue_free()
+	# Kidney stones dropped one after another onto the player.
+	call_out("Pass... the... STONE!")
+	for _stone in 6:
+		spawn_kidney_stone(_near_player(), false, 0.9)
+		await wait(0.75)
+	await wait(1.0)
 
 	spawn_boomerang(Vector2(0, 600), Vector2.UP, SPEED)
 	await wait(2)
@@ -32,11 +38,29 @@ func resume() -> void:
 	_side_sweep(Vector2.RIGHT)
 	await wait(2)
 
-	legs = spawn_leg_attack(true)
-	await wait(7)
-	legs.queue_free()
-	await wait(1)
+	# The big ones: stones that shatter as they land, the player's spot and
+	# somewhere else at once.
+	call_out("Here comes the big one!")
+	for i in 8:
+		spawn_kidney_stone(_near_player(), true, 0.8)
+		if i % 2 == 1:
+			spawn_kidney_stone(_anywhere(), true, 0.8)
+		await wait(0.75)
+	await wait(1.5)
 	attacks_finished.emit()
+
+
+## Just about where the player is standing, inside the arena.
+func _near_player() -> Vector2:
+	var at := player_position() + Vector2(randf_range(-30, 30), randf_range(-30, 30))
+	var room := ArenaStage.ARENA_HALF_SIZE - STONE_MARGIN
+	return at.clamp(-room, room)
+
+
+## Somewhere random in the arena.
+func _anywhere() -> Vector2:
+	var room := ArenaStage.ARENA_HALF_SIZE - STONE_MARGIN
+	return Vector2(randf_range(-room.x, room.x), randf_range(-room.y, room.y))
 
 
 ## A paintbrush travelling [param direction] across the arena, and a gapped

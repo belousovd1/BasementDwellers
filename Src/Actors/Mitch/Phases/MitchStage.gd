@@ -5,7 +5,7 @@ extends BossStage
 const BoomerangScene := preload("res://Src/Actors/Mitch/PaintBrushBullets/BoomerangBullet.tscn")
 const BoomerangRowScene := preload("res://Src/Actors/Mitch/PaintBrushBullets/BoomerangBulletRow.tscn")
 const BoomerangSweepScene := preload("res://Src/Actors/Mitch/PaintBrushBullets/PaintBrushBoomerangAttack.tscn")
-const LegAttackScene := preload("res://Src/Actors/Mitch/Mitch_LegAttacks.tscn")
+const KidneyStoneScene := preload("res://Src/Actors/Mitch/Attacks/KidneyStone.tscn")
 
 
 func spawn_boomerang(at: Vector2, direction: Vector2, speed := 300.0, size := Vector2.ONE) -> void:
@@ -33,9 +33,25 @@ func spawn_boomerang_sweep() -> void:
 	add_child(BoomerangSweepScene.instantiate())
 
 
-func spawn_leg_attack(advanced := false) -> Node2D:
-	var legs := LegAttackScene.instantiate()
-	legs.position.y = 264
-	legs.advanced = advanced
-	add_child(legs)
-	return legs
+## One of Mitch's kidney stones, dropped onto [param at] in arena space (the
+## middle of the arena is the origin). It lands [param warn_time] seconds after
+## its shadow appears, and with [param shatter] bursts into shards.
+func spawn_kidney_stone(at: Vector2, shatter := false, warn_time := 1.0) -> void:
+	var stone := KidneyStoneScene.instantiate()
+	# On the screen rather than in Mitch's scaled-up space, so its pixels match.
+	stone.top_level = true
+	stone.position = ArenaStage.ARENA_CENTER + at
+	stone.shatter = shatter
+	stone.warn_time = warn_time
+	add_child(stone)
+
+
+## Where the player is, in arena space.
+func player_position() -> Vector2:
+	var player := get_tree().get_first_node_in_group("player") as Node2D
+	return player.global_position - ArenaStage.ARENA_CENTER
+
+
+## Has Mitch say [param line], cutting off whatever he was saying.
+func call_out(line: String) -> void:
+	(get_parent() as Boss).say(line, true)
